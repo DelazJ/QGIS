@@ -250,7 +250,7 @@
                  <item>
                   <widget class="QPushButton" name="btnNewLinePushButton">
                    <property name="toolTip">
-                    <string>Close Bracket </string>
+                    <string>New Line </string>
                    </property>
                    <property name="text">
                     <string>'\n'</string>
