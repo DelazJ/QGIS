@@ -856,5 +856,22 @@
         ]
       }
     }
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Harrissou Sant-anna",
+        "Committer": "No",
+        "First Commit Message": "set default srid value to 0 in new geom column",
+        "First Commit Date": "21-08-2014",
+        "GIT Nickname": "DelazJ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5480,
+          47.4709
+        ]
+      }
+    }
   ]
 }
