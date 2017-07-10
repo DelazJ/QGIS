@@ -282,7 +282,7 @@ class AlgorithmDialog(QgsProcessingAlgorithmDialogBase):
 
         if self.iterateParam is None:
 
-            # add html results to results dock
+            # add HTML results to results dock
             for out in self.algorithm().outputDefinitions():
                 if isinstance(out, QgsProcessingOutputHtml) and out.name() in result and result[out.name()]:
                     resultsList.addResult(icon=self.algorithm().icon(), name=out.description(),

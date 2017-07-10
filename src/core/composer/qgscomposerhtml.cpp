@@ -68,8 +68,8 @@ QgsComposerHtml::QgsComposerHtml( QgsComposition *c, bool createUndoCommands )
 
   if ( mComposition && mComposition->atlasMode() == QgsComposition::PreviewAtlas )
   {
-    //a html item added while atlas preview is enabled needs to have the expression context set,
-    //otherwise fields in the html aren't correctly evaluated until atlas preview feature changes (#9457)
+    //a HTML item added while atlas preview is enabled needs to have the expression context set,
+    //otherwise fields in the HTML aren't correctly evaluated until atlas preview feature changes (#9457)
     setExpressionContext( mComposition->atlasComposition().feature(), mComposition->atlasComposition().coverageLayer() );
   }
 
@@ -105,7 +105,7 @@ void QgsComposerHtml::setUrl( const QUrl &url )
 void QgsComposerHtml::setHtml( const QString &html )
 {
   mHtml = html;
-  //TODO - this signal should be emitted, but without changing the signal which sets the html
+  //TODO - this signal should be emitted, but without changing the signal which sets the HTML
   //to an equivalent of editingFinished it causes a lot of problems. Need to investigate
   //ways of doing this using QScintilla widgets.
   //emit changed();
@@ -176,7 +176,7 @@ void QgsComposerHtml::loadHtml( const bool useCache, const QgsExpressionContext 
   //reset page size. otherwise viewport size increases but never decreases again
   mWebPage->setViewportSize( QSize( maxFrameWidth() * mHtmlUnitsToMM, 0 ) );
 
-  //set html, using the specified url as base if in Url mode or the project file if in manual mode
+  //set HTML, using the specified url as base if in Url mode or the project file if in manual mode
   const QUrl baseUrl = mContentMode == QgsComposerHtml::Url ?
                        QUrl( mActualFetchedUrl ) :
                        QUrl::fromLocalFile( mComposition->project()->fileInfo().absoluteFilePath() );
@@ -404,7 +404,7 @@ double QgsComposerHtml::findNearbyPageBreak( double yPos )
 
   //OK, now take the mid point of the best candidate position
   //we do this so that the spacing between text lines is likely to be split in half
-  //otherwise the html will be broken immediately above a line of text, which
+  //otherwise the HTML will be broken immediately above a line of text, which
   //looks a little messy
   int maxCandidateRow = candidates[0].first;
   int minCandidateRow = maxCandidateRow + 1;

@@ -15,7 +15,7 @@ Change history for the QGIS Project
 % These are comments and will not be generated in any output
 % -------------------
 
-%This document is in txt2tags format. You can generate html, plain text and
+%This document is in txt2tags format. You can generate HTML, plain text and
 %moinmoin formatted documentation by running txt2tags on this document. See the
 %txt2tags home page for more details.  Please insert manual line breaks in this
 %document as it makes diffing for changes much easier. To do this in vim 
@@ -27,7 +27,7 @@ Change history for the QGIS Project
 % txt2tags -t txt -o ../NEWS news.t2t
 % To generate the mediawiki version of this document:
 % txt2tags -t wiki --no-enum-title -o NEWS.wiki news.t2t
-% To generate the html version of this document:
+% To generate the HTML version of this document:
 % txt2tags -t html -o news.html news.t2t
 % To generate the LaTeX version of this document:
 % txt2tags -t tex -o NEWS.tex NEWS.t2t; pdflatex news.tex
@@ -500,7 +500,7 @@ key new features.
 - With the new data defined properties, it is possible to control symbol
       type, size, color, rotation, and many other properties through feature
       attributes.
-- You can now place html elements onto your map.
+- You can now place HTML elements onto your map.
 - Having nicely aligned map items is critical to making nice printed
       maps. Auto snapping lines have been added to allow for easy composer
       object alignment by simply dragging an object close to another.
@@ -526,9 +526,9 @@ key new features.
       transparent, you can now choose between much more advanced options such as
       "multiply", "darken only", and many more. Blending can be used in the
       normal map view as well as in print composer.
-- HTML support has been added map composer label item to give you even
+- HTML support has been added to map composer label item to give you even
       more control over your final maps. HTML labels support full css styles
-      sheets, html, and even JavaScript if you are that way inclined.
+      sheets, HTML, and even JavaScript if you are that way inclined.
 - The labeling system has been totally overhauled - it now includes many
       new features such as drop shadows, 'highway shields', many more data bound
       options, and various performance enhancements. We are slowly doing away

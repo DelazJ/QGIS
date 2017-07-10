@@ -21,17 +21,17 @@ use Locale::Country;
 
 my @lang;
 
-# script to generate a html list of the qgis application translations
+# script to generate a HTML list of the QGIS application translations
 # showing the percentage finished and the names of the translators
 #
 # try to always use ISO 639-1 language codes
 #
-# without argument it generates html which is used in the about-dialog of the application
+# without argument it generates HTML which is used in the about-dialog of the application
 # output to std-out, to be piped to doc/TRANSLATORS so it can be used in dialog
 #   scripts/tsstat.pl > doc/TRANSLATORS
 # this version needs flag images from the resources
 
-# with argument 'site' a more complete html page is create to be used on a website
+# with argument 'site' a more complete HTML page is created to be used on a website
 #   scripts/tsstat.pl site > page.html
 # this version needs flag images in a directory 'flags'
 

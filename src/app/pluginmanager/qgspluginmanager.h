@@ -74,7 +74,7 @@ class QgsPluginManager : public QgsOptionsDialogBase, private Ui::QgsPluginManag
     //! Repopulate the plugin list model
     void reloadModelData();
 
-    //! Fill the html browser widget with plugin details
+    //! Fill the HTML browser widget with plugin details
     void showPluginDetails( QStandardItem *item );
 
     //! Remove Python plugins from the metadata registry (c++ plugins stay)

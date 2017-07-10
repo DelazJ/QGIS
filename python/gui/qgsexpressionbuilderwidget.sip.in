@@ -51,7 +51,7 @@ Set the help text for the current item
 
 .. note::
 
-   The help text can be set as a html string.
+   The help text can be set as a HTML string.
 %End
 
     QgsExpressionItem::ItemType getItemType() const;

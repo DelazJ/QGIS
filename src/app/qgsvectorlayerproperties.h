@@ -95,7 +95,7 @@ class APP_EXPORT QgsVectorLayerProperties : public QgsOptionsDialogBase, private
     //! Reset to original (vector layer) values
     void syncToLayer();
 
-    //! Get metadata about the layer in nice formatted html
+    //! Get metadata about the layer in nice formatted HTML
     QString htmlMetadata();
 
     //! Slot to update layer display name as original is edited
