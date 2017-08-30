@@ -26,6 +26,9 @@
    </item>
    <item row="0" column="0">
     <widget class="QTableWidget" name="mOrderByTableWidget">
+     <property name="dragDropMode">
+      <enum>QAbstractItemView::InternalMove</enum>
+     </property>
      <column>
       <property name="text">
        <string>Expression</string>
