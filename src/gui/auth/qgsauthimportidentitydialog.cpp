@@ -58,6 +58,7 @@ QgsAuthImportIdentityDialog::QgsAuthImportIdentityDialog( QgsAuthImportIdentityD
     connect( btnPkiPkcs12Bundle, &QToolButton::clicked, this, &QgsAuthImportIdentityDialog::btnPkiPkcs12Bundle_clicked );
     connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
     connect( buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept );
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthImportIdentityDialog::showHelp );
 
     mIdentityType = identitytype;
 
@@ -456,4 +457,9 @@ QString QgsAuthImportIdentityDialog::getOpenFileName( const QString &title, cons
 QPushButton *QgsAuthImportIdentityDialog::okButton()
 {
   return buttonBox->button( QDialogButtonBox::Ok );
+}
+
+void QgsAuthImportIdentityDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_workflows.html#identities" ) );
 }

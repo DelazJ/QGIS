@@ -596,12 +596,13 @@ QgsAuthSslConfigDialog::QgsAuthSslConfigDialog( QWidget *parent, const QSslCerti
   layout->addWidget( mSslConfigWdgt );
 
   QDialogButtonBox *buttonBox = new QDialogButtonBox(
-    QDialogButtonBox::Close | QDialogButtonBox::Save, Qt::Horizontal, this );
+    QDialogButtonBox::Close | QDialogButtonBox::Help | QDialogButtonBox::Save, Qt::Horizontal, this );
 
   buttonBox->button( QDialogButtonBox::Close )->setDefault( true );
   mSaveButton = buttonBox->button( QDialogButtonBox::Save );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsAuthSslConfigDialog::accept );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthSslConfigDialog::showHelp );
   layout->addWidget( buttonBox );
 
   setLayout( layout );
@@ -617,4 +618,9 @@ void QgsAuthSslConfigDialog::accept()
 void QgsAuthSslConfigDialog::checkCanSave( bool cansave )
 {
   mSaveButton->setEnabled( cansave );
+}
+
+void QgsAuthSslConfigDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system.html" ) );
 }

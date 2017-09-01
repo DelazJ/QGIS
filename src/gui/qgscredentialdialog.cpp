@@ -45,6 +45,7 @@ QgsCredentialDialog::QgsCredentialDialog( QWidget *parent, Qt::WindowFlags fl )
   connect( this, &QgsCredentialDialog::credentialsRequestedMasterPassword,
            this, &QgsCredentialDialog::requestCredentialsMasterPassword,
            Qt::BlockingQueuedConnection );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsCredentialDialog::showHelp );
   mOkButton = buttonBox->button( QDialogButtonBox::Ok );
   leMasterPass->setPlaceholderText( tr( "Required" ) );
   chkbxPasswordHelperEnable->setText( tr( "Store/update the master password in your %1" )
@@ -269,5 +270,10 @@ void QgsCredentialDialog::chkbxEraseAuthDb_toggled( bool checked )
 {
   if ( checked )
     mOkButton->setEnabled( true );
+}
+
+void QgsCredentialDialog::showHelp( )
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_overview.html#master-password" ) );
 }
 

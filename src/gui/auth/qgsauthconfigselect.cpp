@@ -277,7 +277,7 @@ QgsAuthConfigUriEdit::QgsAuthConfigUriEdit( QWidget *parent, const QString &data
     buttonBox->button( QDialogButtonBox::Close )->setDefault( true );
     connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
     connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsAuthConfigUriEdit::saveChanges );
-
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthConfigUriEdit::showHelp );
     connect( buttonBox->button( QDialogButtonBox::Reset ), &QAbstractButton::clicked, this, &QgsAuthConfigUriEdit::resetChanges );
 
     connect( wdgtAuthSelect, &QgsAuthConfigSelect::selectedConfigIdChanged, this, &QgsAuthConfigUriEdit::authCfgUpdated );
@@ -441,5 +441,10 @@ void QgsAuthConfigUriEdit::removeAuthCfgFromUri()
   // trim any & from
 
   mAuthCfg.clear();
+}
+
+void QgsAuthConfigUriEdit::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_overview.html" ) );
 }
 

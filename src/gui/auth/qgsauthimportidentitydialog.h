@@ -27,6 +27,7 @@
 
 #include "qgsauthconfig.h"
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 /**
  * \ingroup gui
@@ -83,7 +84,7 @@ class GUI_EXPORT QgsAuthImportIdentityDialog : public QDialog, private Ui::QgsAu
 
     void validateIdentity();
 
-
+    void showHelp();
 
     void clearValidation();
     void writeValidation( const QString &msg,

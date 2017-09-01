@@ -23,6 +23,7 @@
 #include <QWidget>
 #include <QDialog>
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 
 /**
@@ -72,6 +73,9 @@ class GUI_EXPORT QgsAuthCertManager : public QDialog
 
   private:
     QgsAuthCertEditors *mCertEditors = nullptr;
+
+  private slots:
+    void showHelp();
 };
 
 #endif // QGSAUTHCERTIFICATEMANAGER_H

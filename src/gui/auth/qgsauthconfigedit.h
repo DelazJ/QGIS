@@ -22,6 +22,7 @@
 
 #include "ui_qgsauthconfigedit.h"
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 #define SIP_NO_FILE
 
@@ -74,6 +75,7 @@ class GUI_EXPORT QgsAuthConfigEdit : public QDialog, private Ui::QgsAuthConfigEd
 
     void btnClear_clicked();
     void clearAll();
+    void showHelp();
 
     void validateAuth();
 

@@ -99,6 +99,7 @@ class GUI_EXPORT QgsAuthConfigSelect : public QWidget, private Ui::QgsAuthConfig
 //////////////// Embed in dialog ///////////////////
 
 #include "ui_qgsauthconfiguriedit.h"
+#include "qgshelp.h"
 
 class QPushButton;
 
@@ -139,6 +140,8 @@ class GUI_EXPORT QgsAuthConfigUriEdit : public QDialog, private Ui::QgsAuthConfi
     void authCfgUpdated( const QString &authcfg );
 
     void authCfgRemoved( const QString &authcfg );
+
+    void showHelp();
 
   private:
     int authCfgIndex();

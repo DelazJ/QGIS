@@ -46,11 +46,17 @@ QgsAuthCertManager::QgsAuthCertManager( QWidget *parent )
   mCertEditors = new QgsAuthCertEditors( this );
   layout->addWidget( mCertEditors );
 
-  QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close,
+  QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close | QDialogButtonBox::Help,
       Qt::Horizontal, this );
   buttonBox->button( QDialogButtonBox::Close )->setDefault( true );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthCertManager::showHelp );
   layout->addWidget( buttonBox );
 
   setLayout( layout );
+}
+
+void QgsAuthCertManager::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_workflows.html" ) );
 }

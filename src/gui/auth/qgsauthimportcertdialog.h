@@ -23,6 +23,7 @@
 
 #include <QSslCertificate>
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 class QPushButton;
 
@@ -83,6 +84,8 @@ class GUI_EXPORT QgsAuthImportCertDialog : public QDialog, private Ui::QgsAuthIm
     void btnImportFile_clicked();
 
     void chkAllowInvalid_toggled( bool checked );
+
+    void showHelp();
 
   private:
     QString getOpenFileName( const QString &title, const QString &extfilter );

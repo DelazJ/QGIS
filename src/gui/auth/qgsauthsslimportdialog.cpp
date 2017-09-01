@@ -128,6 +128,8 @@ QgsAuthSslImportDialog::QgsAuthSslImportDialog( QWidget *parent )
              this, &QgsAuthSslImportDialog::accept );
     connect( buttonBox, &QDialogButtonBox::rejected,
              this, &QDialog::reject );
+    connect( buttonBox, &QDialogButtonBox::helpRequested,
+             this, &QgsAuthSslImportDialog::showHelp );
 
     connect( wdgtSslConfig, &QgsAuthSslConfigWidget::readyToSaveChanged,
              this, &QgsAuthSslImportDialog::widgetReadyToSaveChanged );
@@ -459,4 +461,9 @@ QString QgsAuthSslImportDialog::getOpenFileName( const QString &title, const QSt
     settings.setValue( QStringLiteral( "UI/lastAuthImportSslOpenFileDir" ), QFileInfo( f ).absoluteDir().path() );
   }
   return f;
+}
+
+void QgsAuthSslImportDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_workflows.html#ssl-server-exceptions" ) );
 }

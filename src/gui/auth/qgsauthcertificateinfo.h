@@ -31,6 +31,7 @@
 #include "ui_qgsauthcertificateinfo.h"
 #include "qgsauthcertutils.h"
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 /**
  * \ingroup gui
@@ -171,6 +172,9 @@ class GUI_EXPORT QgsAuthCertInfoDialog : public QDialog
 
   private:
     QgsAuthCertInfo *mCertInfoWdgt = nullptr;
+
+  private slots:
+    void showHelp();
 };
 
 #endif // QGSAUTHCERTIFICATEINFO_H

@@ -63,6 +63,7 @@ QgsAuthConfigEdit::QgsAuthConfigEdit( QWidget *parent, const QString &authcfg, c
     connect( leName, &QLineEdit::textChanged, this, &QgsAuthConfigEdit::leName_textChanged );
     connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
     connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsAuthConfigEdit::saveConfig );
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthConfigEdit::showHelp );
     connect( buttonBox->button( QDialogButtonBox::Reset ), &QAbstractButton::clicked, this, &QgsAuthConfigEdit::resetConfig );
 
     populateAuthMethods();
@@ -377,3 +378,9 @@ QgsAuthMethodEdit *QgsAuthConfigEdit::currentEditWidget()
 {
   return qobject_cast<QgsAuthMethodEdit *>( stkwAuthMethods->currentWidget() );
 }
+
+void QgsAuthConfigEdit::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_overview.html" ) );
+}
+

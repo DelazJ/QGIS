@@ -22,6 +22,7 @@
 #include "ui_qgsautheditorwidgets.h"
 #include "ui_qgsauthmethodplugins.h"
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 /**
  * \ingroup gui
@@ -41,6 +42,7 @@ class GUI_EXPORT QgsAuthMethodPlugins : public QDialog, private Ui::QgsAuthMetho
 
   private slots:
     void populateTable();
+    void showHelp();
 
   private:
     void setupTable();

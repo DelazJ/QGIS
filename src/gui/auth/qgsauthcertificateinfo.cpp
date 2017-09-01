@@ -918,12 +918,17 @@ QgsAuthCertInfoDialog::QgsAuthCertInfoDialog( const QSslCertificate &cert,
   mCertInfoWdgt = new QgsAuthCertInfo( cert, manageCertTrust, this, connectionCAs );
   layout->addWidget( mCertInfoWdgt );
 
-  QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close,
+  QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Close | QDialogButtonBox::Help,
       Qt::Horizontal, this );
   buttonBox->button( QDialogButtonBox::Close )->setDefault( true );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QWidget::close );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthCertInfoDialog::showHelp );
   layout->addWidget( buttonBox );
 
   setLayout( layout );
 }
 
+void QgsAuthCertInfoDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_workflows.html#authorities" ) );
+}

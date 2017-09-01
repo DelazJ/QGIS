@@ -45,6 +45,7 @@ QgsAuthMethodPlugins::QgsAuthMethodPlugins( QWidget *parent )
   {
     setupUi( this );
     connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthMethodPlugins::showHelp );
 
     setupTable();
     populateTable();
@@ -95,6 +96,11 @@ void QgsAuthMethodPlugins::populateTable()
     tblAuthPlugins->setItem( i, 2, twi );
   }
   tblAuthPlugins->sortItems( 0 );
+}
+
+void QgsAuthMethodPlugins::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_overview.html#authentication-methods" ) );
 }
 
 

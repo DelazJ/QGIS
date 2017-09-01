@@ -53,6 +53,7 @@ QgsAuthImportCertDialog::QgsAuthImportCertDialog( QWidget *parent,
 
     connect( buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept );
     connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAuthImportCertDialog::showHelp );
 
     connect( teCertText, &QPlainTextEdit::textChanged, this, &QgsAuthImportCertDialog::validateCertificates );
 
@@ -258,4 +259,9 @@ QString QgsAuthImportCertDialog::getOpenFileName( const QString &title, const QS
 QPushButton *QgsAuthImportCertDialog::okButton()
 {
   return buttonBox->button( QDialogButtonBox::Ok );
+}
+
+void QgsAuthImportCertDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "auth_system/auth_workflows.html#authorities" ) );
 }

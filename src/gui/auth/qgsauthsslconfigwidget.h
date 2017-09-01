@@ -27,6 +27,7 @@
 
 #include "qgsauthconfig.h"
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 class QComboBox;
 class QGroupBox;
@@ -212,6 +213,7 @@ class GUI_EXPORT QgsAuthSslConfigDialog : public QDialog
 
   private slots:
     void checkCanSave( bool cansave );
+    void showHelp();
 
   private:
     QgsAuthSslConfigWidget *mSslConfigWdgt = nullptr;

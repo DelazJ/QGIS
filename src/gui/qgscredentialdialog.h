@@ -20,6 +20,7 @@
 #include "ui_qgscredentialdialog.h"
 #include "qgsguiutils.h"
 #include "qgscredentials.h"
+#include "qgshelp.h"
 
 #include <QString>
 #include "qgis.h"
@@ -56,6 +57,7 @@ class GUI_EXPORT QgsCredentialDialog : public QDialog, public QgsCredentials, pr
     void leMasterPass_textChanged( const QString &pass );
     void leMasterPassVerify_textChanged( const QString &pass );
     void chkbxEraseAuthDb_toggled( bool checked );
+    void showHelp();
 
   protected:
     bool request( const QString &realm, QString &username SIP_INOUT, QString &password SIP_INOUT, const QString &message = QString() ) override;

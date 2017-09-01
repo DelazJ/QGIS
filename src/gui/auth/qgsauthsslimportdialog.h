@@ -69,6 +69,7 @@
 #include <QAbstractSocket>
 #include <QSslSocket>
 #include "qgis_gui.h"
+#include "qgshelp.h"
 
 class QPushButton;
 class QSslSocket;
@@ -115,6 +116,8 @@ class GUI_EXPORT QgsAuthSslImportDialog : public QDialog, private Ui::QgsAuthSsl
     void btnCertPath_clicked();
     void clearCertificateConfig();
     void clearStatusCertificateConfig();
+
+    void showHelp();
 
   private:
     void loadCertFromFile();
