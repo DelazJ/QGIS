@@ -18,6 +18,7 @@
 
 #include "qgsdialog.h"
 #include "qgis_sip.h"
+#include "qgshelp.h"
 #include "qgis.h"
 #include <QWidget>
 #include <QStandardItemModel>
@@ -194,6 +195,10 @@ class GUI_EXPORT QgsEffectStackPropertiesDialog: public QgsDialog
   protected:
 
     QgsEffectStackPropertiesWidget *mPropertiesWidget = nullptr;
+
+  protected slots:
+
+    void showHelp();
 
 };
 

@@ -22,6 +22,7 @@
 #include "ui_qgsstylesavedialog.h"
 
 #include "qgsstyle.h"
+#include "qgshelp.h"
 #include "qgis_gui.h"
 #include "qgis_sip.h"
 
@@ -52,7 +53,8 @@ class GUI_EXPORT QgsStyleSaveDialog: public QDialog, private Ui::QgsStyleSaveDia
     //! returns whether the favorite element is checked
     bool isFavorite() const;
 
-
+  private slots:
+    void showHelp();
 
 };
 

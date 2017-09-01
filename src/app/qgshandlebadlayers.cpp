@@ -26,6 +26,7 @@
 #include "qgsproviderregistry.h"
 #include "qgsmessagebar.h"
 #include "qgssettings.h"
+#include "qgshelp.h"
 
 #include <QDomDocument>
 #include <QDomElement>
@@ -72,6 +73,7 @@ QgsHandleBadLayers::QgsHandleBadLayers( const QList<QDomNode> &layers )
   connect( mLayerList, &QTableWidget::itemSelectionChanged, this, &QgsHandleBadLayers::selectionChanged );
   connect( mBrowseButton, &QAbstractButton::clicked, this, &QgsHandleBadLayers::browseClicked );
   connect( buttonBox->button( QDialogButtonBox::Apply ), &QAbstractButton::clicked, this, &QgsHandleBadLayers::apply );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsHandleBadLayers::showHelp );
 
   mLayerList->clear();
   mLayerList->setSortingEnabled( true );
@@ -238,6 +240,11 @@ void QgsHandleBadLayers::setFilename( int row, const QString &filename )
   }
 
   item->setText( datasource );
+}
+
+void QgsHandleBadLayers::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "" ) ); //not documented
 }
 
 void QgsHandleBadLayers::browseClicked()

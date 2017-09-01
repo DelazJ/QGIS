@@ -18,6 +18,7 @@
 #define QGSATTRIBUTETYPELOADDIALOG_H
 
 #include "ui_qgsattributeloadfrommap.h"
+#include "qgshelp.h"
 
 #include <vector>
 #include "qgis_gui.h"
@@ -84,6 +85,8 @@ class GUI_EXPORT QgsAttributeTypeLoadDialog: public QDialog, private Ui::QgsAttr
      * Slot to react to value Preview button pushed
      */
     void previewButtonPushed();
+
+    void showHelp();
 
   private:
 

@@ -44,6 +44,7 @@ QgsAttributeTypeLoadDialog::QgsAttributeTypeLoadDialog( QgsVectorLayer *vl )
   connect( keyComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ), this, [ = ]( int index ) { createPreview( index ); } );
   connect( valueComboBox, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ), this, [ = ]( int index ) { createPreview( index ); } );
   connect( previewButton, &QAbstractButton::pressed, this, &QgsAttributeTypeLoadDialog::previewButtonPushed );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsAttributeTypeLoadDialog::showHelp );
 
   fillLayerList();
 
@@ -197,4 +198,9 @@ void QgsAttributeTypeLoadDialog::accept()
   //store data to output variable
   loadDataToValueMap();
   QDialog::accept();
+}
+
+void QgsAttributeTypeLoadDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "" ) );
 }

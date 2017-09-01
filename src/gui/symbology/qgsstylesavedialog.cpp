@@ -36,6 +36,8 @@ QgsStyleSaveDialog::QgsStyleSaveDialog( QWidget *parent, QgsStyle::StyleEntity t
   {
     this->setWindowTitle( tr( "Save New Color Ramp" ) );
   }
+
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsStyleSaveDialog::showHelp );
 }
 
 QString QgsStyleSaveDialog::name() const
@@ -51,4 +53,9 @@ QString QgsStyleSaveDialog::tags() const
 bool QgsStyleSaveDialog::isFavorite() const
 {
   return mFavorite->isChecked();
+}
+
+void QgsStyleSaveDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "working_with_vector/style_library.html#add-edit-remove-symbol" ) );
 }

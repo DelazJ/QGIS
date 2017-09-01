@@ -56,6 +56,7 @@ class APP_EXPORT QgsHandleBadLayers
     void apply();
     void accept() override;
     void reject() override;
+    void showHelp();
 
   private:
     QPushButton *mBrowseButton = nullptr;

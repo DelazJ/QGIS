@@ -362,12 +362,21 @@ void QgsEffectStackPropertiesWidget::changeEffect( QgsPaintEffect *newEffect )
 //
 
 QgsEffectStackPropertiesDialog::QgsEffectStackPropertiesDialog( QgsEffectStack *stack, QWidget *parent, Qt::WindowFlags f )
-  : QgsDialog( parent, f, QDialogButtonBox::Ok | QDialogButtonBox::Cancel )
-
+  : QgsDialog( parent, f, QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok )
 {
   setWindowTitle( tr( "Effect Properties" ) );
   mPropertiesWidget = new QgsEffectStackPropertiesWidget( stack, this );
+  // layout()->addWidget( mPropertiesWidget );
+
+  mButtonBox = new QDialogButtonBox( QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok );
+  // ne fonctionne pas - les boutons n'apparaissent pas.
+  //connect( mButtonBox, &QDialogButtonBox::accepted, this, &QDialog::accept );
+  //connect( mButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
+  connect( mButtonBox, &QDialogButtonBox::helpRequested, this, &QgsEffectStackPropertiesDialog::showHelp );
+
   layout()->addWidget( mPropertiesWidget );
+  layout()->addWidget( mButtonBox );
+
 }
 
 QgsEffectStack *QgsEffectStackPropertiesDialog::stack()
@@ -378,6 +387,11 @@ QgsEffectStack *QgsEffectStackPropertiesDialog::stack()
 void QgsEffectStackPropertiesDialog::setPreviewPicture( const QPicture &picture )
 {
   mPropertiesWidget->setPreviewPicture( picture );
+}
+
+void QgsEffectStackPropertiesDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "working_with_vector/vector_properties.html#draw-effects" ) );
 }
 
 //

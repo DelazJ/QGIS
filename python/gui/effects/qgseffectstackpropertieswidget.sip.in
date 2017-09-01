@@ -175,6 +175,10 @@ Sets the picture to use for effect previews for the dialog
   protected:
 
 
+  protected slots:
+
+    void showHelp();
+
 };
 
 
