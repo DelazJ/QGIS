@@ -76,7 +76,7 @@ QgsProjectionSelectionTreeWidget::QgsProjectionSelectionTreeWidget( QWidget *par
   // Get the full path name to the sqlite3 spatial reference database.
   mSrsDatabaseFileName = QgsApplication::srsDatabaseFilePath();
 
-  lstCoordinateSystems->header()->setSectionResizeMode( AuthidColumn, QHeaderView::Stretch );
+  lstCoordinateSystems->header()->setSectionResizeMode( AuthidColumn, QHeaderView::ResizeToContents );
   lstCoordinateSystems->header()->resizeSection( QgisCrsIdColumn, 0 );
   lstCoordinateSystems->header()->setSectionResizeMode( QgisCrsIdColumn, QHeaderView::Fixed );
 
@@ -146,18 +146,20 @@ QgsProjectionSelectionTreeWidget::~QgsProjectionSelectionTreeWidget()
   settings.setValue( QStringLiteral( "/UI/recentProjectionsProj4" ), projectionsProj4 );
   settings.setValue( QStringLiteral( "/UI/recentProjectionsAuthId" ), projectionsAuthId );
 }
-
+/*
 void QgsProjectionSelectionTreeWidget::resizeEvent( QResizeEvent *event )
 {
-  lstCoordinateSystems->header()->resizeSection( NameColumn, event->size().width() - 240 );
-  lstCoordinateSystems->header()->resizeSection( AuthidColumn, 240 );
+  lstCoordinateSystems->header()->resizeSection( AuthidColumn, QHeaderView::ResizeToContents ); //240 );
+  int authColumnSize = lstCoordinateSystems->header()->sectionSize( AuthidColumn);
+  lstCoordinateSystems->header()->resizeSection( NameColumn, event->size().width() - authColumnSize); // - 240 );
+  lstCoordinateSystems->header()->resizeSection( NameColumn, event->size().width()); // - 240 );
   lstCoordinateSystems->header()->resizeSection( QgisCrsIdColumn, 0 );
 
   lstRecent->header()->resizeSection( NameColumn, event->size().width() - 240 );
   lstRecent->header()->resizeSection( AuthidColumn, 240 );
   lstRecent->header()->resizeSection( QgisCrsIdColumn, 0 );
 }
-
+*/
 void QgsProjectionSelectionTreeWidget::showEvent( QShowEvent *event )
 {
   // ensure the projection list view is actually populated

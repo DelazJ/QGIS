@@ -162,7 +162,7 @@ class GUI_EXPORT QgsProjectionSelectionTreeWidget : public QWidget, private Ui::
     void showEvent( QShowEvent *event ) override;
 
     // Used to manage column sizes
-    void resizeEvent( QResizeEvent *event ) override;
+    // void resizeEvent( QResizeEvent *event ) override;
 
   private:
 
