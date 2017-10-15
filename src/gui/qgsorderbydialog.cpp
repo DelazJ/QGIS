@@ -33,6 +33,15 @@ QgsOrderByDialog::QgsOrderByDialog( QgsVectorLayer *layer, QWidget *parent )
   mOrderByTableWidget->horizontalHeader()->setSectionResizeMode( 1, QHeaderView::ResizeToContents );
   mOrderByTableWidget->horizontalHeader()->setSectionResizeMode( 2, QHeaderView::ResizeToContents );
 
+  // enable drag-and-drop capabilities
+  // mOrderByTableWidget->setSelectionMode(QAbstractItemView::SingleSelection); // à voir si nécessaire
+  /*
+    mOrderByTableWidget->setDragEnabled( true );
+    mOrderByTableWidget->setAcceptDrops( true );
+    mOrderByTableWidget->setDropIndicatorShown( true );
+    mOrderByTableWidget->setDefaultDropAction( Qt::MoveAction );
+    mOrderByTableWidget->setDragDropMode( QAbstractItemView::InternalMove ); */
+
   mOrderByTableWidget->installEventFilter( this );
 
   connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsOrderByDialog::showHelp );
