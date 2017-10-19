@@ -72,10 +72,10 @@ QSize QgsColorButton::minimumSizeHint() const
   return mMinimumSize;
 }
 
-QSize QgsColorButton::sizeHint() const
+/* QSize QgsColorButton::sizeHint() const
 {
   return mMinimumSize;
-}
+}*/
 
 const QPixmap &QgsColorButton::transparentBackground()
 {
