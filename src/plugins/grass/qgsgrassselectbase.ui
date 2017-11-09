@@ -107,6 +107,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>egisdbase</tabstop>
+  <tabstop>GisdbaseBrowse</tabstop>
+  <tabstop>elocation</tabstop>
+  <tabstop>emapset</tabstop>
+  <tabstop>emap</tabstop>
+  <tabstop>elayer</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -235,7 +235,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="mPageData">
           <property name="geometry">
@@ -251,21 +251,20 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QComboBox" name="mTablesCombo">
-             <item>
-              <property name="text">
-               <string>Tables</string>
-              </property>
-             </item>
+            <widget class="QgsMapLayerComboBox" name="mTablesCombo">
+             <property name="currentText">
+              <string/>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="mColumnsCombo">
-             <item>
-              <property name="text">
-               <string>Columns</string>
-              </property>
-             </item>
+            <widget class="QgsFieldComboBox" name="mColumnsCombo">
+             <property name="currentText">
+              <string/>
+             </property>
+             <property name="currentIndex">
+              <number>-1</number>
+             </property>
             </widget>
            </item>
            <item>
@@ -415,9 +414,20 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+  <customwidget>
    <class>QgsCodeEditorSQL</class>
    <extends>QWidget</extends>
    <header>qgscodeeditorsql.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

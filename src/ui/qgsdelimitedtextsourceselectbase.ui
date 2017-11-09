@@ -966,8 +966,8 @@
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QComboBox" name="cmbXField">
+                <item row="2" column="1">
+                 <widget class="QgsFieldComboBox" name="cmbYField">
                   <property name="enabled">
                    <bool>true</bool>
                   </property>
@@ -997,8 +997,8 @@
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="1">
-                 <widget class="QComboBox" name="cmbYField">
+                <item row="1" column="1">
+                 <widget class="QgsFieldComboBox" name="cmbXField">
                   <property name="enabled">
                    <bool>true</bool>
                   </property>
@@ -1125,7 +1125,7 @@
                  </widget>
                 </item>
                 <item row="0" column="2">
-                 <widget class="QComboBox" name="cmbWktField">
+                 <widget class="QgsFieldComboBox" name="cmbWktField">
                   <property name="enabled">
                    <bool>true</bool>
                   </property>
@@ -1323,6 +1323,11 @@
    <class>QgsFileWidget</class>
    <extends>QWidget</extends>
    <header>qgsfilewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

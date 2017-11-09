@@ -237,7 +237,7 @@
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QComboBox" name="cboxEventImagePathField">
+           <widget class="QgsFieldComboBox" name="cboxEventImagePathField">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -310,7 +310,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="1">
-           <widget class="QComboBox" name="cboxCompassBearingField">
+           <widget class="QgsFieldComboBox" name="cboxCompassBearingField">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -544,7 +544,7 @@
            </widget>
           </item>
           <item row="1" column="1" colspan="2">
-           <widget class="QComboBox" name="cboxCompassOffsetField">
+           <widget class="QgsFieldComboBox" name="cboxCompassOffsetField">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -966,6 +966,11 @@ Base Path (i.e. keep only filename from attribute)</string>
    <class>eVisImageDisplayWidget</class>
    <extends>QWidget</extends>
    <header>evisimagedisplaywidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

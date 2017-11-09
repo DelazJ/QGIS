@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>511</width>
-    <height>415</height>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,13 +80,6 @@
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="5" column="1">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Output Size</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QLabel" name="label_3">
        <property name="text">
@@ -94,11 +87,22 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="QComboBox" name="mCboReferenceLayer"/>
+     <item row="4" column="1" colspan="2">
+      <widget class="QgsExtentGroupBox" name="mClipExtentGroupBox">
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="mChkCustomGridOffset">
+       <property name="text">
+        <string>Grid Offset</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QgsProjectionSelectionWidget" name="mCrsSelector" native="true"/>
+      <widget class="QgsProjectionSelectionWidget" name="mCrsSelector"/>
      </item>
      <item row="2" column="2">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -124,6 +128,47 @@
        </item>
       </layout>
      </item>
+     <item row="7" column="1" colspan="2">
+      <widget class="QCheckBox" name="mChkAddToCanvas">
+       <property name="text">
+        <string>Add aligned rasters to map canvas</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCheckBox" name="mChkCustomCellSize">
+       <property name="text">
+        <string>Cell Size</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Output Size</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="mChkCustomCRS">
+       <property name="text">
+        <string>CRS</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLineEdit" name="mEditOutputSize">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QgsMapLayerComboBox" name="mCboReferenceLayer"/>
+     </item>
      <item row="3" column="2">
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
@@ -147,52 +192,6 @@
         </widget>
        </item>
       </layout>
-     </item>
-     <item row="7" column="1" colspan="2">
-      <widget class="QCheckBox" name="mChkAddToCanvas">
-       <property name="text">
-        <string>Add aligned rasters to map canvas</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1" colspan="2">
-      <widget class="QgsExtentGroupBox" name="mClipExtentGroupBox">
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_2"/>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QLineEdit" name="mEditOutputSize">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QCheckBox" name="mChkCustomCRS">
-       <property name="text">
-        <string>CRS</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QCheckBox" name="mChkCustomCellSize">
-       <property name="text">
-        <string>Cell Size</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QCheckBox" name="mChkCustomGridOffset">
-       <property name="text">
-        <string>Grid Offset</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>
@@ -230,6 +229,11 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsmaplayercombobox.h</header>
+  </customwidget>
+  <customwidget>
    <class>QgsProjectionSelectionWidget</class>
    <extends>QWidget</extends>
    <header>qgsprojectionselectionwidget.h</header>
@@ -241,7 +245,6 @@
   <tabstop>mBtnEdit</tabstop>
   <tabstop>mBtnRemove</tabstop>
   <tabstop>mViewLayers</tabstop>
-  <tabstop>mCboReferenceLayer</tabstop>
   <tabstop>mChkCustomCRS</tabstop>
   <tabstop>mCrsSelector</tabstop>
   <tabstop>mChkCustomCellSize</tabstop>

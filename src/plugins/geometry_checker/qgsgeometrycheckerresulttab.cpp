@@ -14,7 +14,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QComboBox>
 #include <QFileDialog>
 #include <QGroupBox>
 #include <QMessageBox>
@@ -28,6 +27,8 @@
 #include "qgsgeometrycheck.h"
 #include "qgsfeaturepool.h"
 
+#include "qgscrscache.h"
+#include "qgsFieldCombobox.h"
 #include "qgsgeometry.h"
 #include "qgisinterface.h"
 #include "qgsmapcanvas.h"
@@ -58,7 +59,7 @@ QgsGeometryCheckerResultTab::QgsGeometryCheckerResultTab( QgisInterface *iface, 
   {
     QgsVectorLayer *layer = mChecker->getContext()->featurePools[layerId]->getLayer();
     QTreeWidgetItem *item = new QTreeWidgetItem( ui.treeWidgetMergeAttribute, QStringList() << layer->name() << "" );
-    QComboBox *attribCombo = new QComboBox();
+    QgsFieldComboBox *attribCombo = new QgsFieldComboBox();
     for ( int i = 0, n = layer->fields().count(); i < n; ++i )
     {
       attribCombo->addItem( layer->fields().at( i ).name() );
@@ -633,7 +634,7 @@ void QgsGeometryCheckerResultTab::updateMergeAttributeIndices()
   while ( *it )
   {
     QTreeWidgetItem *item = *it;
-    QComboBox *combo = qobject_cast<QComboBox *>( ui.treeWidgetMergeAttribute->itemWidget( item, 1 ) );
+    QgsFieldComboBox *combo = qobject_cast<QgsFieldComboBox *>( ui.treeWidgetMergeAttribute->itemWidget( item, 1 ) );
     mergeAttribIndices.insert( item->text( 0 ), combo->currentIndex() );
     ++it;
   }

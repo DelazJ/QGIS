@@ -50,12 +50,19 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox"/>
+     <widget class="QgsFieldComboBox" name="comboBox"/>
     </item>
    </layout>
   </widget>
  </widget>
  <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFieldComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgsfieldcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <connections>
   <connection>
    <sender>buttonBox</sender>

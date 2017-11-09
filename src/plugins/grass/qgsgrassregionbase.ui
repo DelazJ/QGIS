@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>507</width>
-    <height>343</height>
+    <width>580</width>
+    <height>369</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -226,6 +226,19 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>mNorth</tabstop>
+  <tabstop>mWest</tabstop>
+  <tabstop>mEast</tabstop>
+  <tabstop>mSouth</tabstop>
+  <tabstop>mDrawButton</tabstop>
+  <tabstop>mResRadio</tabstop>
+  <tabstop>mEWRes</tabstop>
+  <tabstop>mNSRes</tabstop>
+  <tabstop>mRowsColsRadio</tabstop>
+  <tabstop>mCols</tabstop>
+  <tabstop>mRows</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
