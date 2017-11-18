@@ -170,8 +170,6 @@ Emitted when a projection is double clicked in the list.
     virtual void showEvent( QShowEvent *event );
 
 
-    virtual void resizeEvent( QResizeEvent *event );
-
 
 };
 
