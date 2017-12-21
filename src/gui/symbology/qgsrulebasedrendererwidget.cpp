@@ -30,6 +30,8 @@
 #include "qgspanelwidget.h"
 #include "qgsmapcanvas.h"
 #include "qgssettings.h"
+#include "qgsvscrollarea.h"
+#include "qgsscrollarea.h"
 
 #include <QKeyEvent>
 #include <QMenu>
@@ -656,6 +658,10 @@ QgsRendererRulePropsWidget::QgsRendererRulePropsWidget( QgsRuleBasedRenderer::Ru
   l->addWidget( mSymbolSelector );
   groupSymbol->setLayout( l );
 
+  //mExpressionWidget->registerExpressionContextGenerator( this );
+
+  //connect( mExpressionWidget, &QgsExpressionLineEdit::expressionChanged, this, &QgsAttributeTypeDialog::defaultExpressionChanged );
+
   connect( btnExpressionBuilder, &QAbstractButton::clicked, this, &QgsRendererRulePropsWidget::buildExpression );
   connect( btnTestFilter, &QAbstractButton::clicked, this, &QgsRendererRulePropsWidget::testFilter );
   connect( editFilter, &QLineEdit::textChanged, this, &QgsPanelWidget::widgetChanged );
@@ -678,8 +684,52 @@ QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Ru
   buttonBox = new QDialogButtonBox( QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
   mPropsWidget = new QgsRendererRulePropsWidget( rule, layer, style, this, context );
 
-  this->layout()->addWidget( mPropsWidget );
+  QgsVScrollArea *scrollArea = new QgsVScrollArea( this );
+  scrollArea->setWidget( mPropsWidget );
+  scrollArea->setWidgetResizable( true );
+  //scrollArea->setFrameShape( QFrame::NoFrame );
+  scrollArea->setFrameShadow( QFrame::Plain );
+  //scrollArea->setFocusProxy( this );
+  QWidget *scrollAreaContents = new QWidget( scrollArea );
+  QVBoxLayout *scrollAreaLayout = new QVBoxLayout( scrollAreaContents );
+  scrollAreaLayout->addWidget( mPropsWidget );
+
+  //this->layout()->addWidget( mPropsWidget );
+  scrollArea->setWidget( scrollAreaLayout );
+  this->layout()->addWidget( scrollArea );
   this->layout()->addWidget( buttonBox );
+
+  /*   QDialog dialog( this );
+    dialog.setWindowTitle( tr( "Set Error Resolutions" ) );
+
+    QVBoxLayout *layout = new QVBoxLayout( &dialog );
+
+    QgsVScrollArea *scrollArea = new QgsVScrollArea( &dialog );
+    layout->setContentsMargins( 6, 6, 6, 6 );
+    layout->addWidget( new QLabel( tr( "Select default error resolutions:" ) ) );
+    layout->addWidget( scrollArea );
+
+    QWidget *scrollAreaContents = new QWidget( scrollArea );
+    QVBoxLayout *scrollAreaLayout = new QVBoxLayout( scrollAreaContents );
+   */
+
+  /*   Il faut ajouter un layout (quelconque) en plus pour le QGroupBox.
+    J'ai corrigé ça dans le post précédent.
+
+  Pour le détail: tu as ton QGroupBox avec un QScrollArea defilementMateriel
+  dedans, pour que defilementMateriel s'ajuste automatiquement, tu as besoin d'un
+  layout dans le QGroupBox.
+  Le QScrollArea n'accepte qu'un seul widget, qu'on fixe avec setWidget.
+  Pour ajouter plusieurs widget, on crée un widget intermédiaire scrolledWidget
+  (celui qu'on envoie à setWidget). Et dans scrolledWidget, tu ajoutes le QGridLayout
+    que tu avais déjà fait.
+
+  Les setLayout sont optionnels si tu mets les widgets comme paramètres dans les
+  constructeurs des QLayout.
+   */&ézésssssssss  qé&Q < aa
+
+
+
 
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsRendererRulePropsDialog::accept );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );

@@ -153,8 +153,21 @@ void QgsVectorLayerSaveAsDialog::setup()
       QFileInfo fileInfo( filePath );
       leLayername->setText( fileInfo.baseName() );
     }
-    buttonBox->button( QDialogButtonBox::Ok )->setEnabled(
-      !filePath.isEmpty() && QFileInfo( filePath ).absoluteDir().exists() );
+    /*     buttonBox->button( QDialogButtonBox::Ok )->setEnabled(
+          !filePath.isEmpty() && QFileInfo( filePath ).absoluteDir().exists()
+          && !leLayername->text().isEmpty() );
+     */
+    if ( leLayername->isEnabled() )
+    {
+      buttonBox->button( QDialogButtonBox::Ok )->setEnabled(
+        !filePath.isEmpty() && QFileInfo( filePath ).absoluteDir().exists()
+        && !leLayername->text().isEmpty() );
+    }
+    else
+    {
+      buttonBox->button( QDialogButtonBox::Ok )->setEnabled(
+        !filePath.isEmpty() && QFileInfo( filePath ).absoluteDir().exists() );
+    }
   } );
 }
 

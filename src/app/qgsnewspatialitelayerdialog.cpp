@@ -75,6 +75,8 @@ QgsNewSpatialiteLayerDialog::QgsNewSpatialiteLayerDialog( QWidget *parent, Qt::W
   mTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldInteger.svg" ) ), tr( "Whole number" ), "integer" );
   mTypeBox->addItem( QgsApplication::getThemeIcon( QStringLiteral( "/mIconFieldFloat.svg" ) ), tr( "Decimal number" ), "real" );
 
+  leGeometryColumn->setText( "geometry" );
+
   // Populate the database list from the stored connections
   settings.beginGroup( QStringLiteral( "SpatiaLite/connections" ) );
   QStringList keys = settings.childGroups();

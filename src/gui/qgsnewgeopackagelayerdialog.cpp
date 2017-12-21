@@ -106,6 +106,9 @@ QgsNewGeoPackageLayerDialog::QgsNewGeoPackageLayerDialog( QWidget *parent, Qt::W
 
   mCheckBoxCreateSpatialIndex->setChecked( true );
 
+  mFeatureIdColumnEdit->setText( "fid" );
+  mGeometryColumnEdit->setText( "geometry" );
+
   mDatabase->setStorageMode( QgsFileWidget::SaveFile );
   mDatabase->setFilter( tr( "GeoPackage" ) + " (*.gpkg)" );
   mDatabase->setDialogTitle( tr( "Select Existing or Create a New GeoPackage Database File..." ) );
