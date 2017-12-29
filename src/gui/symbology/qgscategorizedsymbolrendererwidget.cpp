@@ -548,13 +548,31 @@ void QgsCategorizedSymbolRendererWidget::changeSelectedSymbols()
 
 void QgsCategorizedSymbolRendererWidget::changeCategorizedSymbol()
 {
+  QgsPanelWidget *panel = QgsPanelWidget::findParentPanel( this );
   QgsSymbol *newSymbol = mCategorizedSymbol->clone();
-  QgsSymbolSelectorWidget *dlg = new QgsSymbolSelectorWidget( newSymbol, mStyle, mLayer, nullptr );
-  dlg->setContext( mContext );
 
-  connect( dlg, &QgsPanelWidget::widgetChanged, this, &QgsCategorizedSymbolRendererWidget::updateSymbolsFromWidget );
-  connect( dlg, &QgsPanelWidget::panelAccepted, this, &QgsCategorizedSymbolRendererWidget::cleanUpSymbolSelector );
-  openPanel( dlg );
+  if ( panel && panel->dockMode() )
+  {
+    QgsSymbolSelectorWidget *dlg = new QgsSymbolSelectorWidget( newSymbol, mStyle, mLayer, panel );
+    dlg->setContext( mContext );
+    connect( dlg, &QgsPanelWidget::widgetChanged, this, &QgsCategorizedSymbolRendererWidget::updateSymbolsFromWidget );
+    connect( dlg, &QgsPanelWidget::panelAccepted, this, &QgsCategorizedSymbolRendererWidget::cleanUpSymbolSelector );
+    openPanel( dlg );
+    return;
+  }
+
+  QgsSymbolSelectorDialog dlg( newSymbol, mStyle, mLayer, panel );
+  dlg.setContext( mContext );
+  if ( dlg.exec() )
+  {
+    //any combination below either crashes or does nothing
+    emit updateSymbolsFromWidget();
+    //emit cleanUpSymbolSelector( this );
+    //emit cleanUpSymbolSelector( panel );
+    QgsSymbolSelectorWidget *wdg = dlg.findChild<QgsSymbolSelectorWidget *>();
+    emit cleanUpSymbolSelector( wdg );
+  }
+
 }
 
 void QgsCategorizedSymbolRendererWidget::updateCategorizedSymbolIcon()
@@ -658,7 +676,7 @@ void QgsCategorizedSymbolRendererWidget::addCategories()
   // ask to abort if too many classes
   if ( unique_vals.size() >= 1000 )
   {
-    int res = QMessageBox::warning( nullptr, tr( "High number of classes!" ),
+    int res = QMessageBox::warning( nullptr, tr( "High Number of Classes!" ),
                                     tr( "Classification would yield %1 entries which might not be expected. Continue?" ).arg( unique_vals.size() ),
                                     QMessageBox::Ok | QMessageBox::Cancel,
                                     QMessageBox::Cancel );
