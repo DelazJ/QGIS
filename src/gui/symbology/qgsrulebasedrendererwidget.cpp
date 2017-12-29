@@ -666,7 +666,7 @@ QgsRendererRulePropsWidget::QgsRendererRulePropsWidget( QgsRuleBasedRenderer::Ru
   connect( mScaleRangeWidget, &QgsScaleRangeWidget::rangeChanged, this, &QgsPanelWidget::widgetChanged );
 }
 
-QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Rule *rule, QgsVectorLayer *layer, QgsStyle *style, QWidget *parent, const QgsSymbolWidgetContext &context )
+QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Rule *rule, QgsVectorLayer *layer, QgsStyle *style, QWidget *parent, const QgsSymbolWidgetContext &context, bool embedded )
   : QDialog( parent )
 {
 
@@ -675,7 +675,7 @@ QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Ru
 #endif
   this->setLayout( new QVBoxLayout() );
 
-  buttonBox = new QDialogButtonBox( QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
+  buttonBox = new QDialogButtonBox( QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok );
   mPropsWidget = new QgsRendererRulePropsWidget( rule, layer, style, this, context );
 
   this->layout()->addWidget( mPropsWidget );
@@ -683,6 +683,19 @@ QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Ru
 
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsRendererRulePropsDialog::accept );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsRendererRulePropsDialog::showHelp );
+
+  // can be embedded in renderer properties dialog
+  if ( embedded )
+  {
+    buttonBox->hide();
+    layout()->setContentsMargins( 0, 0, 0, 0 );
+  }
+  else
+  {
+    setWindowTitle( tr( "Edit Rule" ) );
+  }
+  mPropsWidget->setDockMode( embedded );
 
   QgsSettings settings;
   restoreGeometry( settings.value( QStringLiteral( "Windows/QgsRendererRulePropsDialog/geometry" ) ).toByteArray() );
@@ -710,6 +723,10 @@ void QgsRendererRulePropsDialog::accept()
   QDialog::accept();
 }
 
+void QgsRendererRulePropsDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "working_with_vector/vector_properties.html#rule-based-rendering" ) );
+}
 
 void QgsRendererRulePropsWidget::buildExpression()
 {
