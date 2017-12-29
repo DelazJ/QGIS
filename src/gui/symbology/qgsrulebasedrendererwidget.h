@@ -261,8 +261,9 @@ class GUI_EXPORT QgsRendererRulePropsDialog : public QDialog
      * \param style style collection
      * \param parent parent widget
      * \param context symbol widget context
+     * \param embedded true to embed in renderer properties dialog, false otherwise
      */
-    QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Rule *rule, QgsVectorLayer *layer, QgsStyle *style, QWidget *parent SIP_TRANSFERTHIS = nullptr, const QgsSymbolWidgetContext &context = QgsSymbolWidgetContext() );
+    QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Rule *rule, QgsVectorLayer *layer, QgsStyle *style, QWidget *parent SIP_TRANSFERTHIS = nullptr, const QgsSymbolWidgetContext &context = QgsSymbolWidgetContext(), bool embedded = false );
 
     ~QgsRendererRulePropsDialog() override;
 
