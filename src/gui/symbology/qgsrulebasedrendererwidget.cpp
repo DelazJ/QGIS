@@ -181,12 +181,32 @@ void QgsRuleBasedRendererWidget::editRule( const QModelIndex &index )
     return;
 
   QgsRuleBasedRenderer::Rule *rule = mModel->ruleForIndex( index );
+  QgsPanelWidget *panel = QgsPanelWidget::findParentPanel( this );
 
-  QgsRendererRulePropsWidget *widget = new QgsRendererRulePropsWidget( rule, mLayer, mStyle, this, mContext );
-  widget->setPanelTitle( tr( "Edit Rule" ) );
-  connect( widget, &QgsPanelWidget::panelAccepted, this, &QgsRuleBasedRendererWidget::ruleWidgetPanelAccepted );
-  connect( widget, &QgsPanelWidget::widgetChanged, this, &QgsRuleBasedRendererWidget::liveUpdateRuleFromPanel );
-  openPanel( widget );
+  if ( panel && panel->dockMode() )
+  {
+    QgsRendererRulePropsWidget *widget = new QgsRendererRulePropsWidget( rule, mLayer, mStyle, this, mContext );//panel?
+    widget->setPanelTitle( tr( "Edit Rule" ) );
+    connect( widget, &QgsPanelWidget::panelAccepted, this, &QgsRuleBasedRendererWidget::ruleWidgetPanelAccepted );
+    connect( widget, &QgsPanelWidget::widgetChanged, this, &QgsRuleBasedRendererWidget::liveUpdateRuleFromPanel );
+    openPanel( widget );
+    return;
+  }
+
+  QgsRendererRulePropsDialog dlg( rule, mLayer, mStyle, this, mContext ); //tester remplacement de this par panel
+  //dlg.setContext( mContext );
+  if ( dlg.exec() )
+  {
+
+    //updateRule();
+    //(https://github.com/qgis/QGIS/blame/82e2add045625f5f5466f44793c3704af4e5941f/src/gui/symbology-ng/qgsrulebasedrendererv2widget.cpp#L184)
+    // model should know about the change and emit dataChanged signal for the view 
+    mModel->updateRule( index.parent(), index.row() );
+    mModel->clearFeatureCounts();
+
+    emit widgetChanged();
+  }
+  
 }
 
 void QgsRuleBasedRendererWidget::removeRule()
