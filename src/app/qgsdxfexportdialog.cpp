@@ -452,6 +452,10 @@ QgsDxfExportDialog::QgsDxfExportDialog( QWidget *parent, Qt::WindowFlags f )
   connect( mSelectAllButton, &QAbstractButton::clicked, this, &QgsDxfExportDialog::selectAll );
   connect( mDeselectAllButton, &QAbstractButton::clicked, this, &QgsDxfExportDialog::deSelectAll );
   connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsDxfExportDialog::showHelp );
+  //connect( mTreeView, &QTreeView::itemChanged, this, &QgsDxfExportDialog::setOkEnabled );
+  //connect( mTreeView, &QTreeView::dataChanged, this, &QgsDxfExportDialog::setOkEnabled );
+  //connect( mTreeView, &QTreeView::clicked, this, &QgsDxfExportDialog::setOkEnabled );
+  //connect( mTreeView, &QAbstractItemView::dataChanged, this, &QgsDxfExportDialog::setOkEnabled );
 
   connect( mFileName, &QgsFileWidget::fileChanged, this, [ = ]( const QString & filePath )
   {
@@ -539,6 +543,7 @@ void QgsDxfExportDialog::selectAll()
   QgsVectorLayerAndAttributeModel *model = qobject_cast< QgsVectorLayerAndAttributeModel *>( mTreeView->model() );
   Q_ASSERT( model );
   model->selectAll();
+  //buttonBox->button( QDialogButtonBox::Ok )->setEnabled( true );
 }
 
 void QgsDxfExportDialog::deSelectAll()
@@ -546,6 +551,7 @@ void QgsDxfExportDialog::deSelectAll()
   QgsVectorLayerAndAttributeModel *model = qobject_cast< QgsVectorLayerAndAttributeModel *>( mTreeView->model() );
   Q_ASSERT( model );
   model->deSelectAll();
+  //buttonBox->button( QDialogButtonBox::Ok )->setEnabled( false );
 }
 
 
@@ -594,6 +600,10 @@ void QgsDxfExportDialog::setOkEnabled()
 
   bool ok = ( fi.absoluteDir().exists() && !fi.baseName().isEmpty() );
   btn->setEnabled( ok );
+
+  /*QString filePath = mFileName->filePath();
+  int countLayers = QgsDxfExportDialog().layers().size();
+  btn->setEnabled( !filePath.isEmpty() && countLayers > 0 );*/
 
 }
 
