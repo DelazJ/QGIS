@@ -454,6 +454,7 @@ QgsCategorizedSymbolRendererWidget::QgsCategorizedSymbolRendererWidget( QgsVecto
   connect( viewCategories, &QTreeView::customContextMenuRequested, this, &QgsCategorizedSymbolRendererWidget::contextMenuViewCategories );
 
   connect( btnChangeCategorizedSymbol, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::changeCategorizedSymbol );
+  //connect( btnChangeCategorizedSymbol, &QAbstractButton::, this, &QgsCategorizedSymbolRendererWidget::updateSymbolsFromWidget );
   connect( btnAddCategories, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::addCategories );
   connect( btnDeleteCategories, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::deleteCategories );
   connect( btnDeleteAllCategories, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::deleteAllCategories );
@@ -563,16 +564,43 @@ void QgsCategorizedSymbolRendererWidget::changeCategorizedSymbol()
 
   QgsSymbolSelectorDialog dlg( newSymbol, mStyle, mLayer, panel );
   dlg.setContext( mContext );
-  if ( dlg.exec() )
+  
+  // ======OPTION A======= copié depuis la version 2.14
+  if ( !dlg.exec() || !newSymbol )
   {
-    //any combination below either crashes or does nothing
-    emit updateSymbolsFromWidget();
-    //emit cleanUpSymbolSelector( this );
-    //emit cleanUpSymbolSelector( panel );
-    QgsSymbolSelectorWidget *wdg = dlg.findChild<QgsSymbolSelectorWidget *>();
-    emit cleanUpSymbolSelector( wdg );
+    delete newSymbol;
+    return;
   }
 
+  delete mCategorizedSymbol;
+  mCategorizedSymbol = newSymbol;
+  updateCategorizedSymbolIcon();
+
+  mRenderer->updateSymbols( mCategorizedSymbol ); // A voir si nécessaire
+
+  //======OPTION B=======
+  /*
+  if ( dlg.exec() )
+  {
+    delete mCategorizedSymbol;
+    mCategorizedSymbol = newSymbol;
+    updateCategorizedSymbolIcon();
+    // mRenderer->updateSymbols( mCategorizedSymbol );// A voir si nécessaire
+
+    //any combination below either crashes or does nothing
+    //emit updateSymbolsFromWidget();
+    //emit cleanUpSymbolSelector( this );
+    //emit cleanUpSymbolSelector( panel );
+    //QgsSymbolSelectorWidget *wdg = dlg.findChild<QgsSymbolSelectorWidget *>();
+    //emit cleanUpSymbolSelector( wdg );
+  }
+  //====FIN D'OPTION B===== */
+
+  emit updateSymbolsFromWidget();
+  /* si cette dernière ligne ne marche pas (avec ou sans le emit), il faudra trouver comment récupérer le signal
+  de modification du bouton général (windowIconChanged?) et le connecter au slot 
+  QgsCategorizedSymbolRendererWidget::updateSymbolsFromWidget
+  */
 }
 
 void QgsCategorizedSymbolRendererWidget::updateCategorizedSymbolIcon()
