@@ -33,7 +33,7 @@
 #include <QDesktopWidget>
 #include <QTranslator>
 #include <QImageReader>
-#include <QMessageBox>
+//#include <QMessageBox>
 
 #include <cstdio>
 #include <stdio.h>

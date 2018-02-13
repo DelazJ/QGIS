@@ -31,7 +31,7 @@
 #include "qgslayoutundostack.h"
 #include "qgslayoutatlas.h"
 #include <QMenu>
-#include <QMessageBox>
+//#include <QMessageBox>
 
 QgsLayoutMapWidget::QgsLayoutMapWidget( QgsLayoutItemMap *item )
   : QgsLayoutItemBaseWidget( nullptr, item )

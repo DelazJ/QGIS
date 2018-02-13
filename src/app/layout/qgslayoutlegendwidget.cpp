@@ -37,7 +37,6 @@
 #include "qgslayoutitemlegend.h"
 #include "qgslayoutatlas.h"
 
-#include <QMessageBox>
 #include <QInputDialog>
 
 
