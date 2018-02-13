@@ -30,6 +30,7 @@
 #include "qgspanelwidget.h"
 #include "qgsmapcanvas.h"
 #include "qgssettings.h"
+#include "qgshelp.h"
 
 #include <QKeyEvent>
 #include <QMenu>
@@ -698,7 +699,23 @@ QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Ru
   layout->addWidget( scrollArea );
 
   buttonBox = new QDialogButtonBox( QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok );
+  //this->setLayout( new QVBoxLayout() );
+
+  /*   QVBoxLayout *vLayout = new QVBoxLayout;
+    mPropsWidget = new QgsRendererRulePropsWidget( rule, layer, style, this, context );
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox( QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok );
+    connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsRendererRulePropsDialog::accept );
+    connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
+    connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsRendererRulePropsDialog::showHelp );
+
+    vLayout->addWidget( mPropsWidget );
+    vLayout->addWidget( buttonBox );
+    this->setLayout( vLayout ); */
+
+  //setLayout( new QVBoxLayout() );
   mPropsWidget = new QgsRendererRulePropsWidget( rule, layer, style, this, context );
+  QDialogButtonBox *mButtonBox = new QDialogButtonBox( QDialogButtonBox::Cancel | QDialogButtonBox::Help | QDialogButtonBox::Ok );
 
   scrollArea->setWidget( mPropsWidget );
   layout->addWidget( buttonBox );
@@ -708,8 +725,79 @@ QgsRendererRulePropsDialog::QgsRendererRulePropsDialog( QgsRuleBasedRenderer::Ru
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
   connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsRendererRulePropsDialog::showHelp );
 
+  //layout()->addWidget( mPropsWidget );
+  //layout()->addWidget( mButtonBox );
+
   QgsSettings settings;
-  restoreGeometry( settings.value( QStringLiteral( "Windows/QgsRendererRulePropsDialog/geometry" ) ).toByteArray() );
+  restoreGeometry( settings.value( QStringLiteral( "Windows/SymbolSelectorWidget/geometry" ) ).toByteArray() );
+
+  // can be embedded in renderer properties dialog
+  /*   if ( embedded )
+    {
+      mButtonBox->hide();
+      layout()->setContentsMargins( 0, 0, 0, 0 );
+    }
+    else
+    {
+      setWindowTitle( tr( "Symbol Selector" ) );
+    }
+    mPropsWidget->setDockMode( embedded );
+   */
+
+
+  //this->layout()->addWidget( mPropsWidget );
+  //this->layout()->addWidget( buttonBox );
+
+
+
+  /* QgsVScrollArea *scrollArea = new QgsVScrollArea( this );
+  scrollArea->setWidget( mPropsWidget );
+  scrollArea->setWidgetResizable( true );
+  //scrollArea->setFrameShape( QFrame::NoFrame );
+  scrollArea->setFrameShadow( QFrame::Plain );
+  //scrollArea->setFocusProxy( this );
+  QWidget *scrollAreaContents = new QWidget( scrollArea );
+  QVBoxLayout *scrollAreaLayout = new QVBoxLayout( scrollAreaContents );
+  scrollAreaLayout->addWidget( mPropsWidget );
+
+  //this->layout()->addWidget( mPropsWidget );
+  scrollArea->setWidget( scrollAreaLayout );
+  this->layout()->addWidget( scrollArea );
+  this->layout()->addWidget( buttonBox );
+
+    QDialog dialog( this );
+    dialog.setWindowTitle( tr( "Set Error Resolutions" ) );
+
+    QVBoxLayout *layout = new QVBoxLayout( &dialog );
+
+    QgsVScrollArea *scrollArea = new QgsVScrollArea( &dialog );
+    layout->setContentsMargins( 6, 6, 6, 6 );
+    layout->addWidget( new QLabel( tr( "Select default error resolutions:" ) ) );
+    layout->addWidget( scrollArea );
+
+    QWidget *scrollAreaContents = new QWidget( scrollArea );
+    QVBoxLayout *scrollAreaLayout = new QVBoxLayout( scrollAreaContents );
+   */
+
+  /*   Il faut ajouter un layout (quelconque) en plus pour le QGroupBox.
+    J'ai corrigé ça dans le post précédent.
+
+  Pour le détail: tu as ton QGroupBox avec un QScrollArea defilementMateriel
+  dedans, pour que defilementMateriel s'ajuste automatiquement, tu as besoin d'un
+  layout dans le QGroupBox.
+  Le QScrollArea n'accepte qu'un seul widget, qu'on fixe avec setWidget.
+  Pour ajouter plusieurs widget, on crée un widget intermédiaire scrolledWidget
+  (celui qu'on envoie à setWidget). Et dans scrolledWidget, tu ajoutes le QGridLayout
+    que tu avais déjà fait.
+
+  Les setLayout sont optionnels si tu mets les widgets comme paramètres dans les
+  constructeurs des QLayout.
+   */
+
+
+  /*   QgsSettings settings;
+    restoreGeometry( settings.value( QStringLiteral( "Windows/QgsRendererRulePropsDialog/geometry" ) ).toByteArray() );
+   */
 }
 
 QgsRendererRulePropsDialog::~QgsRendererRulePropsDialog()
@@ -738,7 +826,6 @@ void QgsRendererRulePropsDialog::showHelp()
 {
   QgsHelp::openHelp( QStringLiteral( "working_with_vector/vector_properties.html#rule-based-rendering" ) );
 }
-
 
 void QgsRendererRulePropsWidget::buildExpression()
 {

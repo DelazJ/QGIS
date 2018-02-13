@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>285</width>
-    <height>233</height>
+    <width>312</width>
+    <height>262</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,6 +29,12 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="1">
        <widget class="QgsScaleWidget" name="mComboBoxMinScale" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="focusPolicy">
          <enum>Qt::StrongFocus</enum>
         </property>
@@ -47,7 +53,7 @@
       <item row="1" column="0">
        <widget class="QCheckBox" name="mCheckBoxMinScale">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -59,6 +65,12 @@
       </item>
       <item row="3" column="1">
        <widget class="QgsScaleWidget" name="mComboBoxMaxScale" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="focusPolicy">
          <enum>Qt::StrongFocus</enum>
         </property>
@@ -67,7 +79,7 @@
       <item row="3" column="0">
        <widget class="QCheckBox" name="mCheckBoxMaxScale">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -102,7 +114,7 @@
       <item row="1" column="0">
        <widget class="QCheckBox" name="mCheckBoxMinSize">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -115,7 +127,7 @@
       <item row="2" column="0">
        <widget class="QCheckBox" name="mCheckBoxMaxSize">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -127,6 +139,12 @@
       </item>
       <item row="1" column="1">
        <widget class="QgsDoubleSpinBox" name="mSpinBoxMinSize">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="suffix">
          <string> mm</string>
         </property>
@@ -137,6 +155,12 @@
       </item>
       <item row="2" column="1">
        <widget class="QgsDoubleSpinBox" name="mSpinBoxMaxSize">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="suffix">
          <string> mm</string>
         </property>
@@ -159,14 +183,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QgsScaleWidget</class>
-   <extends>QWidget</extends>
-   <header>qgsscalewidget.h</header>
-  </customwidget>
-  <customwidget>
    <class>QgsDoubleSpinBox</class>
    <extends>QDoubleSpinBox</extends>
    <header>qgsdoublespinbox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsScaleWidget</class>
+   <extends>QWidget</extends>
+   <header>qgsscalewidget.h</header>
   </customwidget>
   <customwidget>
    <class>QgsPanelWidget</class>

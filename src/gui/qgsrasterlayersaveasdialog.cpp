@@ -142,11 +142,8 @@ QgsRasterLayerSaveAsDialog::QgsRasterLayerSaveAsDialog( QgsRasterLayer *rasterLa
   connect( mCrsSelector, &QgsProjectionSelectionWidget::crsChanged,
            this, &QgsRasterLayerSaveAsDialog::crsChanged );
 
-  QPushButton *okButton = mButtonBox->button( QDialogButtonBox::Ok );
-  if ( okButton )
-  {
-    okButton->setEnabled( false );
-  }
+  mButtonBox->button( QDialogButtonBox::Ok )->setEnabled( false );
+
 
   connect( mButtonBox, &QDialogButtonBox::helpRequested, this, &QgsRasterLayerSaveAsDialog::showHelp );
 

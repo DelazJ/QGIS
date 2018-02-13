@@ -25,6 +25,7 @@
 #include "qgsvectorlayer.h"
 #include "qgsvectorlayerlabeling.h"
 #include "qgslogger.h"
+#include "qgsgui.h"
 
 #include <QAction>
 #include <QClipboard>
@@ -58,6 +59,7 @@ QgsRuleBasedLabelingWidget::QgsRuleBasedLabelingWidget( QgsVectorLayer *layer, Q
 
 {
   setupUi( this );
+  QgsGui::instance()->enableAutoGeometryRestore( this );
 
   btnAddRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyAdd.svg" ) ) );
   btnEditRule->setIcon( QIcon( QgsApplication::iconPath( "symbologyEdit.svg" ) ) );
@@ -584,6 +586,7 @@ QgsLabelingRulePropsWidget::QgsLabelingRulePropsWidget( QgsRuleBasedLabeling::Ru
   , mMapCanvas( mapCanvas )
 {
   setupUi( this );
+  QgsGui::instance()->enableAutoGeometryRestore( this );
 
   mElseRadio->setChecked( mRule->isElse() );
   mFilterRadio->setChecked( !mRule->isElse() );

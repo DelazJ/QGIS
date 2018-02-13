@@ -570,7 +570,7 @@
                     <property name="syncGroup" stdset="0">
                      <string notr="true">labelrenderinggroup</string>
                     </property>
-                    <layout class="QGridLayout" name="gridLayout_7" rowstretch="0,0">                        
+                    <layout class="QGridLayout" name="gridLayout_7" rowstretch="0,0">
                      <item row="0" column="0">
                       <widget class="QLabel" name="mOpacityLabel">
                        <property name="minimumSize">
