@@ -68,10 +68,17 @@
     <addaction name="mActionRasterProperties"/>
     <addaction name="mActionGeorefConfig"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="mActionHelp"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
    <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBarFile">
@@ -175,6 +182,18 @@
    </attribute>
    <addaction name="mActionFullHistogramStretch"/>
    <addaction name="mActionLocalHistogramStretch"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarHelp">
+   <property name="windowTitle">
+    <string>Help</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="mActionHelp"/>
   </widget>
   <action name="mActionOpenRaster">
    <property name="text">
@@ -374,6 +393,11 @@
   <action name="mActionFullHistogramStretch">
    <property name="text">
     <string>Full Histogram Stretch</string>
+   </property>
+  </action>
+  <action name="mActionHelp">
+   <property name="text">
+    <string>Help</string>
    </property>
   </action>
   <action name="mActionReset">
