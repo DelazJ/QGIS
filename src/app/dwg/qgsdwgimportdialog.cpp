@@ -78,7 +78,26 @@ QgsDwgImportDialog::QgsDwgImportDialog( QWidget *parent, Qt::WindowFlags f )
   connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsDwgImportDialog::showHelp );
 
   QgsSettings s;
-  leDatabase->setText( s.value( QStringLiteral( "/DwgImport/lastDatabase" ), "" ).toString() );
+
+  mDatabase->setStorageMode( QgsFileWidget::SaveFile );
+  mDatabase->setFilter( tr( "GeoPackage" ) + " (*.gpkg)" );
+  mDatabase->setDialogTitle( tr( "Select Existing or Create a New GeoPackage Database File…" ) );
+  mDatabase->setDefaultRoot( s.value( QStringLiteral( "/DwgImport/lastDatabase" ), QDir::homePath() ).toString() );
+  mDatabase->setConfirmOverwrite( false );
+  connect( mDatabase, &QgsFileWidget::fileChanged, this, [ = ]( const QString & filePath )
+  {
+    QgsSettings s;
+    QFileInfo tmplFileInfo( filePath );
+    s.setValue( QStringLiteral( "/DwgImport/lastDatabase" ), tmplFileInfo.absolutePath() );
+    if ( !filePath.isEmpty() )
+    {
+      QFileInfo fileInfo( filePath );
+      //mTableNameEdit->setText( fileInfo.baseName() );
+    }
+  } );
+
+  QString fileName( mDatabase->filePath() );
+  fileName->setText( s.value( QStringLiteral( "/DwgImport/lastDatabase" ), "" ).toString() );
   cbExpandInserts->setChecked( s.value( QStringLiteral( "/DwgImport/lastExpandInserts" ), true ).toBool() );
   cbMergeLayers->setChecked( s.value( QStringLiteral( "/DwgImport/lastMergeLayers" ), false ).toBool() );
   cbUseCurves->setChecked( s.value( QStringLiteral( "/DwgImport/lastUseCurves" ), true ).toBool() );
@@ -113,6 +132,15 @@ void QgsDwgImportDialog::updateUI()
   bool dbAvailable = false;
   bool dbReadable = false;
   bool dwgReadable = false;
+
+  QString fileName( mDatabase->filePath() );
+  if ( !fileName.isEmpty() )
+  {
+    QFileInfo fi( leDatabase->text() );
+    dbAvailable = fi.exists() ? fi.isWritable() : QFileInfo( fi.path() ).isWritable();
+    dbReadable = fi.exists() && fi.isReadable();
+  }
+
 
   if ( !leDatabase->text().isEmpty() )
   {
