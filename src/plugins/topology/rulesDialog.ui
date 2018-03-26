@@ -157,6 +157,7 @@
   <tabstop>mLayer2Box</tabstop>
   <tabstop>mToleranceBox</tabstop>
   <tabstop>mAddTestButton</tabstop>
+  <tabstop>mDeleteTestButton</tabstop>
   <tabstop>mRulesTable</tabstop>
  </tabstops>
  <resources/>
