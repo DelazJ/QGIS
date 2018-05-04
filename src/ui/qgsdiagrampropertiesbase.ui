@@ -2076,9 +2076,23 @@
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_5">
                     <item>
-                     <widget class="QPushButton" name="mButtonSizeLegendSettings">
+                     <widget class="QCheckBox" name="mCheckBoxSizeLegend">
                       <property name="text">
-                       <string>Legend entries for diagram size...</string>
+                       <string>Show legend entries for diagram size</string>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="mButtonSizeLegendSettings">
+                      <property name="icon">
+                       <iconset resource="../../images/images.qrc">
+                        <normaloff>:/images/themes/default/mIconDiagramLegend.svg</normaloff>:/images/themes/default/mIconDiagramLegend.svg</iconset>
+                      </property>
+                      <property name="toolTip">
+                       <string>Customize diagram size...</string>
                       </property>
                      </widget>
                     </item>
@@ -2257,32 +2271,10 @@
   <tabstop>mOrientationLeftButton</tabstop>
   <tabstop>scrollArea_2</tabstop>
   <tabstop>mCheckBoxAttributeLegend</tabstop>
+  <tabstop>mCheckBoxSizeLegend</tabstop>
   <tabstop>mButtonSizeLegendSettings</tabstop>
  </tabstops>
  <resources>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
-  <include location="../../images/images.qrc"/>
   <include location="../../images/images.qrc"/>
  </resources>
  <connections>
