@@ -17,30 +17,6 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QRadioButton" name="radDisabled">
-       <property name="text">
-        <string>Legend not enabled</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radSeparated">
-       <property name="text">
-        <string>Separated legend items</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radCollapsed">
-       <property name="text">
-        <string>Collapsed legend</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="btnChangeSymbol">
        <property name="text">
         <string>Legend symbol...</string>
@@ -117,17 +93,50 @@
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
-        <string>Options (collapsed only)</string>
+        <string>Legend appearance</string>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" colspan="3">
+         <widget class="QRadioButton" name="radSeparated">
+          <property name="text">
+           <string>Separated legend items</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="3">
+         <widget class="QRadioButton" name="radCollapsed">
+          <property name="text">
+           <string>Collapsed legend</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>15</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
          <widget class="QLabel" name="label">
           <property name="text">
            <string>Align symbols</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="2" column="2">
          <widget class="QComboBox" name="cboAlignSymbols">
           <item>
            <property name="text">
@@ -162,15 +171,14 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>radDisabled</tabstop>
-  <tabstop>radSeparated</tabstop>
-  <tabstop>radCollapsed</tabstop>
   <tabstop>btnChangeSymbol</tabstop>
   <tabstop>editTitle</tabstop>
   <tabstop>groupManualSizeClasses</tabstop>
   <tabstop>btnAddClass</tabstop>
   <tabstop>btnRemoveClass</tabstop>
   <tabstop>viewSizeClasses</tabstop>
+  <tabstop>radSeparated</tabstop>
+  <tabstop>radCollapsed</tabstop>
   <tabstop>cboAlignSymbols</tabstop>
   <tabstop>viewLayerTree</tabstop>
  </tabstops>
