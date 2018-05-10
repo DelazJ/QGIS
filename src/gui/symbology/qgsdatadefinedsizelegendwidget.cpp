@@ -42,7 +42,9 @@ QgsDataDefinedSizeLegendWidget::QgsDataDefinedSizeLegendWidget( const QgsDataDef
 
   if ( !ddsLegend )
   {
-    radDisabled->setChecked( true );
+    //radDisabled->setChecked( true );
+    return;
+
   }
   else
   {
@@ -114,6 +116,7 @@ QgsDataDefinedSizeLegendWidget::QgsDataDefinedSizeLegendWidget( const QgsDataDef
   connect( radDisabled, &QRadioButton::clicked, this, &QgsPanelWidget::widgetChanged );
   connect( radSeparated, &QRadioButton::clicked, this, &QgsPanelWidget::widgetChanged );
   connect( radCollapsed, &QRadioButton::clicked, this, &QgsPanelWidget::widgetChanged );
+  connect( radCollapsed, &QRadioButton::toggled, this, &QgsDataDefinedSizeLegendWidget::widgetChanged );
   connect( groupManualSizeClasses, &QGroupBox::clicked, this, &QgsPanelWidget::widgetChanged );
   connect( btnChangeSymbol, &QPushButton::clicked, this, &QgsDataDefinedSizeLegendWidget::changeSymbol );
   connect( editTitle, &QLineEdit::textChanged, this, &QgsPanelWidget::widgetChanged );
@@ -235,4 +238,10 @@ void QgsDataDefinedSizeLegendWidget::onSizeClassesChanged()
 
   mSizeClassesModel->sort( 0 );
   emit widgetChanged();
+}
+
+void QgsDataDefinedSizeLegendWidget::enableCboxAlignment()
+{
+  label-> setEnabled( radCollapsed ->isChecked() );
+  
 }

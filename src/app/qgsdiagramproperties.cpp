@@ -242,6 +242,7 @@ QgsDiagramProperties::QgsDiagramProperties( QgsVectorLayer *layer, QWidget *pare
     mScaleRangeWidget->setScaleRange( layer->minimumScale(), layer->maximumScale() );
     mShowAllCheckBox->setChecked( true );
     mCheckBoxAttributeLegend->setChecked( true );
+    mCheckBoxSizeLegend->setChecked( false );
 
     switch ( layerType )
     {
@@ -1020,7 +1021,8 @@ void QgsDiagramProperties::updatePlacementWidgets()
 
 void QgsDiagramProperties::scalingTypeChanged()
 {
-  mButtonSizeLegendSettings->setEnabled( mAttributeBasedScalingRadio->isChecked() );
+  //mButtonSizeLegendSettings->setEnabled( mAttributeBasedScalingRadio->isChecked() );
+  mCheckBoxSizeLegend->setEnabled( mAttributeBasedScalingRadio->isChecked() );
 }
 
 void QgsDiagramProperties::showSizeLegendDialog()
