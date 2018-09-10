@@ -54,7 +54,7 @@ class FieldsMapper(QgisFeatureBasedAlgorithm):
         return 'vectortable'
 
     def tags(self):
-        return self.tr('attributes,table').split(',')
+        return self.tr('attributes,table,edit').split(',')
 
     def initParameters(self, config=None):
         fields_mapping = FieldsMapper.ParameterFieldsMapping(self.FIELDS_MAPPING,
