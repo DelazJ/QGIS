@@ -112,6 +112,7 @@ QgsRendererPropertiesDialog::QgsRendererPropertiesDialog( QgsVectorLayer *layer,
   cboRenderers->setCurrentIndex( -1 ); // set no current renderer
 
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsRendererPropertiesDialog::onOK );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsRendererPropertiesDialog::showHelp );
 
   // connect layer opacity slider and spin box
   connect( cboRenderers, static_cast<void ( QComboBox::* )( int )>( &QComboBox::currentIndexChanged ), this, &QgsRendererPropertiesDialog::rendererChanged );
@@ -301,6 +302,11 @@ void QgsRendererPropertiesDialog::onOK()
 {
   apply();
   accept();
+}
+
+void QgsRendererPropertiesDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "working_with_vector/vector_properties.html#features-rendering" ) );
 }
 
 void QgsRendererPropertiesDialog::openPanel( QgsPanelWidget *panel )

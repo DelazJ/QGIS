@@ -86,7 +86,7 @@ class GUI_EXPORT QgsRendererPropertiesDialog : public QDialog, private Ui::QgsRe
     void widgetChanged();
 
     /**
-     * Emit when you require a panel to be show in the interface.
+     * Emitted when you require a panel to be shown in the interface.
      * \param panel The panel widget to show.
      * \note If you are connected to this signal you should also connect
      * given panels showPanel signal as they can be nested.
@@ -97,14 +97,14 @@ class GUI_EXPORT QgsRendererPropertiesDialog : public QDialog, private Ui::QgsRe
     //! called when user changes renderer type
     void rendererChanged();
 
-    //! Apply the changes from the dialog to the layer.
+    //! Applies the changes from the dialog to the layer.
     void apply();
 
-    //! Apply and accept the changes for the dialog.
+    //! Applies and accepts the changes for the dialog.
     void onOK();
 
     /**
-     * Open a panel or dialog depending on dock mode setting
+     * Opens a panel or dialog depending on dock mode setting
      * If dock mode is true this method will emit the showPanel signal
      * for connected slots to handle the open event.
      *
@@ -124,6 +124,9 @@ class GUI_EXPORT QgsRendererPropertiesDialog : public QDialog, private Ui::QgsRe
     void updateUIState( bool hidden );
 
     void syncToLayer();
+    
+    //! Opens the help file.
+    void showHelp();
 
   protected:
 
