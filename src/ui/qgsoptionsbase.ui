@@ -4199,8 +4199,21 @@ The bigger the number, the faster zooming with the mouse wheel will be.</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="2">
-                   <widget class="QgsColorButton" name="mSnappingMarkerColorButton"/>
+                  <item row="5" column="2" colspan="2">
+                   <widget class="QgsColorButton" name="mSnappingMarkerColorButton">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>120</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
                   </item>
                   <item row="6" column="0" colspan="4">
                    <widget class="QCheckBox" name="mSnappingTooltipsCheckbox">
