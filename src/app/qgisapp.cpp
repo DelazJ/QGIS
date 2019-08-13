@@ -3217,6 +3217,7 @@ void QgisApp::createStatusBar()
   locatorShortCut->setObjectName( QStringLiteral( "Locator" ) );
   locatorShortCut->setWhatsThis( tr( "Trigger Locator" ) );
 
+  mLocatorWidget->setObjectName( QStringLiteral( "LocatorBar" ) );
   mLocatorWidget->locator()->registerFilter( new QgsLayerTreeLocatorFilter() );
   mLocatorWidget->locator()->registerFilter( new QgsLayoutLocatorFilter() );
   QList< QWidget *> actionObjects;
