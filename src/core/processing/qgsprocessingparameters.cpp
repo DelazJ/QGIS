@@ -5580,13 +5580,73 @@ QgsProcessingParameterScale *QgsProcessingParameterScale::fromScriptCode( const 
 // QgsProcessingParameterLayout
 //
 
-QgsProcessingParameterLayout::QgsProcessingParameterLayout( const QString &name, const QString &description, const QVariant &defaultValue, bool optional )
+QgsProcessingParameterLayout::QgsProcessingParameterLayout( const QString &name, const QString &description, bool allowMultiple, const QVariant &defaultValue, bool optional )
   : QgsProcessingParameterDefinition( name, description, defaultValue, optional )
+  , mAllowMultiple( allowMultiple )
 {}
 
 QgsProcessingParameterDefinition *QgsProcessingParameterLayout::clone() const
 {
   return new QgsProcessingParameterLayout( *this );
+}
+
+bool QgsProcessingParameterLayout::allowMultiple() const
+{
+  return mAllowMultiple;
+}
+
+void QgsProcessingParameterLayout::setAllowMultiple( bool allowMultiple )
+{
+  mAllowMultiple = allowMultiple;
+}
+
+bool QgsProcessingParameterLayout::checkValueIsAcceptable( const QVariant &input, QgsProcessingContext * ) const
+{
+  if ( !input.isValid() )
+    return mFlags & FlagOptional;
+
+  if ( input.canConvert<QgsProperty>() )
+  {
+    return true;
+  }
+
+  if ( input.type() == QVariant::List || input.type() == QVariant::StringList )
+  {
+    if ( !mAllowMultiple )
+      return false;
+
+    if ( input.toList().isEmpty() && !( mFlags & FlagOptional ) )
+      return false;
+  }
+  else if ( input.type() == QVariant::String )
+  {
+    if ( input.toString().isEmpty() )
+      return mFlags & FlagOptional;
+
+    QStringList parts = input.toString().split( ';' );
+    if ( parts.count() > 1 && !mAllowMultiple )
+      return false;
+  }
+  else
+  {
+    if ( input.toString().isEmpty() )
+      return mFlags & FlagOptional;
+  }
+  return true;
+}
+
+QVariantMap QgsProcessingParameterLayout::toVariantMap() const
+{
+  QVariantMap map = QgsProcessingParameterDefinition::toVariantMap();
+  map.insert( QStringLiteral( "allow_multiple" ), mAllowMultiple );
+  return map;
+}
+
+bool QgsProcessingParameterLayout::fromVariantMap( const QVariantMap &map )
+{
+  QgsProcessingParameterDefinition::fromVariantMap( map );
+  mAllowMultiple = map.value( QStringLiteral( "allow_multiple" ) ).toBool();
+  return true;
 }
 
 QString QgsProcessingParameterLayout::valueAsPythonString( const QVariant &value, QgsProcessingContext & ) const
@@ -5608,6 +5668,9 @@ QString QgsProcessingParameterLayout::asScriptCode() const
     code += QStringLiteral( "optional " );
   code += QStringLiteral( "layout " );
 
+  if ( mAllowMultiple )
+    code += QStringLiteral( "multiple " );
+
   code += mDefault.toString();
   return code.trimmed();
 }
@@ -5621,6 +5684,9 @@ QString QgsProcessingParameterLayout::asPythonString( const QgsProcessing::Pytho
       QString code = QStringLiteral( "QgsProcessingParameterLayout('%1', '%2'" ).arg( name(), description() );
       if ( mFlags & FlagOptional )
         code += QStringLiteral( ", optional=True" );
+
+      code += QStringLiteral( ", allowMultiple=%1" ).arg( mAllowMultiple ? QStringLiteral( "True" ) : QStringLiteral( "False" ) );
+
       QgsProcessingContext c;
       code += QStringLiteral( ", defaultValue=%1)" ).arg( valueAsPythonString( mDefault, c ) );
       return code;
@@ -5632,6 +5698,13 @@ QString QgsProcessingParameterLayout::asPythonString( const QgsProcessing::Pytho
 QgsProcessingParameterLayout *QgsProcessingParameterLayout::fromScriptCode( const QString &name, const QString &description, bool isOptional, const QString &definition )
 {
   QString def = definition;
+  bool allowMultiple = false;
+
+  if ( def.startsWith( QLatin1String( "multiple" ), Qt::CaseInsensitive ) )
+  {
+    allowMultiple = true;
+    def = def.mid( 8 ).trimmed();
+  }
 
   if ( def.startsWith( '"' ) || def.startsWith( '\'' ) )
     def = def.mid( 1 );
@@ -5642,7 +5715,7 @@ QgsProcessingParameterLayout *QgsProcessingParameterLayout::fromScriptCode( cons
   if ( def == QStringLiteral( "None" ) )
     defaultValue = QVariant();
 
-  return new QgsProcessingParameterLayout( name, description, defaultValue, isOptional );
+  return new QgsProcessingParameterLayout( name, description, allowMultiple, defaultValue, isOptional );
 }
 
 
