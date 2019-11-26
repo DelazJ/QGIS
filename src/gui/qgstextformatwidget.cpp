@@ -539,7 +539,7 @@ void QgsTextFormatWidget::setWidgetMode( QgsTextFormatWidget::Mode mode )
       mOptionsTab->removeTab( 8 );
       mOptionsTab->removeTab( 7 );
       mOptionsTab->removeTab( 6 );
-      mOptionsTab->removeTab( 5 );
+      mOptionsTab->removeTab( 3 );
 
       frameLabelWith->hide();
       mDirectSymbolsFrame->hide();
