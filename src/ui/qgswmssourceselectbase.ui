@@ -247,7 +247,11 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QLineEdit" name="mTileWidth"/>
+           <widget class="QLineEdit" name="mTileWidth">
+            <property name="toolTip">
+             <string>Tile width</string>
+            </property>
+           </widget>
           </item>
           <item row="3" column="2">
            <widget class="QLineEdit" name="mFeatureCount">
@@ -277,7 +281,11 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QLineEdit" name="mTileHeight"/>
+           <widget class="QLineEdit" name="mTileHeight">
+            <property name="toolTip">
+             <string>Tile height</string>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="label_4">
@@ -290,10 +298,18 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="mStepWidth"/>
+           <widget class="QLineEdit" name="mStepWidth">
+            <property name="toolTip">
+             <string>Step width</string>
+            </property>
+           </widget>
           </item>
           <item row="2" column="2">
-           <widget class="QLineEdit" name="mStepHeight"/>
+           <widget class="QLineEdit" name="mStepHeight">
+            <property name="toolTip">
+             <string>Step height</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
