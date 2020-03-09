@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>774</width>
-    <height>593</height>
+    <width>315</width>
+    <height>274</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,6 +59,9 @@
       <bool>false</bool>
      </property>
      <widget class="QWidget" name="mActiveDatasetTab">
+      <property name="toolTip">
+       <string>Datasets</string>
+      </property>
       <attribute name="icon">
        <iconset>
         <normaloff>:/images/themes/default/propertyicons/general.svg</normaloff>:/images/themes/default/propertyicons/general.svg</iconset>
@@ -131,6 +134,9 @@
       </layout>
      </widget>
      <widget class="QWidget" name="mContoursTab">
+      <property name="toolTip">
+       <string>Contours</string>
+      </property>
       <attribute name="icon">
        <iconset>
         <normaloff>:/images/themes/default/propertyicons/meshcontours.svg</normaloff>:/images/themes/default/propertyicons/meshcontours.svg</iconset>
@@ -182,6 +188,9 @@
       </layout>
      </widget>
      <widget class="QWidget" name="mVectorsTab">
+      <property name="toolTip">
+       <string>Vectors</string>
+      </property>
       <attribute name="icon">
        <iconset>
         <normaloff>:/images/themes/default/propertyicons/meshvectors.svg</normaloff>:/images/themes/default/propertyicons/meshvectors.svg</iconset>
@@ -240,6 +249,9 @@
       </layout>
      </widget>
      <widget class="QWidget" name="mMeshTab">
+      <property name="toolTip">
+       <string>Mesh</string>
+      </property>
       <attribute name="icon">
        <iconset>
         <normaloff>:/images/themes/default/propertyicons/meshframe.svg</normaloff>:/images/themes/default/propertyicons/meshframe.svg</iconset>
@@ -378,6 +390,9 @@
       </layout>
      </widget>
      <widget class="QWidget" name="mAveragingTab">
+      <property name="toolTip">
+       <string>Averaging</string>
+      </property>
       <attribute name="icon">
        <iconset>
         <normaloff>:/images/themes/default/propertyicons/meshaveraging.svg</normaloff>:/images/themes/default/propertyicons/meshaveraging.svg</iconset>
