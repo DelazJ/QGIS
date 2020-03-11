@@ -70,6 +70,7 @@ QgsMeshLayerProperties::QgsMeshLayerProperties( QgsMapLayer *lyr, QgsMapCanvas *
 
   mOptsPage_3DView->setLayout( new QVBoxLayout( mOptsPage_3DView ) );
   mOptsPage_3DView->layout()->addWidget( mMesh3DWidget );
+  mOptsPage_3DView->layout()->setContentsMargins( 0, 0, 0, 0 );
 #else
   delete mOptsPage_3DView;  // removes both the "3d view" list item and its page
 #endif
