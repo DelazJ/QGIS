@@ -33,11 +33,11 @@ QgsMeshLayer3DRendererWidget::QgsMeshLayer3DRendererWidget( QgsMeshLayer *layer,
   layout->setContentsMargins( 0, 0, 0, 0 );
   mChkEnabled = new QCheckBox( tr( "Enable 3D Renderer" ), this );
   layout->addWidget( mChkEnabled );
-  mWidgetMesh->setEnabled( false );
 
   mWidgetMesh = new QgsMesh3dSymbolWidget( layer, this );
   mWidgetMesh->configureForDataset();
   layout->addWidget( mWidgetMesh );
+  mWidgetMesh->setEnabled( false );
 
   connect( mChkEnabled, &QCheckBox::clicked, this, &QgsMeshLayer3DRendererWidget::onEnabledClicked );
   connect( mWidgetMesh, &QgsMesh3dSymbolWidget::changed, this, &QgsMeshLayer3DRendererWidget::widgetChanged );
