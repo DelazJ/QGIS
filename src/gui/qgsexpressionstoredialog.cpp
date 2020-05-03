@@ -14,6 +14,7 @@
  ***************************************************************************/
 
 #include "qgsexpressionstoredialog.h"
+#include "qgshelp.h"
 #include <QPushButton>
 #include <QStyle>
 
@@ -26,6 +27,11 @@ QgsExpressionStoreDialog::QgsExpressionStoreDialog( const QString &label, const 
   mHelpText->setText( helpText );
   connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsExpressionStoreDialog::accept );
   connect( buttonBox, &QDialogButtonBox::rejected, this, &QgsExpressionStoreDialog::reject );
+  connect( buttonBox, &QDialogButtonBox::helpRequested,  this, [ = ]
+  {
+     QgsHelp::openHelp( QStringLiteral( "working_with_vector/expression.html#user-expressions" ) );
+  });
+
   mValidationError->hide();
   mValidationError->setStyleSheet( QStringLiteral( "QLabel { color : red; }" ) );
   QPushButton *saveBtn { buttonBox->button( QDialogButtonBox::StandardButton::Save ) };
