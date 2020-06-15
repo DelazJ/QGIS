@@ -44,12 +44,12 @@
     </widget>
     <widget class="QMenu" name="mProjectToStorageMenu">
      <property name="title">
-      <string>Save To</string>
+      <string>Save to</string>
      </property>
     </widget>
     <widget class="QMenu" name="mProjectFromStorageMenu">
      <property name="title">
-      <string>Open From</string>
+      <string>Open from</string>
      </property>
     </widget>
     <widget class="QMenu" name="menuImport_Export">
@@ -304,7 +304,7 @@
     </widget>
     <widget class="QMenu" name="mMenuPasteAs">
      <property name="title">
-      <string>Paste Features As</string>
+      <string>Paste Features as</string>
      </property>
      <addaction name="mActionPasteAsNewVector"/>
      <addaction name="mActionPasteAsNewMemoryVector"/>
@@ -790,7 +790,7 @@
     <string>Save &amp;As…</string>
    </property>
    <property name="toolTip">
-    <string>Save Project As</string>
+    <string>Save Project as</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
@@ -1652,10 +1652,10 @@
   </action>
   <action name="mActionLayerSaveAs">
    <property name="text">
-    <string>&amp;Save As…</string>
+    <string>&amp;Save as…</string>
    </property>
    <property name="toolTip">
-    <string>Save Layer As</string>
+    <string>Save Layer as</string>
    </property>
   </action>
   <action name="mActionRemoveLayer">
@@ -2600,7 +2600,7 @@ Acts on the currently active layer only.</string>
   </action>
   <action name="mActionSaveLayerDefinition">
    <property name="text">
-    <string>Save As Layer Definition File…</string>
+    <string>Save as Layer Definition File…</string>
    </property>
   </action>
   <action name="mActionPreviewModeOff">
