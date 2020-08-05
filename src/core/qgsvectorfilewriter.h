@@ -298,7 +298,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param attributes attributes to export (empty means all unless skipAttributeCreation is set)
      * \param fieldValueConverter field value converter (added in QGIS 2.16)
      * \param newLayer QString pointer which will contain the new layer name created (in case it is different to the provided layer name) (added in QGIS 3.4, not available in python)
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #else
 
@@ -324,7 +324,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param includeZ set to TRUE to include z dimension in output. This option is only valid if overrideGeometryType is set. (added in QGIS 2.14)
      * \param attributes attributes to export (empty means all unless skipAttributeCreation is set)
      * \param fieldValueConverter field value converter (added in QGIS 2.16)
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #endif
     Q_DECL_DEPRECATED static QgsVectorFileWriter::WriterError writeAsVectorFormat( QgsVectorLayer *layer,
@@ -379,7 +379,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param fieldValueConverter field value converter (added in QGIS 2.16)
      * \param newLayer QString pointer which will contain the new layer name created (in case it is different to the provided layer name) (added in QGIS 3.4, not available in python)
      * \since QGIS 2.2
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #else
 
@@ -407,7 +407,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param attributes attributes to export (empty means all unless skipAttributeCreation is set)
      * \param fieldValueConverter field value converter (added in QGIS 2.16)
      * \since QGIS 2.2
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #endif
     Q_DECL_DEPRECATED static QgsVectorFileWriter::WriterError writeAsVectorFormat( QgsVectorLayer *layer,
@@ -523,7 +523,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param errorMessage will be set to the error message text, if an error occurs while writing the layer
      * \param newLayer QString pointer which will contain the new layer name created (in case it is different to the provided layer name) (added in QGIS 3.4, not available in python)
      * \since QGIS 3.0
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #else
 
@@ -535,7 +535,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param newFilename QString pointer which will contain the new file name created (in case it is different to fileName).
      * \param errorMessage will be set to the error message text, if an error occurs while writing the layer
      * \since QGIS 3.0
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
 #endif
     Q_DECL_DEPRECATED static QgsVectorFileWriter::WriterError writeAsVectorFormat( QgsVectorLayer *layer,
@@ -551,7 +551,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
 
     /**
      * Create a new vector file writer
-     * \deprecated Use create() instead.
+     * \deprecated 3.10.3 Use create() instead.
      */
     Q_DECL_DEPRECATED QgsVectorFileWriter( const QString &vectorFileName,
                                            const QString &fileEncoding,
@@ -589,7 +589,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
      * \param transformContext transform context, needed if the output file srs is forced to specific crs (added in QGIS 3.10.3)
      * \param sinkFlags feature sink flags (added in QGIS 3.10.3)
      * \note not available in Python bindings
-     * \deprecated Use create() instead.
+     * \deprecated 3.10.3 Use create() instead.
      */
     Q_DECL_DEPRECATED QgsVectorFileWriter( const QString &vectorFileName,
                                            const QString &fileEncoding,
@@ -947,7 +947,7 @@ class CORE_EXPORT QgsVectorFileWriter : public QgsFeatureSink
     /**
      * Writes a previously prepared PreparedWriterDetails \a details object.
      * This is safe to call in a background thread.
-     * \deprecated Use writeAsVectorFormatV2() instead.
+     * \deprecated 3.10.3 Use writeAsVectorFormatV2() instead.
      */
     Q_DECL_DEPRECATED static QgsVectorFileWriter::WriterError writeAsVectorFormat( PreparedWriterDetails &details,
         const QString &fileName,

@@ -31,7 +31,7 @@ Constructor for QgsFieldConditionalFormatWidget.
 Switches the widget to the rules page.
 
 .. deprecated::
-   no longer used, will be removed in QGIS 4.0
+   3.10 no longer used, will be removed in QGIS 4.0
 %End
 
     void setLayer( QgsVectorLayer *layer );
@@ -51,7 +51,7 @@ and ``style`` is the initial definition of the style.
 %Docstring
 
 .. deprecated::
-   no longer used, use QgsEditConditionalFormatRuleWidget.loadStyle instead.
+   3.10 no longer used, use QgsEditConditionalFormatRuleWidget.loadStyle instead.
 %End
 
  void reset() /Deprecated/;
@@ -59,7 +59,7 @@ and ``style`` is the initial definition of the style.
 Resets the formatting options to their default state.
 
 .. deprecated::
-   no longer used, will be removed in QGIS 4.0
+   3.10 no longer used, will be removed in QGIS 4.0
 %End
 
     void setPresets( const QList<QgsConditionalStyle> &styles );

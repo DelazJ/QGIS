@@ -80,15 +80,15 @@ Returns the current layer or a None.
  void loadFieldNames();
 %Docstring
 
-.. deprecated:: QGIS 3.14
-   this is now done automatically
+.. deprecated::
+   3.14 this is now done automatically
 %End
 
  void loadFieldNames( const QgsFields &fields );
 %Docstring
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->loadFieldNames() instead
+.. deprecated::
+   3.14 use expressionTree()->loadFieldNames() instead
 %End
 
  void loadFieldsAndValues( const QMap<QString, QStringList> &fieldValues ) /Deprecated/;
@@ -97,8 +97,8 @@ Loads field names and values from the specified map.
 
 .. versionadded:: 2.12
 
-.. deprecated:: QGIS 3.14
-   this will not do anything, use setLayer() instead
+.. deprecated::
+   3.14 this will not do anything, use setLayer() instead
 %End
 
     void setGeomCalculator( const QgsDistanceArea &da );
@@ -170,8 +170,8 @@ Returns if the expression is valid
 Adds the current expression to the given ``collection``.
 By default it is saved to the collection "generic".
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->saveRecent() instead
+.. deprecated::
+   3.14 use expressionTree()->saveRecent() instead
 %End
 
  void loadRecent( const QString &collection = QStringLiteral( "generic" ) )/Deprecated/;
@@ -179,8 +179,8 @@ By default it is saved to the collection "generic".
 Loads the recent expressions from the given ``collection``.
 By default it is loaded from the collection "generic".
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->loadRecent() instead
+.. deprecated::
+   3.14 use expressionTree()->loadRecent() instead
 %End
 
     QgsExpressionTreeView *expressionTree() const;
@@ -194,8 +194,8 @@ Returns the expression tree
 %Docstring
 Loads the user expressions.
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->loadUserExpressions() instead
+.. deprecated::
+   3.14 use expressionTree()->loadUserExpressions() instead
 
 .. versionadded:: 3.12
 %End
@@ -204,8 +204,8 @@ Loads the user expressions.
 %Docstring
 Stores the user ``expression`` with given ``label`` and ``helpText``.
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->saveToUserExpressions() instead
+.. deprecated::
+   3.14 use expressionTree()->saveToUserExpressions() instead
 
 .. versionadded:: 3.12
 %End
@@ -214,8 +214,8 @@ Stores the user ``expression`` with given ``label`` and ``helpText``.
 %Docstring
 Removes the expression ``label`` from the user stored expressions.
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->removeFromUserExpressions() instead
+.. deprecated::
+   3.14 use expressionTree()->removeFromUserExpressions() instead
 
 .. versionadded:: 3.12
 %End
@@ -252,7 +252,8 @@ This method is exposed for testing purposes only - it should not be used to modi
 
 .. versionadded:: 3.0
 
-.. deprecated:: QGIS 3.14
+.. deprecated::
+   3.14
 %End
 
     QgsProject *project();
@@ -366,8 +367,8 @@ Returns the list of expression items matching a ``label``.
 
 .. versionadded:: 3.12
 
-.. deprecated:: QGIS 3.14
-   use expressionTree()->findExpressions instead
+.. deprecated::
+   3.14 use expressionTree()->findExpressions instead
 %End
 
 

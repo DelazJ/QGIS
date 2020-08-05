@@ -159,14 +159,14 @@ class CORE_EXPORT QgsAnnotation : public QObject
     /**
      * Sets the annotation's frame's offset (in pixels) from the mapPosition() reference point.
      * \see frameOffsetFromReferencePoint()
-     * \deprecated use setFrameOffsetFromReferencePointMm() instead
+     * \deprecated 3.4.8 Use setFrameOffsetFromReferencePointMm() instead
      */
     Q_DECL_DEPRECATED void setFrameOffsetFromReferencePoint( QPointF offset ) SIP_DEPRECATED;
 
     /**
      * Returns the annotation's frame's offset (in pixels) from the mapPosition() reference point.
      * \see setFrameOffsetFromReferencePoint()
-     * \deprecated use frameOffsetFromReferencePointMm() instead
+     * \deprecated 3.4.8 Use frameOffsetFromReferencePointMm() instead
      */
     Q_DECL_DEPRECATED QPointF frameOffsetFromReferencePoint() const SIP_DEPRECATED;
 

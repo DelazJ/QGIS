@@ -150,7 +150,7 @@ Sets the annotation's frame's offset (in pixels) from the :py:func:`~QgsAnnotati
 .. seealso:: :py:func:`frameOffsetFromReferencePoint`
 
 .. deprecated::
-   use setFrameOffsetFromReferencePointMm() instead
+   3.4.8 Use setFrameOffsetFromReferencePointMm() instead
 %End
 
  QPointF frameOffsetFromReferencePoint() const /Deprecated/;
@@ -160,7 +160,7 @@ Returns the annotation's frame's offset (in pixels) from the :py:func:`~QgsAnnot
 .. seealso:: :py:func:`setFrameOffsetFromReferencePoint`
 
 .. deprecated::
-   use frameOffsetFromReferencePointMm() instead
+   3.4.8 Use frameOffsetFromReferencePointMm() instead
 %End
 
     void setFrameOffsetFromReferencePointMm( QPointF offset );

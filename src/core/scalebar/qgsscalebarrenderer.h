@@ -182,7 +182,7 @@ class CORE_EXPORT QgsScaleBarRenderer
 
     /**
      * Returns the x-offset (in millimeters) used for the first label in the scalebar.
-     * \deprecated Use the version with QgsRenderContext instead.
+     * \deprecated 3.2 Use the version with QgsRenderContext instead.
      */
     Q_DECL_DEPRECATED double firstLabelXOffset( const QgsScaleBarSettings &settings ) const SIP_DEPRECATED;
 
@@ -194,7 +194,7 @@ class CORE_EXPORT QgsScaleBarRenderer
 
     /**
      * Returns a list of positions for each segment within the scalebar.
-     * \deprecated use the version with a QgsRenderContext instead
+     * \deprecated 3.14 use the version with a QgsRenderContext instead
      */
     Q_DECL_DEPRECATED QList<double> segmentPositions( const QgsScaleBarRenderer::ScaleBarContext &scaleContext, const QgsScaleBarSettings &settings ) const SIP_DEPRECATED;
 

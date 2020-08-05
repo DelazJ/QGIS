@@ -275,7 +275,7 @@ Write contents of vector layer to an (OGR supported) vector format
 :param fieldValueConverter: field value converter (added in QGIS 2.16)
 
 .. deprecated::
-   Use writeAsVectorFormatV2() instead.
+   3.10.3 Use writeAsVectorFormatV2() instead.
 %End
 
 
@@ -327,7 +327,7 @@ Writes a layer out to a vector file.
 .. versionadded:: 2.2
 
 .. deprecated::
-   Use writeAsVectorFormatV2() instead.
+   3.10.3 Use writeAsVectorFormatV2() instead.
 %End
 
     class SaveVectorOptions
@@ -405,7 +405,7 @@ Writes a layer out to a vector file.
 .. versionadded:: 3.0
 
 .. deprecated::
-   Use writeAsVectorFormatV2() instead.
+   3.10.3 Use writeAsVectorFormatV2() instead.
 %End
 
  QgsVectorFileWriter( const QString &vectorFileName,

@@ -132,7 +132,7 @@ class GUI_EXPORT QgsAbstractDataSourceWidget : public QDialog
     /**
      * Emitted when a progress dialog is shown by the provider dialog.
      *
-     * \deprecated Since QGIS 3.4 this signal is no longer used. Use QgsProxyProgressTask instead to show progress reports.
+     * \deprecated 3.4 this signal is no longer used. Use QgsProxyProgressTask instead to show progress reports.
      */
     Q_DECL_DEPRECATED void progress( int, int ) SIP_DEPRECATED;
 
