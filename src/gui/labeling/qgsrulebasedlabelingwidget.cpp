@@ -183,10 +183,20 @@ void QgsRuleBasedLabelingWidget::editRule( const QModelIndex &index )
   QgsRuleBasedLabeling::Rule *rule = mModel->ruleForIndex( index );
 
   QgsLabelingRulePropsWidget *widget = new QgsLabelingRulePropsWidget( rule, mLayer, this, mCanvas );
-  widget->setPanelTitle( tr( "Edit Rule" ) );
-  connect( widget, &QgsPanelWidget::panelAccepted, this, &QgsRuleBasedLabelingWidget::ruleWidgetPanelAccepted );
-  connect( widget, &QgsLabelingRulePropsWidget::widgetChanged, this, &QgsRuleBasedLabelingWidget::liveUpdateRuleFromPanel );
-  openPanel( widget );
+  QgsPanelWidget *panel = QgsPanelWidget::findParentPanel( this );
+  if ( panel && panel->dockMode() )
+  {
+    widget->setPanelTitle( tr( "Edit Rule" ) );
+    connect( widget, &QgsPanelWidget::panelAccepted, this, &QgsRuleBasedLabelingWidget::ruleWidgetPanelAccepted );
+    connect( widget, &QgsLabelingRulePropsWidget::widgetChanged, this, &QgsRuleBasedLabelingWidget::liveUpdateRuleFromPanel );
+    openPanel( widget );
+    return;
+  }
+  QgsLabelingRulePropsDialog dlg( this );
+  if ( dlg.exec() == QDialog::Accepted )
+  {
+      emit ruleWidgetPanelAccepted();
+  }
 }
 
 void QgsRuleBasedLabelingWidget::removeRule()
