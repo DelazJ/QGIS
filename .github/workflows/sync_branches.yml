@@ -28,7 +28,7 @@ on:
 jobs:
 
   sync_with_upstream:
-    name: Sync ${{ github.event.inputs.targetbranch }} branch with upstream ${{ github.event.inputs.branch }}
+    name: Sync ${{ github.event.inputs.targetbranch }} branch with upstream ${{ github.event.inputs.sourcebranch }}
     runs-on: ubuntu-latest
 
     steps:
