@@ -1,0 +1,56 @@
+name: Branches sync
+
+# on schedule and dispatch runs, the workflow will update target branch with upstream
+
+on:
+  schedule:
+    # scheduled at 16:10 every day
+    - cron:  '15 19 * * *'
+
+  workflow_dispatch:
+    inputs:
+      sourcebranch:
+        description: 'Upstream branch to fetch'     
+        required: true
+        default: 'master'
+      targetbranch:
+        description: 'Local branch to update'     
+        required: true
+        default: 'master'
+      pull_args:
+        description: 'Arguments for git pull command'     
+        required: false
+      rebase:
+        description: 'Rebase when pulling'     
+        required: false
+        default: 'false'
+        
+jobs:
+
+  sync_with_upstream:
+    name: Sync ${{ github.event.inputs.targetbranch }} branch with upstream ${{ github.event.inputs.branch }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout ${{ github.event.inputs.targetbranch }}
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.inputs.targetbranch }}
+
+    - name: Pull upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v2.3
+      with:
+        upstream_repository: qgis/QGIS
+        upstream_branch: ${{ github.event.inputs.sourcebranch }}
+        target_branch: ${{ github.event.inputs.targetbranch }}
+        git_pull_args: ${{ github.event.inputs.pull_args }}
+        git_pull_rebase_config: ${{ github.event.inputs.rebase }}
+
+    # Display a message if 'sync' step had new commits (simple test)
+    - name: Check for new commits
+      if: steps.sync.outputs.has_new_commits
+      run: echo "There were new commits in ${{ github.event.inputs.targetbranch }}."
+
+    - name: Timestamp
+      run: date
