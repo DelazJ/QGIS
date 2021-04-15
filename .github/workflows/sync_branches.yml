@@ -4,8 +4,8 @@ name: Branches sync
 
 on:
   schedule:
-    # scheduled at 16:10 every day
-    - cron:  '15 19 * * *'
+    # scheduled at friday midnight
+    - cron:  '0 0 * * 6'
 
   workflow_dispatch:
     inputs:
@@ -20,10 +20,11 @@ on:
       pull_args:
         description: 'Arguments for git pull command'     
         required: false
+        default: '--rebase'
       rebase:
         description: 'Rebase when pulling'     
         required: false
-        default: 'false'
+        default: 'true'
         
 jobs:
 
