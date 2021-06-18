@@ -297,6 +297,18 @@ QVariant QgsMapLayerStyleCategoriesModel::data( const QModelIndex &index, int ro
       }
       break;
 
+    case QgsMapLayer::StyleCategory::Masks:
+      switch ( role )
+      {
+        case Qt::DisplayRole:
+          return tr( "Masks Properties" );
+        case Qt::ToolTipRole:
+          return tr( "Masks Properties" );
+        case Qt::DecorationRole:
+          return QgsApplication::getThemeIcon( QStringLiteral( "/propertyicons/labelmask.svg" ) );
+      }
+      break;
+
     case QgsMapLayer::StyleCategory::AllStyleCategories:
       switch ( role )
       {

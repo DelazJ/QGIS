@@ -98,6 +98,7 @@ This is the base class for all map layer types (vector, raster).
       Legend,
       Elevation,
       Notes,
+      Masks,
       AllStyleCategories
     };
     typedef QFlags<QgsMapLayer::StyleCategory> StyleCategories;

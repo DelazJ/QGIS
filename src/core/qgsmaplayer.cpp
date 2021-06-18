@@ -635,6 +635,12 @@ void QgsMapLayer::writeCommonStyle( QDomElement &layerElement, QDomDocument &doc
       properties->writeXml( layerElement, document, context );
   }
 
+  /*  if ( categories.testFlag( Masks ) )
+    {
+      if ( QgsTextMaskSettings *properties = const_cast< QgsMapLayer * >( this )->elevationProperties() )
+        properties->writeXml( layerElement, document, context );
+    }
+  */
   if ( categories.testFlag( Notes ) && QgsLayerNotesUtils::layerHasNotes( this ) )
   {
     QDomElement notesElem = document.createElement( QStringLiteral( "userNotes" ) );
