@@ -40,7 +40,7 @@ jobs:
 
     - name: Pull upstream changes
       id: sync
-      uses: aormsby/Fork-Sync-With-Upstream-action@v2.3
+      uses: aormsby/Fork-Sync-With-Upstream-action@v2.4
       with:
         upstream_repository: qgis/QGIS
         upstream_branch: ${{ github.event.inputs.sourcebranch }}
