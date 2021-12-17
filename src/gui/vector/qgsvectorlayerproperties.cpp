@@ -137,7 +137,8 @@ QgsVectorLayerProperties::QgsVectorLayerProperties(
   connect( mActionLoadStyle, &QAction::triggered, this, &QgsVectorLayerProperties::loadStyle );
 
   // If we have multiple styles, offer an option to save them at once
-  if ( lyr->styleManager()->styles().count() > 1 )
+  updateSaveStyleOptions();
+  /*if ( lyr->styleManager()->styles().count() > 1 )
   {
     mActionSaveStyle = menuStyle->addAction( tr( "Save Current Style…" ) );
     mActionSaveMultipleStyles = menuStyle->addAction( tr( "Save All Styles…" ) );
@@ -147,7 +148,7 @@ QgsVectorLayerProperties::QgsVectorLayerProperties(
   {
     mActionSaveStyle = menuStyle->addAction( tr( "Save Style…" ) );
   }
-  connect( mActionSaveStyle, &QAction::triggered, this, &QgsVectorLayerProperties::saveStyleAs );
+  connect( mActionSaveStyle, &QAction::triggered, this, &QgsVectorLayerProperties::saveStyleAs );*/
 
   mSourceGroupBox->hide();
 
@@ -1247,6 +1248,21 @@ void QgsVectorLayerProperties::saveStyleAs()
       }
     }
   }
+}
+
+void QgsVectorLayerProperties::updateSaveStyleOptions()
+{
+  if ( lyr->styleManager()->styles().count() > 1 )
+  {
+    mActionSaveStyle = menuStyle->addAction( tr( "Save Current Style…" ) );
+    mActionSaveMultipleStyles = menuStyle->addAction( tr( "Save All Styles…" ) );
+    connect( mActionSaveMultipleStyles, &QAction::triggered, this, &QgsVectorLayerProperties::saveMultipleStylesAs );
+  }
+  else
+  {
+    mActionSaveStyle = menuStyle->addAction( tr( "Save Style…" ) );
+  }
+  connect( mActionSaveStyle, &QAction::triggered, this, &QgsVectorLayerProperties::saveStyleAs );
 }
 
 void QgsVectorLayerProperties::saveMultipleStylesAs()
