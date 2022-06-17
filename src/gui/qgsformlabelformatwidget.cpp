@@ -40,10 +40,8 @@ QgsFormLabelFormatWidget::QgsFormLabelFormatWidget( QWidget *parent )
   mFontItalicBtn->setMinimumSize( buttonSize, buttonSize );
   mFontItalicBtn->setMaximumSize( buttonSize, buttonSize );
 
-  mOverrideLabelColorGroupBox->setSaveCheckedState( false );
-  mOverrideLabelFontGroupBox->setSaveCheckedState( false );
-  mOverrideLabelColorGroupBox->setSaveCollapsedState( false );
-  mOverrideLabelFontGroupBox->setSaveCollapsedState( false );
+  mOverrideLabelFormatGroupBox->setSaveCheckedState( false );
+  mOverrideLabelFormatGroupBox->setSaveCollapsedState( false );
 
   btnTextColor->setAllowOpacity( true );
   btnTextColor->setShowNull( true, tr( "Default color" ) );
@@ -64,10 +62,12 @@ void QgsFormLabelFormatWidget::setLabelStyle( const QgsAttributeEditorElement::L
   {
     btnTextColor->setToNull();
   }
-  mOverrideLabelColorGroupBox->setChecked( labelStyle.overrideColor );
+  /*mOverrideLabelColorGroupBox->setChecked( labelStyle.overrideColor );
   mOverrideLabelFontGroupBox->setChecked( labelStyle.overrideFont );
   mOverrideLabelColorGroupBox->setCollapsed( !labelStyle.overrideColor );
-  mOverrideLabelFontGroupBox->setCollapsed( !labelStyle.overrideFont );
+  mOverrideLabelFontGroupBox->setCollapsed( !labelStyle.overrideFont );*/
+  mOverrideLabelFormatGroupBox->setChecked( labelStyle.overrideFont || labelStyle.overrideColor );
+  mOverrideLabelFormatGroupBox->setCollapsed( !( labelStyle.overrideFont || labelStyle.overrideColor ) );
 }
 
 QgsAttributeEditorElement::LabelStyle QgsFormLabelFormatWidget::labelStyle() const
@@ -81,8 +81,10 @@ QgsAttributeEditorElement::LabelStyle QgsFormLabelFormatWidget::labelStyle() con
   currentFont.setUnderline( mFontUnderlineBtn->isChecked() );
   currentFont.setStrikeOut( mFontStrikethroughBtn->isChecked() );
   style.font = currentFont;
-  style.overrideColor = mOverrideLabelColorGroupBox->isChecked();
-  style.overrideFont = mOverrideLabelFontGroupBox->isChecked();
+  /*style.overrideColor = mOverrideLabelColorGroupBox->isChecked();
+  style.overrideFont = mOverrideLabelFontGroupBox->isChecked();*/
+  style.overrideColor = mOverrideLabelFormatGroupBox->isChecked( );
+  style.overrideFont = mOverrideLabelFormatGroupBox->isChecked( );
   return style;
 }
 
