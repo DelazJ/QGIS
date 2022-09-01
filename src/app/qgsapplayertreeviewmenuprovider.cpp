@@ -355,18 +355,19 @@ QMenu *QgsAppLayerTreeViewMenuProvider::createContextMenu()
 
         if ( allEditsAction->isEnabled() )
           menu->addAction( allEditsAction );
-
-        if ( vlayer && vlayer->dataProvider() && vlayer->dataProvider()->supportsSubsetString() )
-        {
-          QAction *action = menu->addAction( tr( "&Filter…" ), QgisApp::instance(), qOverload<>( &QgisApp::layerSubsetString ) );
-          action->setEnabled( !vlayer->isEditable() );
-        }
       }
 
       if ( ( rlayer && rlayer->dataProvider() && rlayer->dataProvider()->supportsSubsetString() ) ||
+           ( vlayer && vlayer->dataProvider() && vlayer->dataProvider()->supportsSubsetString() ) ||
            ( pcLayer && pcLayer->dataProvider() && pcLayer->dataProvider()->supportsSubsetString() ) )
       {
-        menu->addAction( tr( "&Filter…" ), QgisApp::instance(), qOverload<>( &QgisApp::layerSubsetString ) );
+          QAction *action = menu->addAction( tr( "&Filter…" ), QgisApp::instance(), qOverload<>( &QgisApp::layerSubsetString ) );
+          //QAction *action = new QAction( tr( "&Filter…" ), QgisApp::instance(), qOverload<>( &QgisApp::layerSubsetString ) );
+          if ( vlayer )
+          { 
+            action->setEnabled( !vlayer->isEditable() );
+          }
+          //menu->addAction( action );
       }
 
       // change data source is only supported for vectors, rasters, point clouds, mesh
