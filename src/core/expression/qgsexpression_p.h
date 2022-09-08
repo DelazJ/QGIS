@@ -130,6 +130,7 @@ struct HelpVariant
                const QList<HelpExample> &examples = QList<HelpExample>(),
                const QString &notes = QString(),
                const QStringList &tags = QStringList() )
+               const QString &warnings = QString(),
     : mName( name )
     , mDescription( description )
     , mArguments( arguments )
@@ -137,6 +138,7 @@ struct HelpVariant
     , mExamples( examples )
     , mNotes( notes )
     , mTags( tags )
+    , mWarnings( warnings )
   {}
 
   QString mName;
@@ -146,6 +148,7 @@ struct HelpVariant
   QList<HelpExample> mExamples;
   QString mNotes;
   QStringList mTags;
+  QString mWarnings;
 };
 
 
