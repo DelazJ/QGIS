@@ -3,7 +3,7 @@
   "type": "function",
   "groups": ["Color"],
   "description": "Returns a string representing a color from a color ramp.",
-  "notes": "The color ramps available vary between QGIS installations. This function may not give the expected results if you move your QGIS project between installations."
+  "notes": "The color ramps available vary between QGIS installations. This function may not give the expected results if you move your QGIS project between installations.",
   "variants": [{
     "variant": "Saved ramp variant",
     "variant_description": "Returns a string representing a color from a saved ramp",
@@ -17,7 +17,7 @@
     "examples": [{
       "expression": "ramp_color('Spectral',0.3)",
       "returns": "'253,190,115,255'"
-    }],
+    }]
   }, {
     "variant": "Expression-created ramp variant",
     "variant_description": "Returns a string representing a color from an expression-created ramp",
