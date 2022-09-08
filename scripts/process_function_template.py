@@ -123,6 +123,11 @@ for f in sorted(glob.glob('resources/function_help/json/*')):
 
         cpp.write("\n         )")
 
+        if 'warnings' in v:
+            cpp.write(",\n            tr( \"{0}\" )".format(v['warnings']))
+        else:
+            cpp.write(",\n            QString()")
+
     cpp.write("\n        )")
     cpp.write("\n      );")
 
