@@ -675,6 +675,11 @@ QString QgsExpression::helpText( QString name )
     {
       helpContents += QStringLiteral( "<h4>%1</h4>\n<div class=\"notes\"><p>%2</p></div>\n" ).arg( tr( "Notes" ), v.mNotes );
     }
+
+    if ( !v.mWarnings.isEmpty() )
+    {
+      helpContents += QStringLiteral( "<h4>%1</h4>\n<div class=\"warning\"><p>%2</p></div>\n" ).arg( tr( "Warning" ), v.mWarnings );
+    }
   }
 
   return helpContents;
