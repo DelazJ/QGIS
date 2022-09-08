@@ -6,6 +6,12 @@
   "examples": [{
     "expression": "NULL",
     "returns": "a NULL value"
+  }, {
+    "expression": "NULL is NULL",
+    "returns": "TRUE"
+  }, {
+    "expression": "'abc' is NULL",
+    "returns": "FALSE"
   }],
   "notes": "To test for NULL use an <i>IS NULL</i> or <i>IS NOT NULL</i> expression.",
   "tags": ["equates", "null"]
