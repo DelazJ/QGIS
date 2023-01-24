@@ -102,10 +102,11 @@ QgsAnimationExportDialog::QgsAnimationExportDialog( QWidget *parent, QgsMapCanva
           QgsUnitTypes::TemporalMonths,
           QgsUnitTypes::TemporalYears,
           QgsUnitTypes::TemporalDecades,
-          QgsUnitTypes::TemporalCenturies
+          QgsUnitTypes::TemporalCenturies,
+          QgsUnitTypes::TemporalIrregularStep,
         } )
   {
-    mTimeStepsComboBox->addItem( QgsUnitTypes::toString( u ), u );
+    mTimeStepsComboBox->addItem( u != QgsUnitTypes::TemporalIrregularStep ? QgsUnitTypes::toString( u ) : tr( "source timestamps" ), u );
   }
 
   if ( const QgsTemporalNavigationObject *controller = qobject_cast< const QgsTemporalNavigationObject * >( mMapCanvas->temporalController() ) )
