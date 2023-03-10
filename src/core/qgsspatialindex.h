@@ -138,7 +138,7 @@ class CORE_EXPORT QgsSpatialIndex : public QgsFeatureSink
 
     /**
      * Adds a \a feature to the index.
-     * \deprecated Use addFeature() instead
+     * \deprecated 3.4 Use addFeature() instead
      */
     Q_DECL_DEPRECATED bool insertFeature( const QgsFeature &feature ) SIP_DEPRECATED;
 
@@ -163,7 +163,7 @@ class CORE_EXPORT QgsSpatialIndex : public QgsFeatureSink
     /**
      * Add a feature \a id to the index with a specified bounding box.
      * \returns TRUE if feature was successfully added to index.
-     * \deprecated Use addFeature() instead
+     * \deprecated 3.4 Use addFeature() instead
     */
     Q_DECL_DEPRECATED bool insertFeature( QgsFeatureId id, const QgsRectangle &bounds ) SIP_DEPRECATED;
 
@@ -183,7 +183,7 @@ class CORE_EXPORT QgsSpatialIndex : public QgsFeatureSink
     /* queries */
 
     /**
-     * Returns a list of features with a bounding box which intersects the specified \a rectangle.
+     * Returns a list of feature id for features with a bounding box which intersects the specified \a rectangle.
      *
      * \note The intersection test is performed based on the feature bounding boxes only, so for non-point
      * geometry features it is necessary to manually test the returned features for exact geometry intersection
@@ -192,7 +192,7 @@ class CORE_EXPORT QgsSpatialIndex : public QgsFeatureSink
     QList<QgsFeatureId> intersects( const QgsRectangle &rectangle ) const;
 
     /**
-     * Returns nearest neighbors to a \a point. The number of neighbors returned is specified
+     * Returns a list of feature id for nearest neighbors to a \a point. The number of neighbors returned is specified
      * by the \a neighbors argument.
      *
      * If the \a maxDistance argument is greater than 0, then only features within the specified
@@ -210,7 +210,7 @@ class CORE_EXPORT QgsSpatialIndex : public QgsFeatureSink
     QList<QgsFeatureId> nearestNeighbor( const QgsPointXY &point, int neighbors = 1, double maxDistance = 0 ) const;
 
     /**
-     * Returns nearest neighbors to a \a geometry. The number of neighbors returned is specified
+     * Returns a list of feature id for nearest neighbors to a \a geometry. The number of neighbors returned is specified
      * by the \a neighbors argument.
      *
      * If the \a maxDistance argument is greater than 0, then only features within the specified
