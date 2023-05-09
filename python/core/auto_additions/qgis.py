@@ -2504,7 +2504,7 @@ QgsPointCloudRenderer.BottomToTop.__doc__ = "Draw points with larger Z values la
 QgsPointCloudRenderer.TopToBottom = Qgis.PointCloudDrawOrder.TopToBottom
 QgsPointCloudRenderer.TopToBottom.is_monkey_patched = True
 QgsPointCloudRenderer.TopToBottom.__doc__ = "Draw points with larger Z values first"
-Qgis.PointCloudDrawOrder.__doc__ = 'Pointcloud rendering order for 2d views\n\n/since QGIS 3.26\n\n' + '* ``Default``: ' + Qgis.PointCloudDrawOrder.Default.__doc__ + '\n' + '* ``BottomToTop``: ' + Qgis.PointCloudDrawOrder.BottomToTop.__doc__ + '\n' + '* ``TopToBottom``: ' + Qgis.PointCloudDrawOrder.TopToBottom.__doc__
+Qgis.PointCloudDrawOrder.__doc__ = 'Pointcloud rendering order for 2d views\n\n/.. versionadded:: 3.26\n\n' + '* ``Default``: ' + Qgis.PointCloudDrawOrder.Default.__doc__ + '\n' + '* ``BottomToTop``: ' + Qgis.PointCloudDrawOrder.BottomToTop.__doc__ + '\n' + '* ``TopToBottom``: ' + Qgis.PointCloudDrawOrder.TopToBottom.__doc__
 # --
 Qgis.PointCloudDrawOrder.baseClass = Qgis
 QgsProject.AvoidIntersectionsMode = Qgis.AvoidIntersectionsMode
