@@ -21,6 +21,7 @@
 #include "qgsapplication.h"
 #include "qgsuserprofilemanager.h"
 #include "qgsnewnamedialog.h"
+#include "qgshelp.h"
 
 #include "qgsuserprofileselectiondialog.h"
 
@@ -36,6 +37,8 @@ QgsUserProfileSelectionDialog::QgsUserProfileSelectionDialog( QgsUserProfileMana
 
   // Add a new profile on button click
   connect( mAddProfileButton, &QPushButton::clicked, this, &QgsUserProfileSelectionDialog::onAddProfile );
+
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, &QgsUserProfileSelectionDialog::showHelp );
 
   QSettings settings;
   int iconSize = settings.value( QStringLiteral( "/selector/iconSize" ), 24 ).toInt();
@@ -103,6 +106,11 @@ void QgsUserProfileSelectionDialog::onAddProfile()
     QMessageBox::warning( this, tr( "New Profile" ), tr( "Cannot create folder '%1'" ).arg( profileName ) );
     return;
   }
+}
+
+void QgsUserProfileSelectionDialog::showHelp()
+{
+  QgsHelp::openHelp( QStringLiteral( "introduction/qgis_configuration.html#user-profiles" ) );
 }
 
 QgsUserProfileSelectionDialog::~QgsUserProfileSelectionDialog() {}
