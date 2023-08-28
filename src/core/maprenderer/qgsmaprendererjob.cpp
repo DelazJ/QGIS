@@ -48,7 +48,7 @@
 #include "qgssettingstree.h"
 #include "qgsruntimeprofiler.h"
 
-const QgsSettingsEntryBool *QgsMapRendererJob::settingsLogCanvasRefreshEvent = new QgsSettingsEntryBool( QStringLiteral( "logCanvasRefreshEvent" ), QgsSettingsTree::sTreeMap, false );
+const QgsSettingsEntryBool *QgsMapRendererJob::settingsLogCanvasRefreshEvent = new QgsSettingsEntryBool( QStringLiteral( "logCanvasRefreshEvent" ), QgsSettingsTree::sTreeMap, false, QStringLiteral( "Whether to log map canvas refresh events in the Messages panel" ) );
 
 ///@cond PRIVATE
 

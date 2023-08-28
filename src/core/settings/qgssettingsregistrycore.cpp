@@ -35,45 +35,45 @@
 
 #include "pal.h"
 
-const QgsSettingsEntryEnumFlag<Qgis::SnappingMode> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapMode = new QgsSettingsEntryEnumFlag<Qgis::SnappingMode>( QStringLiteral( "default-snap-mode" ), QgsSettingsTree::sTreeDigitizing, Qgis::SnappingMode::AllLayers );
+const QgsSettingsEntryEnumFlag<Qgis::SnappingMode> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapMode = new QgsSettingsEntryEnumFlag<Qgis::SnappingMode>( QStringLiteral( "default-snap-mode" ), QgsSettingsTree::sTreeDigitizing, Qgis::SnappingMode::AllLayers, QStringLiteral( "" ) );
 
-const QgsSettingsEntryEnumFlag<Qgis::SnappingType> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapType = new QgsSettingsEntryEnumFlag<Qgis::SnappingType>( QStringLiteral( "default-snap-type" ), QgsSettingsTree::sTreeDigitizing, Qgis::SnappingType::Vertex );
+const QgsSettingsEntryEnumFlag<Qgis::SnappingType> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapType = new QgsSettingsEntryEnumFlag<Qgis::SnappingType>( QStringLiteral( "default-snap-type" ), QgsSettingsTree::sTreeDigitizing, Qgis::SnappingType::Vertex, QStringLiteral( "Default snapping type" ) );
 
-const QgsSettingsEntryEnumFlag<Qgis::MapToolUnit> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnappingToleranceUnit = new QgsSettingsEntryEnumFlag<Qgis::MapToolUnit>( QStringLiteral( "default-snapping-tolerance-unit" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_SNAP_UNITS );
+const QgsSettingsEntryEnumFlag<Qgis::MapToolUnit> *QgsSettingsRegistryCore::settingsDigitizingDefaultSnappingToleranceUnit = new QgsSettingsEntryEnumFlag<Qgis::MapToolUnit>( QStringLiteral( "default-snapping-tolerance-unit" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_SNAP_UNITS, QStringLiteral( "Default unit for snapping tolerance distance" ) );
 
-const QgsSettingsEntryEnumFlag<Qgis::MapToolUnit> *QgsSettingsRegistryCore::settingsDigitizingSearchRadiusVertexEditUnit = new QgsSettingsEntryEnumFlag<Qgis::MapToolUnit>( QStringLiteral( "search-radius-vertex-edit-unit" ), QgsSettingsTree::sTreeDigitizing, Qgis::MapToolUnit::Pixels );
+const QgsSettingsEntryEnumFlag<Qgis::MapToolUnit> *QgsSettingsRegistryCore::settingsDigitizingSearchRadiusVertexEditUnit = new QgsSettingsEntryEnumFlag<Qgis::MapToolUnit>( QStringLiteral( "search-radius-vertex-edit-unit" ), QgsSettingsTree::sTreeDigitizing, Qgis::MapToolUnit::Pixels, QStringLiteral( "Default unit for search radius for vertex edits" ) );
 
-const QgsSettingsEntryEnumFlag<Qgis::JoinStyle> *QgsSettingsRegistryCore::settingsDigitizingOffsetJoinStyle = new QgsSettingsEntryEnumFlag<Qgis::JoinStyle>( QStringLiteral( "offset-join-style" ), QgsSettingsTree::sTreeDigitizing, Qgis::JoinStyle::Round );
+const QgsSettingsEntryEnumFlag<Qgis::JoinStyle> *QgsSettingsRegistryCore::settingsDigitizingOffsetJoinStyle = new QgsSettingsEntryEnumFlag<Qgis::JoinStyle>( QStringLiteral( "offset-join-style" ), QgsSettingsTree::sTreeDigitizing, Qgis::JoinStyle::Round, QStringLiteral( "Default join style for curve offset tool" ) );
 
 const QgsSettingsEntryEnumFlag<Qgis::EndCapStyle> *QgsSettingsRegistryCore::settingsDigitizingOffsetCapStyle = new QgsSettingsEntryEnumFlag<Qgis::EndCapStyle>( QStringLiteral( "offset-cap-style" ), QgsSettingsTree::sTreeDigitizing,  Qgis::EndCapStyle::Round );
 
-const QgsSettingsEntryInteger *QgsSettingsRegistryCore::settingsDigitizingStreamTolerance = new QgsSettingsEntryInteger( QStringLiteral( "stream-tolerance" ), QgsSettingsTree::sTreeDigitizing, 2 );
+const QgsSettingsEntryInteger *QgsSettingsRegistryCore::settingsDigitizingStreamTolerance = new QgsSettingsEntryInteger( QStringLiteral( "stream-tolerance" ), QgsSettingsTree::sTreeDigitizing, 2, QStringLiteral( "Spacing between consecutive vertices when using the stream digitizing method" ) );
 
-const QgsSettingsEntryInteger *QgsSettingsRegistryCore::settingsDigitizingLineWidth = new QgsSettingsEntryInteger( QStringLiteral( "line-width" ), QgsSettingsTree::sTreeDigitizing, 1 );
+const QgsSettingsEntryInteger *QgsSettingsRegistryCore::settingsDigitizingLineWidth = new QgsSettingsEntryInteger( QStringLiteral( "line-width" ), QgsSettingsTree::sTreeDigitizing, 1, QStringLiteral( "Width of the contour of the digitizing rubberband line" ) );
 
-const QgsSettingsEntryColor *QgsSettingsRegistryCore::settingsDigitizingLineColor = new QgsSettingsEntryColor( QStringLiteral( "line-color" ), QgsSettingsTree::sTreeDigitizing, QColor( 255, 0, 0, 200 ) );
+const QgsSettingsEntryColor *QgsSettingsRegistryCore::settingsDigitizingLineColor = new QgsSettingsEntryColor( QStringLiteral( "line-color" ), QgsSettingsTree::sTreeDigitizing, QColor( 255, 0, 0, 200 ), QStringLiteral( "Line color of the contour of the digitizing rubberband" ) );
 
 const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingLineColorAlphaScale = new QgsSettingsEntryDouble( QStringLiteral( "line-color-alpha-scale" ), QgsSettingsTree::sTreeDigitizing, 0.75 );
 
-const QgsSettingsEntryColor *QgsSettingsRegistryCore::settingsDigitizingFillColor = new QgsSettingsEntryColor( QStringLiteral( "fill-color" ), QgsSettingsTree::sTreeDigitizing, QColor( 255, 0, 0, 30 ) );
+const QgsSettingsEntryColor *QgsSettingsRegistryCore::settingsDigitizingFillColor = new QgsSettingsEntryColor( QStringLiteral( "fill-color" ), QgsSettingsTree::sTreeDigitizing, QColor( 255, 0, 0, 30 ), QStringLiteral( "Fill color of the digitizing rubberband surface" ) );
 
 const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingLineGhost = new QgsSettingsEntryBool( QStringLiteral( "line-ghost" ), QgsSettingsTree::sTreeDigitizing, false );
 
-const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultZValue = new QgsSettingsEntryDouble( QStringLiteral( "default-z-value" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_Z_COORDINATE );
+const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultZValue = new QgsSettingsEntryDouble( QStringLiteral( "default-z-value" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_Z_COORDINATE, QStringLiteral( "Z value for " ) );
 
-const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultMValue = new QgsSettingsEntryDouble( QStringLiteral( "default-m-value" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_M_COORDINATE );
+const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultMValue = new QgsSettingsEntryDouble( QStringLiteral( "default-m-value" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_M_COORDINATE, QStringLiteral( "M value ") );
 
-const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapEnabled = new QgsSettingsEntryBool( QStringLiteral( "default-snap-enabled" ), QgsSettingsTree::sTreeDigitizing,  false );
+const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingDefaultSnapEnabled = new QgsSettingsEntryBool( QStringLiteral( "default-snap-enabled" ), QgsSettingsTree::sTreeDigitizing,  false, QStringLiteral( "Whether snapping options should be enabled by default when opening a project" ) );
 
-const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultSnappingTolerance = new QgsSettingsEntryDouble( QStringLiteral( "default-snapping-tolerance" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_SNAP_TOLERANCE );
+const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingDefaultSnappingTolerance = new QgsSettingsEntryDouble( QStringLiteral( "default-snapping-tolerance" ), QgsSettingsTree::sTreeDigitizing, Qgis::DEFAULT_SNAP_TOLERANCE, QStringLiteral( "Tolerance distance for snapping" ) );
 
-const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingSearchRadiusVertexEdit = new QgsSettingsEntryDouble( QStringLiteral( "search-radius-vertex-edit" ), QgsSettingsTree::sTreeDigitizing, 10 );
+const QgsSettingsEntryDouble *QgsSettingsRegistryCore::settingsDigitizingSearchRadiusVertexEdit = new QgsSettingsEntryDouble( QStringLiteral( "search-radius-vertex-edit" ), QgsSettingsTree::sTreeDigitizing, 10, QStringLiteral( "Search radius for vertex edits" ) );
 
 const QgsSettingsEntryColor *QgsSettingsRegistryCore::settingsDigitizingSnapColor = new QgsSettingsEntryColor( QStringLiteral( "snap-color" ), QgsSettingsTree::sTreeDigitizing, QColor( Qt::magenta ) );
 
-const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingSnapTooltip = new QgsSettingsEntryBool( QStringLiteral( "snap-tooltip" ), QgsSettingsTree::sTreeDigitizing, false );
+const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingSnapTooltip = new QgsSettingsEntryBool( QStringLiteral( "snap-tooltip" ), QgsSettingsTree::sTreeDigitizing, false, QStringLiteral( "If true, displays information on the feature you are about to snap" ) );
 
-const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingSnapInvisibleFeature = new QgsSettingsEntryBool( QStringLiteral( "snap-invisible-feature" ), QgsSettingsTree::sTreeDigitizing, false );
+const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingSnapInvisibleFeature = new QgsSettingsEntryBool( QStringLiteral( "snap-invisible-feature" ), QgsSettingsTree::sTreeDigitizing, false, QStringLiteral( "If true, allows snapping on features not shown on the map canvas" ) );
 
 const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsDigitizingMarkerOnlyForSelected = new QgsSettingsEntryBool( QStringLiteral( "marker-only-for-selected" ), QgsSettingsTree::sTreeDigitizing, true );
 
@@ -108,7 +108,7 @@ const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsLayerTreeShowFeatur
 
 const QgsSettingsEntryBool *QgsSettingsRegistryCore::settingsEnableWMSTilePrefetching = new QgsSettingsEntryBool( QStringLiteral( "enable_wms_tile_prefetch" ), QgsSettingsTree::sTreeWms, false, QStringLiteral( "Whether to include WMS layers when rendering tiles adjacent to the visible map area" ) );
 
-const QgsSettingsEntryStringList *QgsSettingsRegistryCore::settingsMapScales = new QgsSettingsEntryStringList( QStringLiteral( "default_scales" ), QgsSettingsTree::sTreeMap, Qgis::defaultProjectScales().split( ',' ) );
+const QgsSettingsEntryStringList *QgsSettingsRegistryCore::settingsMapScales = new QgsSettingsEntryStringList( QStringLiteral( "default_scales" ), QgsSettingsTree::sTreeMap, Qgis::defaultProjectScales().split( ',' ), QStringLiteral( "List of project predefined scales" ) ); // no idea actually how to trigger this setting
 
 const QgsSettingsEntryInteger *QgsSettingsRegistryCore::settingsLayerParallelLoadingMaxCount = new QgsSettingsEntryInteger( QStringLiteral( "provider-parallel-loading-max-count" ), QgsSettingsTree::sTreeCore, QThread::idealThreadCount(), QStringLiteral( "Maximum thread used to load layers in parallel" ), Qgis::SettingsOption(), 1 );
 
