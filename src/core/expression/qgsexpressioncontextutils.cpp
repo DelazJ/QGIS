@@ -1398,13 +1398,13 @@ bool LoadLayerFunction::isStatic( const QgsExpressionNodeFunction *node, QgsExpr
       QgsMapLayer *layer = QgsMapLayerFactory::createLayer( uri, uri, metadata->supportedLayerTypes().value( 0 ), layerOptions, providerKey );
       if ( !layer )
       {
-        parent->setEvalErrorString( QObject::tr( "Could not load_layer with uri: %1" ).arg( uri ) );
+        parent->setEvalErrorString( QObject::tr( "Could not load layer with uri: %1" ).arg( uri ) );
         return;
       }
       if ( !layer->isValid() )
       {
         delete layer;
-        parent->setEvalErrorString( QObject::tr( "Could not load_layer with uri: %1" ).arg( uri ) );
+        parent->setEvalErrorString( QObject::tr( "Could not load layer with uri: %1" ).arg( uri ) );
         return;
       }
 

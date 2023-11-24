@@ -411,7 +411,7 @@ QList<QgsAggregateCalculator::AggregateInfo> QgsAggregateCalculator::aggregates(
       << AggregateInfo
   {
     QStringLiteral( "stdev" ),
-    QCoreApplication::tr( "Stdev" ),
+    QCoreApplication::tr( "Standard deviation" ),
     QSet<QVariant::Type>()
         << QVariant::Int
         << QVariant::UInt
@@ -422,7 +422,7 @@ QList<QgsAggregateCalculator::AggregateInfo> QgsAggregateCalculator::aggregates(
       << AggregateInfo
   {
     QStringLiteral( "stdevsample" ),
-    QCoreApplication::tr( "Stdev Sample" ),
+    QCoreApplication::tr( "Standard deviation (sample)" ),
     QSet<QVariant::Type>()
         << QVariant::Int
         << QVariant::UInt
@@ -470,7 +470,7 @@ QList<QgsAggregateCalculator::AggregateInfo> QgsAggregateCalculator::aggregates(
       << AggregateInfo
   {
     QStringLiteral( "q1" ),
-    QCoreApplication::tr( "Q1" ),
+    QCoreApplication::tr( "First Quartile (Q1)" ),
     QSet<QVariant::Type>()
         << QVariant::Int
         << QVariant::UInt
@@ -481,7 +481,7 @@ QList<QgsAggregateCalculator::AggregateInfo> QgsAggregateCalculator::aggregates(
       << AggregateInfo
   {
     QStringLiteral( "q3" ),
-    QCoreApplication::tr( "Q3" ),
+    QCoreApplication::tr( "Third Quartile (Q3)" ),
     QSet<QVariant::Type>()
         << QVariant::Int
         << QVariant::UInt
@@ -492,7 +492,7 @@ QList<QgsAggregateCalculator::AggregateInfo> QgsAggregateCalculator::aggregates(
       << AggregateInfo
   {
     QStringLiteral( "iqr" ),
-    QCoreApplication::tr( "InterQuartileRange" ),
+    QCoreApplication::tr( "InterQuartile Range (IQR)" ),
     QSet<QVariant::Type>()
         << QVariant::Int
         << QVariant::UInt

@@ -310,9 +310,9 @@ QString QgsStatisticalSummary::displayName( QgsStatisticalSummary::Statistic sta
     case Median:
       return QObject::tr( "Median" );
     case StDev:
-      return QObject::tr( "St dev (pop)" );
+      return QObject::tr( "Standard deviation (pop)" );
     case StDevSample:
-      return QObject::tr( "St dev (sample)" );
+      return QObject::tr( "Standard deviation (sample)" );
     case Min:
       return QObject::tr( "Minimum" );
     case Max:
@@ -326,11 +326,11 @@ QString QgsStatisticalSummary::displayName( QgsStatisticalSummary::Statistic sta
     case Variety:
       return QObject::tr( "Variety" );
     case FirstQuartile:
-      return QObject::tr( "Q1" );
+      return QObject::tr( "First Quartile (Q1)" );
     case ThirdQuartile:
-      return QObject::tr( "Q3" );
+      return QObject::tr( "Third Quartile (Q3)" );
     case InterQuartileRange:
-      return QObject::tr( "IQR" );
+      return QObject::tr( "Interquartile Range (IQR)" );
     case First:
       return QObject::tr( "First" );
     case Last:
