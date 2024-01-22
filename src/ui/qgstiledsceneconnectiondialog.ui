@@ -14,86 +14,84 @@
    <string>Tiled Scene Connection</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="topMargin">
+    <number>12</number>
+   </property>
    <item>
-    <widget class="QGroupBox" name="mGroupBox">
-     <property name="title">
-      <string>Connection Details</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="6" column="0">
-       <widget class="QLabel" name="lblReferer">
-        <property name="text">
-         <string>Referer</string>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="mEditName">
+       <property name="toolTip">
+        <string>Name of the new connection</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>URL</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lblReferer">
+       <property name="text">
+        <string>Referer</string>
+       </property>
+       <property name="buddy">
+        <cstring>mEditReferer</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="mEditUrl">
+       <property name="toolTip">
+        <string>URL of the connection</string>
+       </property>
+       <property name="placeholderText">
+        <string>http://example.com/tileset.json</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="mEditReferer">
+       <property name="toolTip">
+        <string>Optional custom referer</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QGroupBox" name="mAuthGroupBox">
+       <property name="title">
+        <string>Authentication</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="leftMargin">
+         <number>6</number>
         </property>
-        <property name="buddy">
-         <cstring>mEditReferer</cstring>
+        <property name="topMargin">
+         <number>6</number>
         </property>
-       </widget>
-      </item>
-      <item row="5" column="0" colspan="3">
-       <widget class="QGroupBox" name="mAuthGroupBox">
-        <property name="title">
-         <string>Authentication</string>
+        <property name="rightMargin">
+         <number>6</number>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="leftMargin">
-          <number>6</number>
-         </property>
-         <property name="topMargin">
-          <number>6</number>
-         </property>
-         <property name="rightMargin">
-          <number>6</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QgsAuthSettingsWidget" name="mAuthSettings" native="true"/>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLineEdit" name="mEditName">
-        <property name="toolTip">
-         <string>Name of the new connection</string>
+        <property name="bottomMargin">
+         <number>6</number>
         </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QLineEdit" name="mEditReferer">
-        <property name="toolTip">
-         <string>Optional custom referer</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>URL</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLineEdit" name="mEditUrl">
-        <property name="toolTip">
-         <string>URL of the connection</string>
-        </property>
-        <property name="placeholderText">
-         <string>http://example.com/tileset.json</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+        <item>
+         <widget class="QgsAuthSettingsWidget" name="mAuthSettings" native="true"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -101,7 +99,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Help|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -115,11 +113,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <tabstops>
-  <tabstop>mEditName</tabstop>
-  <tabstop>mEditUrl</tabstop>
-  <tabstop>mEditReferer</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>
