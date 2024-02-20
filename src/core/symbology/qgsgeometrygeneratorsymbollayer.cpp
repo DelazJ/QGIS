@@ -32,7 +32,7 @@ QgsSymbolLayer *QgsGeometryGeneratorSymbolLayer::create( const QVariantMap &prop
   QString expression = properties.value( QStringLiteral( "geometryModifier" ) ).toString();
   if ( expression.isEmpty() )
   {
-    expression = QStringLiteral( "$geometry" );
+    expression = QStringLiteral( "@geometry" );
   }
   QgsGeometryGeneratorSymbolLayer *symbolLayer = new QgsGeometryGeneratorSymbolLayer( expression );
 
@@ -389,7 +389,7 @@ void QgsGeometryGeneratorSymbolLayer::render( QgsSymbolRenderContext &context, Q
   {
     // oh dear, we don't have a feature to work from... but that's ok, we are probably being rendered as a plain old symbol!
     // in this case we need to build up a feature which represents the points being rendered.
-    // note that we also do this same logic when we are rendering a subsymbol. In that case the $geometry part of the
+    // note that we also do this same logic when we are rendering a subsymbol. In that case the @geometry part of the
     // expression should refer to the shape of the subsymbol being rendered, NOT the feature's original geometry
     QgsGeometry drawGeometry;
 
@@ -497,7 +497,7 @@ void QgsGeometryGeneratorSymbolLayer::render( QgsSymbolRenderContext &context, Q
   }
 
   QgsExpressionContextScope *subSymbolExpressionContextScope = mSymbol->symbolRenderContext()->expressionContextScope();
-  // override the $geometry value for all subsymbols -- this should be the generated geometry
+  // override the @geometry value for all subsymbols -- this should be the generated geometry
   subSymbolExpressionContextScope->setGeometry( f.geometry() );
 
   const bool prevIsSubsymbol = context.renderContext().flags() & Qgis::RenderContextFlag::RenderingSubSymbol;

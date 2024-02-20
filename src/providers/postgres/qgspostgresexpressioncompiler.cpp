@@ -189,7 +189,7 @@ QgsSqlExpressionCompiler::Result QgsPostgresExpressionCompiler::compileNode( con
       const QgsExpressionNodeFunction *n = static_cast<const QgsExpressionNodeFunction *>( node );
 
       QgsExpressionFunction *fd = QgsExpression::Functions()[n->fnIndex()];
-      if ( fd->name() == QLatin1String( "$geometry" ) )
+      if ( fd->name() == QLatin1String( "@geometry" ) )
       {
         result = quotedIdentifier( mGeometryColumn );
         return Complete;

@@ -137,7 +137,7 @@ QgsSqlExpressionCompiler::Result QgsHanaExpressionCompiler::compileNode(
       if ( fd->name().isEmpty() )
         break;
 
-      if ( fd->name() == QLatin1String( "$geometry" ) )
+      if ( fd->name() == QLatin1String( "@geometry" ) )
       {
         result = quotedIdentifier( mGeometryColumn );
         return Complete;
