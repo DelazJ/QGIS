@@ -60,6 +60,7 @@ void QgsPackageAlgorithm::initAlgorithm( const QVariantMap & )
   addParameter( new QgsProcessingParameterBoolean( QStringLiteral( "SAVE_STYLES" ), QObject::tr( "Save layer styles into GeoPackage" ), true ) );
   addParameter( new QgsProcessingParameterBoolean( QStringLiteral( "SAVE_METADATA" ), QObject::tr( "Save layer metadata into GeoPackage" ), true ) );
   addParameter( new QgsProcessingParameterBoolean( QStringLiteral( "SELECTED_FEATURES_ONLY" ), QObject::tr( "Save only selected features" ), false ) );
+  addParameter( new QgsProcessingParameterExtent( QStringLiteral( "FILTER_EXTENT" ), QObject::tr( "Save only features within an extent" ) ) );
   addParameter( new QgsProcessingParameterBoolean( QStringLiteral( "EXPORT_RELATED_LAYERS" ), QObject::tr( "Export related layers following relations defined in the project" ), false ) );
   addOutput( new QgsProcessingOutputMultipleLayers( QStringLiteral( "OUTPUT_LAYERS" ), QObject::tr( "Layers within new package" ) ) );
 }
@@ -100,6 +101,7 @@ QVariantMap QgsPackageAlgorithm::processAlgorithm( const QVariantMap &parameters
   const bool saveStyles = parameterAsBoolean( parameters, QStringLiteral( "SAVE_STYLES" ), context );
   const bool saveMetadata = parameterAsBoolean( parameters, QStringLiteral( "SAVE_METADATA" ), context );
   const bool selectedFeaturesOnly = parameterAsBoolean( parameters, QStringLiteral( "SELECTED_FEATURES_ONLY" ), context );
+  const QgsRectangle filterExtent = parameterAsExtent( parameters, QStringLiteral( "FILTER_EXTENT" ), context ); //should be project CRS?
   const bool exportRelatedLayers = parameterAsBoolean( parameters, QStringLiteral( "EXPORT_RELATED_LAYERS" ), context );
   const QString packagePath = parameterAsString( parameters, QStringLiteral( "OUTPUT" ), context );
   const QList< QgsMapLayer * > layers = parameterAsLayerList( parameters, QStringLiteral( "LAYERS" ), context );
@@ -287,6 +289,7 @@ QVariantMap QgsPackageAlgorithm::processAlgorithm( const QVariantMap &parameters
         const QgsVectorLayer *vLayer { qobject_cast<const QgsVectorLayer *>( layer ) };
         if ( vLayer )
         {
+          const 
           const bool onlySaveSelected = vLayer->selectedFeatureCount() > 0 && selectedFeaturesOnly;
           recursionGuard = 0;
           findReferenced( vLayer, onlySaveSelected, findReferenced );
