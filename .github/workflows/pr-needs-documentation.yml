@@ -97,11 +97,17 @@ jobs:
         id: get_pr_body
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BODY: "${{ github.event.comment.body }}"
+          BODY: ${{ github.event.issue.body }}
+          PR_BODY: ${{ github.event.pr.body }}
+          PU_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BODY_TEXT=$(echo "${{ env.BODY }}")
-          echo "body: ${BODY_TEXT}"
-          echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
+          echo "$BODY"
+          echo "$PR_BODY"
+          echo "$PU_BODY"
+
+      #    BODY_TEXT=$(echo "${{ env.BODY }}")
+      #    echo "body: ${BODY_TEXT}"
+      #    echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
      #    body=${{ fromJSON(env.BODY) }}
       #    echo ${body} 
       #    echo "body=${{ fromJSON(env.BODY) }}" >> $GITHUB_OUTPUT
