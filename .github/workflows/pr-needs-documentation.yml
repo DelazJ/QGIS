@@ -103,11 +103,9 @@ jobs:
         #  |
          # ${{ env.PR_BODY }}
         run: |
-         {
-          echo 'body<<EOF'
-          $PR_BODY
-          echo EOF
-         } >> "$GITHUB_OUTPUT"
+          echo 'body<<EOF' >> $GITHUB_OUTPUT
+          echo "$PR_BODY"  >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
       
       #echo "body: $PR_BODY"
        #   echo "body: $PR_BODY" >> $GITHUB_OUTPUT
