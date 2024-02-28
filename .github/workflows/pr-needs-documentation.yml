@@ -97,14 +97,10 @@ jobs:
         id: get_pr_body
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BODY: ${{ github.event.issue.body }}
-          PR_BODY: ${{ github.event.pr.body }}
-          PU_BODY: ${{ github.event.pull_request.body }}
+          BODY: ${{ github.event.pull_request.body }}
         run: |
           echo "$BODY"
-          echo "$PR_BODY"
-          echo "$PU_BODY"
-
+          echo "body=${BODY}" >> $GITHUB_OUTPUT
       #    BODY_TEXT=$(echo "${{ env.BODY }}")
       #    echo "body: ${BODY_TEXT}"
       #    echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
@@ -118,9 +114,10 @@ jobs:
         id: get_pr_commits
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_COMMITS: ${{ github.event.push.commits }}
         run: |
-          echo "pr_commits=${{ github.event.pull_request.commits }}" >> $GITHUB_OUTPUT
-          echo ${pr_commits}          
+          echo "$PR_COMMITS"          
+          echo "pr_commits=${PR_COMMITS}" >> $GITHUB_OUTPUT
 
       # extracts the matching commits
       - name: Filter commits with \[needs?.doc(umentation)?s?\]
