@@ -92,7 +92,7 @@ jobs:
           echo ${LABEL}
           echo "label=${LABEL}" >> $GITHUB_OUTPUT
 
-      # get the PR body texosst
+      # get the PR body
       - name: Get PR body as text
         id: get_pr_body
         env:
