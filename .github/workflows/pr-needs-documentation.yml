@@ -101,7 +101,8 @@ jobs:
         run: |
           echo "body1: $PR_BODY"
           BODY=$(echo "${ env.PR_BODY }")
-          echo "body=${BODY}" >> $GITHUB_OUTPUT
+          echo "body: ${BODY}"
+       #   >> $GITHUB_OUTPUT
       #    BODY_TEXT=$(echo "${{ env.BODY }}")
       #    echo "body: ${BODY_TEXT}"
       #    echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
