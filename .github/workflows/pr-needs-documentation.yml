@@ -107,18 +107,6 @@ jobs:
           echo "$PR_BODY"  >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
       
-      #echo "body: $PR_BODY"
-       #   echo "body: $PR_BODY" >> $GITHUB_OUTPUT
-       #   BODY=$(echo "${ env.PR_BODY }")
-       #   echo "body: ${BODY}"
-      #    BODY_TEXT=$(echo "${{ env.BODY }}")
-      #    echo "body: ${BODY_TEXT}"
-      #    echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
-     #    body=${{ fromJSON(env.BODY) }}
-      #    echo ${body} 
-      #    echo "body=${{ fromJSON(env.BODY) }}" >> $GITHUB_OUTPUT
-
-
       # get commits from the PR
       - name: Get PR commits
         id: get_pr_commits
@@ -141,10 +129,10 @@ jobs:
       # create the documentation issue
       - name: Create Documentation issue
         id: doc_issue
-        # uses: maxkomarychev/oction-create-issue@v0.7.1
         uses: dacbd/create-issue-action@v2.0.0
         with:
-          token: ${{ secrets.GH_TOKEN_BOT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+         # token: ${{ secrets.GH_TOKEN_BOT }}
           owner: DelazJ
           repo: QGIS-Documentation
           title: ${{ format('{0} (Request in QGIS)', github.event.pull_request.title) }}
