@@ -141,7 +141,8 @@ jobs:
       # create the documentation issue
       - name: Create Documentation issue
         id: doc_issue
-        uses: maxkomarychev/oction-create-issue@v0.7.1
+        # uses: maxkomarychev/oction-create-issue@v0.7.1
+        uses: dacbd/create-issue-actionv@2.0.0
         with:
           token: ${{ secrets.GH_TOKEN_BOT }}
           owner: DelazJ
