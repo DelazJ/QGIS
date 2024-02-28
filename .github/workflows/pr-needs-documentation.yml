@@ -100,8 +100,8 @@ jobs:
           PR_BODY: "${{ github.event.pull_request.body }}"
         run: |
           echo "body1: $PR_BODY"
-          PR_BODY=$(echo "${{ env.PR_BODY }}")
-          echo "body=${PR_BODY}" >> $GITHUB_OUTPUT
+          BODY=$(echo "${ env.PR_BODY }")
+          echo "body=${BODY}" >> $GITHUB_OUTPUT
       #    BODY_TEXT=$(echo "${{ env.BODY }}")
       #    echo "body: ${BODY_TEXT}"
       #    echo "body=${BODY_TEXT}" >> $GITHUB_OUTPUT
