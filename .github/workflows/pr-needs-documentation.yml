@@ -122,7 +122,7 @@ jobs:
         id: filtered_commits
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JSON_DATA: ${{ github.event.push.commits }}
+          JSON_DATA: ${{ github.event.pull_request.commits }}
         run: |
           echo "jsondata: ${JSON_DATA}"
           COMMITS_MESSAGES=$(echo ${JSON_DATA} | jq '.[].commit.message | select( . |test("\\[(feature|needs?.doc(umentation)?s?)\\]"; "i")) | sub("\\[needs?.doc(umentation)?s?\\]"; "\n\n\n\n"; "i")')
