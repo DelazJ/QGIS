@@ -42,6 +42,11 @@ jobs:
             Thank you!
           reactions: 'rocket'
 
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+  
       - name: Create comment about changelog
         if: github.event.label.name == 'Changelog'
         uses: peter-evans/create-or-update-comment@v4
