@@ -98,9 +98,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_BODY: "${{ github.event.pull_request.body }}"
+       # with:
+       #  body: |
+        #  |
+         # ${{ env.PR_BODY }}
         run: |
-          echo "body: $PR_BODY"
-          echo "body: $PR_BODY" >> $GITHUB_OUTPUT
+         {
+          echo 'body<<EOF'
+          $PR_BODY
+          echo EOF
+         } >> "$GITHUB_OUTPUT"
+      
+      #echo "body: $PR_BODY"
+       #   echo "body: $PR_BODY" >> $GITHUB_OUTPUT
        #   BODY=$(echo "${ env.PR_BODY }")
        #   echo "body: ${BODY}"
       #    BODY_TEXT=$(echo "${{ env.BODY }}")
