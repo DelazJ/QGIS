@@ -104,7 +104,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="1" column="1">
-       <widget class="QStackedWidget" name="stackedWidget"/>
+       <widget class="QgsStackedWidget" name="stackedWidget"/>
       </item>
       <item row="0" column="1">
        <widget class="QComboBox" name="mWidgetTypeComboBox"/>
@@ -346,6 +346,12 @@
    <header>qgsexpressionlineedit.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>QgsStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header>qgsstackedwidget.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>mAlias</tabstop>
@@ -365,7 +371,6 @@
   <tabstop>mApplyDefaultValueOnUpdateCheckBox</tabstop>
  </tabstops>
  <resources>
-  <include location="../../../images/images.qrc"/>
   <include location="../../../images/images.qrc"/>
  </resources>
  <connections/>

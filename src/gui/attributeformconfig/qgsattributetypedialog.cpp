@@ -45,6 +45,8 @@ QgsAttributeTypeDialog::QgsAttributeTypeDialog( QgsVectorLayer *vl, int fieldIdx
   setupUi( this );
   QgsGui::enableAutoGeometryRestore( this );
 
+  stackedWidget->setSizeMode( QgsStackedWidget::SizeMode::CurrentPageOnly );
+
   if ( fieldIdx < 0 )
     return;
 
