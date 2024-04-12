@@ -128,9 +128,6 @@
      <property name="selectionMode">
       <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
-     <attribute name="headerDefaultSectionSize">
-      <number>0</number>
-     </attribute>
     </widget>
    </item>
    <item row="2" column="1">
@@ -282,6 +279,11 @@
    <extends>QWidget</extends>
    <header>qgsprojectionselectionwidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QgsLayerTreeView</class>
+   <extends>QTreeView</extends>
+   <header>qgslayertreeview.h</header>
   </customwidget>
   <customwidget>
    <class>QgsScaleWidget</class>

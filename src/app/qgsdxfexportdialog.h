@@ -136,11 +136,7 @@ class QgsDxfExportDialog : public QDialog, private Ui::QgsDxfExportDialogBase
     QgsLayerTree *mLayerTreeGroup = nullptr;
     FieldSelectorDelegate *mFieldSelectorDelegate = nullptr;
     QgsVectorLayerAndAttributeModel *mModel = nullptr;
-<<<<<<< HEAD
-    QgsDxfExportLayerTreeView *mTreeView = nullptr;
     QgsMessageBar *mMessageBar = nullptr;
-=======
->>>>>>> parent of 8003a866d9 ([ui] Improve visibility of the output layer attribute in the DXF export dialog)
 
     QgsCoordinateReferenceSystem mCRS;
 };
