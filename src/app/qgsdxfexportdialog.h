@@ -88,15 +88,6 @@ class QgsVectorLayerAndAttributeModel : public QgsLayerTreeModel
     void enableDataDefinedBlocks( bool enabled );
 };
 
-class QgsDxfExportLayerTreeView : public QgsLayerTreeView
-{
-    Q_OBJECT
-  public:
-    explicit QgsDxfExportLayerTreeView( QWidget *parent = nullptr );
-
-  protected:
-    void resizeEvent( QResizeEvent *event ) override;
-};
 
 class QgsDxfExportDialog : public QDialog, private Ui::QgsDxfExportDialogBase
 {
@@ -145,8 +136,11 @@ class QgsDxfExportDialog : public QDialog, private Ui::QgsDxfExportDialogBase
     QgsLayerTree *mLayerTreeGroup = nullptr;
     FieldSelectorDelegate *mFieldSelectorDelegate = nullptr;
     QgsVectorLayerAndAttributeModel *mModel = nullptr;
+<<<<<<< HEAD
     QgsDxfExportLayerTreeView *mTreeView = nullptr;
     QgsMessageBar *mMessageBar = nullptr;
+=======
+>>>>>>> parent of 8003a866d9 ([ui] Improve visibility of the output layer attribute in the DXF export dialog)
 
     QgsCoordinateReferenceSystem mCRS;
 };
