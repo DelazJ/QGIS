@@ -73,8 +73,9 @@ class CORE_EXPORT QgsPropertyDefinition
       HorizontalAnchor, //!< Horizontal anchor point
       VerticalAnchor, //!< Vertical anchor point
       SvgPath, //!< Path to an SVG file
-      Offset, //!< 2D offset
+      Offset, //!< 2D offset, in x and y directions
       DateTime, //!< DateTime value
+      LineOffset, //!< 1D offset, a distance offset
       Custom = 3000, //!< Custom property types
     };
 
