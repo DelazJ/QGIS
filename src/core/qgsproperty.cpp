@@ -172,6 +172,11 @@ QgsPropertyDefinition::QgsPropertyDefinition( const QString &name, const QString
       mHelpText = QObject::tr( "DateTime or string representation of a DateTime" );
       break;
 
+    case LineOffset:
+      mTypes = DataTypeNumeric;
+      mHelpText = QObject::tr( "double [≤ 0.0 ≥]" );
+      break;
+
     case Custom:
       mTypes = DataTypeString;
   }
