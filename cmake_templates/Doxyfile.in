@@ -241,7 +241,7 @@ QT_AUTOBRIEF           = NO
 
 MULTILINE_CPP_IS_BRIEF = NO
 
-t Python docstrings are displayed as preformatted text and doxygen's
+# By default Python docstrings are displayed as preformatted text and doxygen's
 # special commands cannot be used. By setting PYTHON_DOCSTRING to NO the
 # doxygen's special commands can be used and the contents of the docstring
 # documentation blocks is shown as doxygen documentation.

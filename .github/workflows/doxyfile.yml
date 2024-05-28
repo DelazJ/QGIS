@@ -3,7 +3,7 @@ name: 🧹 Update Doxygen config file
 on: push
 
 env:
-  DOXYGEN_VERSION: 1.9.8
+  DOXYGEN_VERSION: 1.11.0
 
 jobs:
   documentation_checks:
