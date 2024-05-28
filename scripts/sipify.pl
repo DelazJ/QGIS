@@ -642,7 +642,7 @@ sub processDoxygenLine {
     if ( $line =~ m/\\code(\{\.?(\w+)\})?/ ) {
         my $codelang = "";
         $codelang = " $2" if (defined $2);
-        $codelang =~ m/(cpp|py|unparsed)/ or exit_with_error("invalid code snippet format: $codelang");
+        $codelang =~ m/(cpp|html|py|unparsed)/ or exit_with_error("invalid code snippet format: $codelang");
         $COMMENT_CODE_SNIPPET = CODE_SNIPPET;
         $COMMENT_CODE_SNIPPET = CODE_SNIPPET_CPP if ($codelang =~ m/cpp/ );
         $codelang =~ s/py/python/;

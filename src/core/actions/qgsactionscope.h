@@ -30,17 +30,23 @@
  * Examples:
  * ---------
  *
- * <dl>
- *   <dt>Canvas</dt>
- *   <dd>Show for canvas tools. Adds `@click_x` and `@click_y` in map coordinates.</dd>
- *   <dt>Feature</dt>
- *   <dd>Show in feature specific places like the attribute table or feature
- *   form.</dd>
- *   <dt>Field</dt>
- *   <dd>Show in context menus for individual fields (e.g. attribute table). Adds `@field_index`, `@field_name` and `@field_value`.</dd>
- *   <dt>Layer</dt>
- *   <dd>Show in attribute table and work on the layer or selection.</dd>
- * </dl>
+ * \code{.html}
+ *
+ *   <dl>
+ *     <dt>Canvas</dt>
+ *     <dd>Show for canvas tools. Adds `@click_x` and `@click_y` in map coordinates.</dd>
+ *     <dt>Feature</dt>
+ *     <dd>Show in feature specific places like the attribute table or feature
+ *     form.</dd>
+ *     <dt>Field</dt>
+ *     <dd>Show in context menus for individual fields (e.g. attribute table). Adds `@field_index`, `@field_name` and `@field_value`.</dd>
+ *     <dt>Layer</dt>
+ *     <dd>Show in attribute table and work on the layer or selection.</dd>
+ *     <dt>Form</dt>
+ *     <dd>Show in a feature form designed using the drag-and-drop mode.</dd>
+ *   </dl>
+ *
+ * \endcode
  *
  */
 class CORE_EXPORT QgsActionScope
@@ -72,7 +78,7 @@ class CORE_EXPORT QgsActionScope
 
     /**
      * An expression scope may offer additional variables for an action scope.
-     * This can be an `field_name` for the attribute which was clicked or
+     * This can be a `field_name` for the attribute which was clicked or
      * `click_x` and `click_y` for actions which are available as map canvas clicks.
      *
      */
