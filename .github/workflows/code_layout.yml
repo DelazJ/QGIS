@@ -34,13 +34,22 @@ jobs:
           tar -xzf doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz
           python -m pip install --upgrade pip
           pip install autopep8 nose2 mock termcolor
+      - name: install graphviz
+        run: |
+          sudo apt install -y graphviz
       - name: Make
         run: |
           mkdir build
           cd build
           cmake -DUSE_CCACHE=OFF -DWITH_CORE=OFF -DWITH_APIDOC=ON -DWITH_ASTYLE=ON -DENABLE_TESTS=ON \
-                -DWITH_DOT=NO -DWERROR=ON -DDOXYGEN_EXECUTABLE=../doxygen-${DOXYGEN_VERSION}/bin/doxygen ..
+                -DWITH_DOT=YES -DWERROR=ON -DDOXYGEN_EXECUTABLE=../doxygen-${DOXYGEN_VERSION}/bin/doxygen ..
           make -j3 apidoc
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apidoc_build
+          path: /home/runner/work/QGIS/QGIS/build/doc/api/html
+          retention-days: 15
       - name: Run Tests
         run: cd build && ctest -V -R PyQgsDocCoverage
 
