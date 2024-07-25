@@ -33,7 +33,7 @@ class QgsGeocoderInterface;
  * ### Example
  *
  * \code{.py}
- *   # create a class which implements the QgsGeocoderInterface interface:
+ *   # create a class which implements the QgsGeocoderInterface interface
  *   class MyGeocoder(QgsGeocoderInterface):
  *
  *      def geocodeString(self, string, context, feedback):
@@ -57,7 +57,7 @@ class QgsGeocoderInterface;
  *       def createInstance(self):
  *           return MyGeocoderAlgorithm()
  *
- *       # optionally, the group(), groupId(), tags(), shortHelpString() and other metadata style methods can be overridden and customized:
+ *       # optionally, the group(), groupId(), tags(), shortHelpString() and other metadata style methods can be overridden and customized
  *       def tags(self):
  *           return 'geocode,my service,batch'
  *
