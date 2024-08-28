@@ -74,6 +74,7 @@
 #include "qgsrunnableprovidercreator.h"
 #include "qgssettingsregistrycore.h"
 #include "qgspluginlayer.h"
+#include "qgselevationprofileviewsmanager.h"
 
 #include <algorithm>
 #include <QApplication>
@@ -388,6 +389,7 @@ QgsProject::QgsProject( QObject *parent, Qgis::ProjectCapabilities capabilities 
   , mLabelingEngineSettings( new QgsLabelingEngineSettings )
   , mArchive( new QgsArchive() )
   , mAuxiliaryStorage( new QgsAuxiliaryStorage() )
+  , mElevationProfileViewsManager( new QgsElevationProfileViewsManager( this ) )
 {
   mProperties.setName( QStringLiteral( "properties" ) );
 
@@ -1209,6 +1211,7 @@ void QgsProject::clear()
   mAnnotationManager->clear();
   mLayoutManager->clear();
   m3DViewsManager->clear();
+  mElevationProfileViewsManager->clear();
   mBookmarkManager->clear();
   mSensorManager->clear();
   mViewSettings->reset();
@@ -2519,6 +2522,9 @@ bool QgsProject::readProjectFile( const QString &filename, Qgis::ProjectReadFlag
     m3DViewsManager->readXml( doc->documentElement(), *doc );
   }
 
+  profile.switchTask( tr( "Loading elevation profiles" ) );
+  mElevationProfileViewsManager->readXml( doc->documentElement(), *doc );
+
   profile.switchTask( tr( "Loading bookmarks" ) );
   mBookmarkManager->readXml( doc->documentElement(), *doc );
 
@@ -3419,6 +3425,11 @@ bool QgsProject::writeProjectFile( const QString &filename )
   }
 
   {
+    const QDomElement ElevationProfileElem = mElevationProfileViewsManager->writeXml( *doc );
+    qgisNode.appendChild( ElevationProfileElem );
+  }
+
+  {
     const QDomElement bookmarkElem = mBookmarkManager->writeXml( *doc );
     qgisNode.appendChild( bookmarkElem );
   }
@@ -4229,6 +4240,20 @@ QgsMapViewsManager *QgsProject::viewsManager()
   QGIS_PROTECT_QOBJECT_THREAD_ACCESS
 
   return m3DViewsManager.get();
+}
+
+const QgsElevationProfileViewsManager *QgsProject::profileViewsManager() const
+{
+  QGIS_PROTECT_QOBJECT_THREAD_ACCESS
+
+  return mElevationProfileViewsManager.get();
+}
+
+QgsElevationProfileViewsManager *QgsProject::profileViewsManager()
+{
+  QGIS_PROTECT_QOBJECT_THREAD_ACCESS
+
+  return mElevationProfileViewsManager.get();
 }
 
 const QgsBookmarkManager *QgsProject::bookmarkManager() const

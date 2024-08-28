@@ -89,6 +89,7 @@ class QgsMapViewsManager;
 class QgsProjectElevationProperties;
 class QgsProjectGpsSettings;
 class QgsSensorManager;
+class QgsElevationProfileViewsManager;
 
 /**
  * \ingroup core
@@ -846,6 +847,21 @@ class CORE_EXPORT QgsProject : public QObject, public QgsExpressionContextGenera
      * \since QGIS 3.24
      */
     QgsMapViewsManager *viewsManager();
+
+   /**
+     * Returns the project's elevation profiles manager, which manages elevation profile views
+     * in the project.
+     * \note not available in Python bindings
+     * \since QGIS 3.40
+     */
+    const QgsElevationProfileViewsManager *profileviewsManager() const SIP_SKIP;
+
+    /**
+     * Returns the project's elevation profiles manager, which manages elevation profile views
+     * in the project.
+     * \since QGIS 3.40
+     */
+    QgsElevationProfileViewsManager *profileviewsManager();
 
     /**
      * Returns the project's bookmark manager, which manages bookmarks within
@@ -2378,6 +2394,7 @@ class CORE_EXPORT QgsProject : public QObject, public QgsExpressionContextGenera
     std::unique_ptr<QgsAnnotationManager> mAnnotationManager;
     std::unique_ptr<QgsLayoutManager> mLayoutManager;
     std::unique_ptr<QgsMapViewsManager> m3DViewsManager;
+    std::unique_ptr<QgsElevationProfileViewsManager> mElevationProfileViewsManager;
 
     QgsBookmarkManager *mBookmarkManager = nullptr;
 

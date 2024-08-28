@@ -98,6 +98,13 @@
      <addaction name="mActionNew3DMapCanvas"/>
      <addaction name="mActionManage3DMapViews"/>
     </widget>
+    <widget class="QMenu" name="mElevationProfileViewsMenu">
+     <property name="title">
+      <string>&amp;Elevation Profile Views</string>
+     </property>
+     <addaction name="mActionElevationProfile"/>
+     <addaction name="mActionManageElevationProfileViews"/>
+    </widget>
     <widget class="QMenu" name="mMenuMeasure">
      <property name="title">
       <string>Measure</string>
@@ -160,7 +167,7 @@
     <addaction name="mActionIdentify"/>
     <addaction name="mMenuMeasure"/>
     <addaction name="mActionStatisticalSummary"/>
-    <addaction name="mActionElevationProfile"/>
+    <addaction name="mElevationProfileViewsMenu"/>
     <addaction name="separator"/>
     <addaction name="mActionZoomFullExtent"/>
     <addaction name="mActionZoomToSelected"/>
@@ -3331,10 +3338,15 @@ Shows placeholders for labels which could not be placed, e.g. due to overlaps wi
      <normaloff>:/images/themes/default/mActionNewElevationProfile.svg</normaloff>:/images/themes/default/mActionNewElevationProfile.svg</iconset>
    </property>
    <property name="text">
-    <string>Elevation Profile</string>
+    <string>New Elevation Profile</string>
    </property>
    <property name="toolTip">
     <string>Open an interactive elevation profile chart</string>
+   </property>
+  </action>
+  <action name="mActionManageElevationProfileViews">
+   <property name="text">
+    <string>Manage Elevation Profile Views</string>
    </property>
   </action>
   <action name="mActionDonate">
