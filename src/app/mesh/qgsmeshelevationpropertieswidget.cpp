@@ -40,6 +40,10 @@ QgsMeshElevationPropertiesWidget::QgsMeshElevationPropertiesWidget( QgsMeshLayer
   mLimitsComboBox->addItem( tr( "Exclude Lower, Include Upper" ), QVariant::fromValue( Qgis::RangeLimits::ExcludeLowerIncludeUpper ) );
   mLimitsComboBox->addItem( tr( "Exclude Lower and Upper" ), QVariant::fromValue( Qgis::RangeLimits::ExcludeBoth ) );
 
+  mFixedRangePerBandLabel->setHeightForWidth( False ); 
+  label_11->setHeightForWidth( False ); 
+  label_15->setHeightForWidth( False ); 
+
   mStackedWidget->setSizeMode( QgsStackedWidget::SizeMode::CurrentPageOnly );
   mSymbologyStackedWidget->setSizeMode( QgsStackedWidget::SizeMode::CurrentPageOnly );
 
