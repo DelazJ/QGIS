@@ -82,8 +82,7 @@ class rasterize(GdalAlgorithm):
                                                        optional=True))
         self.addParameter(QgsProcessingParameterBoolean(self.USE_Z,
                                                         self.tr('Burn value extracted from the "Z" values of the feature'),
-                                                        defaultValue=False,
-                                                        optional=True))
+                                                        defaultValue=False))
         self.addParameter(QgsProcessingParameterEnum(self.UNITS,
                                                      self.tr('Output raster size units'),
                                                      self.units))
