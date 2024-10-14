@@ -547,10 +547,10 @@ class GUI_EXPORT QgsMapCanvas : public QGraphicsView, public QgsExpressionContex
 
     /**
      * Returns TRUE if canvas is frozen.
+     * \see freeze()
      * \see renderFlag(). isFrozen() should be used to determine whether map updates
      * have been halted programmatically, while renderFlag() should be used to
      * determine whether a user has disabled rendering via GUI.
-     * \see freeze()
      */
     bool isFrozen() const;
 
