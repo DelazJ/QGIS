@@ -69,7 +69,7 @@ void QgsAttributeTypeLoadDialog::fillLayerList()
   {
     QgsVectorLayer *vl = qobject_cast< QgsVectorLayer * >( l );
     if ( vl )
-      layerComboBox->addItem( vl->name(), vl->id() );
+      layerComboBox->addItem( QgsIconUtils::iconForLayer( vl ), vl->name(), vl->id() );
   }
   layerComboBox->setCurrentIndex( -1 );
   layerComboBox->blockSignals( false );
@@ -91,7 +91,7 @@ void QgsAttributeTypeLoadDialog::fillComboBoxes( int layerIndex )
     QMap<QString, int>::iterator it = fieldMap.begin();
     for ( ; it != fieldMap.end(); ++it )
     {
-      keyComboBox->addItem( it.key(), it.value() );
+      keyComboBox->addItem( it. it.key(), it.value() );
       valueComboBox->addItem( it.key(), it.value() );
     }
   }
