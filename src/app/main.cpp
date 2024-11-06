@@ -1075,7 +1075,7 @@ int main( int argc, char *argv[] )
           {
             profileName = dlg.selectedProfileName();
           }
-          else
+          else if ( dlg.exec() == QDialog::Rejected )
           {
             // Exit QGIS if the user cancels the profile selection dialog
             return 0;
