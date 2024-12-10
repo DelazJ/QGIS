@@ -127,12 +127,34 @@
       </widget>
      </item>
      <item>
+      <widget class="QToolButton" name="mMoveDownToolButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/images/themes/default/mActionArrowDown.svg</normaloff>:/images/themes/default/mActionArrowDown.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="mMoveUpToolButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/images/themes/default/mActionArrowUp.svg</normaloff>:/images/themes/default/mActionArrowUp.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnAddCategory">
        <property name="toolTip">
         <string>Add</string>
        </property>
        <property name="icon">
-        <iconset resource="../../images/images.qrc">
+        <iconset>
          <normaloff>:/images/themes/default/symbologyAdd.svg</normaloff>:/images/themes/default/symbologyAdd.svg</iconset>
        </property>
       </widget>
@@ -143,7 +165,7 @@
         <string>Delete</string>
        </property>
        <property name="icon">
-        <iconset resource="../../images/images.qrc">
+        <iconset>
          <normaloff>:/images/themes/default/symbologyRemove.svg</normaloff>:/images/themes/default/symbologyRemove.svg</iconset>
        </property>
       </widget>
