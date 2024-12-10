@@ -197,6 +197,8 @@ class GUI_EXPORT QgsCategorizedSymbolRendererWidget : public QgsRendererWidget, 
     void updateSymbolsFromWidget( QgsSymbolSelectorWidget *widget );
     void updateSymbolsFromButton();
     void dataDefinedSizeLegend();
+    void moveDownCategories();
+    void moveUpCategories();
 
     /**
      * Merges all selected categories into a single multi-value category.

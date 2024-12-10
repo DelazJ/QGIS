@@ -710,6 +710,9 @@ QgsCategorizedSymbolRendererWidget::QgsCategorizedSymbolRendererWidget( QgsVecto
   connect( btnDeleteAllCategories, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::deleteAllCategories );
   connect( btnAddCategory, &QAbstractButton::clicked, this, &QgsCategorizedSymbolRendererWidget::addCategory );
 
+  connect( mMoveDownToolButton, &QToolButton::clicked, this, &QgsCategorizedSymbolRendererWidget::moveDownCategories );
+  connect( mMoveUpToolButton, &QToolButton::clicked, this, &QgsCategorizedSymbolRendererWidget::moveUpCategories );
+
   connect( btnColorRamp, &QgsColorRampButton::colorRampChanged, this, &QgsCategorizedSymbolRendererWidget::applyColorRamp );
 
   // menus for data-defined rotation/size
@@ -1125,6 +1128,16 @@ QList<QgsSymbol *> QgsCategorizedSymbolRendererWidget::selectedSymbols()
     }
   }
   return selectedSymbols;
+}
+
+void QgsCategorizedSymbolRendererWidget::moveDownCategories()
+{
+  
+}
+
+void QgsCategorizedSymbolRendererWidget::moveUpCategories()
+{
+  
 }
 
 QgsCategoryList QgsCategorizedSymbolRendererWidget::selectedCategoryList()
