@@ -1132,12 +1132,49 @@ QList<QgsSymbol *> QgsCategorizedSymbolRendererWidget::selectedSymbols()
 
 void QgsCategorizedSymbolRendererWidget::moveDownCategories()
 {
-  
+  QgsCategoryList cl=selectedCategoryList();
+  if( !cl.isEmpty() )
+  {
+
+  }
 }
 
 void QgsCategorizedSymbolRendererWidget::moveUpCategories()
 {
-  
+    if ( !mLegend )
+  {
+    return;
+  }
+
+  const QModelIndex index = mItemTreeView->selectionModel()->currentIndex();
+  const QModelIndex sourceIndex = mItemTreeView->proxyModel()->mapToSource( index );
+  const QModelIndex parentIndex = sourceIndex.parent();
+  if ( !sourceIndex.isValid() || sourceIndex.row() == mItemTreeView->layerTreeModel()->rowCount( parentIndex ) - 1 )
+    return;
+
+  QgsLayerTreeNode *node = mItemTreeView->index2node( index );
+  QgsLayerTreeModelLegendNode *legendNode = mItemTreeView->index2legendNode( index );
+  if ( !node && !legendNode )
+    return;
+
+  mLegend->beginCommand( tr( "Moved Legend Item Down" ) );
+
+  if ( node )
+  {
+    QgsLayerTreeGroup *parentGroup = QgsLayerTree::toGroup( node->parent() );
+    parentGroup->insertChildNode( sourceIndex.row() + 2, node->clone() );
+    parentGroup->removeChildNode( node );
+  }
+  else // legend node
+  {
+    _moveLegendNode( legendNode->layerNode(), _unfilteredLegendNodeIndex( legendNode ), 1 );
+    mItemTreeView->layerTreeModel()->refreshLayerLegend( legendNode->layerNode() );
+  }
+
+  mItemTreeView->setCurrentIndex( mItemTreeView->proxyModel()->mapFromSource( mItemTreeView->layerTreeModel()->index( sourceIndex.row() + 1, 0, parentIndex ) ) );
+
+  mLegend->update();
+  mLegend->endCommand();
 }
 
 QgsCategoryList QgsCategorizedSymbolRendererWidget::selectedCategoryList()
