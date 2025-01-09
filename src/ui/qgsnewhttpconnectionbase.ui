@@ -218,7 +218,7 @@
          <item row="2" column="1">
           <widget class="QSpinBox" name="sbFeatureCount">
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify a default value for FEATURE_COUNT when a new layer is created from this connection. &lt;/p&gt;&lt;p&gt;FEATURE_COUNT defines the maximum number of results returned by a GetFeatureInfo request, if not specified the server default value (usually 1) will be used.&lt;/p&gt;&lt;p&gt;Set to 0 to use server default: no FEATURE_COUNT parameter will be added to the request.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify a default value for FEATURE_COUNT when a new layer is loaded from this connection. &lt;/p&gt;&lt;p&gt;FEATURE_COUNT defines the maximum number of results returned by a GetFeatureInfo request.&lt;/p&gt;&lt;p&gt;Set to 0 to use server default value (usually 1): no FEATURE_COUNT parameter will be added to the request.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="specialValueText">
             <string>server default</string>
