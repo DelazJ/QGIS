@@ -1181,7 +1181,7 @@ class GUI_EXPORT QgisInterface : public QObject
      *
      * Vector Layer:
      * mOptsPage_Information, mOptsPage_Source, mOptsPage_Style, mOptsPage_Labels,
-     * mOptsPage_Masks, mOptsPage_Diagrams, mOptsPage_SourceFields, mOptsPage_AttributesForm,
+     * mOptsPage_Masks, mOptsPage_3DView, mOptsPage_Diagrams, mOptsPage_SourceFields, mOptsPage_AttributesForm,
      * mOptsPage_Joins, mOptsPage_AuxiliaryStorage, mOptsPage_Actions, mOptsPage_Display,
      * mOptsPage_Rendering, mOptsPage_Temporal, mOptsPage_Variables, mOptsPage_Elevation,
      * mOptsPage_Metadata, mOptsPage_DataDependencies, mOptsPage_Legend, mOptsPage_Server
@@ -1193,14 +1193,20 @@ class GUI_EXPORT QgisInterface : public QObject
      *
      * Mesh Layer:
      * mOptsPage_Information, mOptsPage_Source, mOptsPage_Style, mOptsPage_StyleContent,
-     * mOptsPage_Rendering, mOptsPage_Temporal, mOptsPage_Elevation, mOptsPage_Metadata
+     * mOptsPage_Labels, mOptsPage_3DView, mOptsPage_Rendering, mOptsPage_Temporal,
+     * mOptsPage_Elevation, mOptsPage_Metadata
      *
      * Point Cloud Layer:
-     * mOptsPage_Information, mOptsPage_Source, mOptsPage_Elevation, mOptsPage_Metadata,
-     * mOptsPage_Statistics, mOptsPage_Rendering
+     * mOptsPage_Information, mOptsPage_Source, mOptsPage_3DView, mOptsPage_Elevation,
+     * mOptsPage_Metadata, mOptsPage_Statistics, mOptsPage_Rendering
      *
      * Vector Tile Layer:
-     * mOptsPage_Information, mOptsPage_Style, mOptsPage_Labeling, mOptsPage_Metadata
+     * mOptsPage_Information, mOptsPage_Source, mOptsPage_Style, mOptsPage_Labeling,
+     * mOptsPage_Rendering, mOptsPage_Metadata, mOptsPage_Server
+     *
+     * Tiled Scene Layer:
+     * mOptsPage_Information, mOptsPage_Source, mOptsPage_Style, mOptsPage_3DView,
+     * mOptsPage_Rendering, mOptsPage_Elevation, mOptsPage_Metadata
      *
      * \note Page names are subject to change without notice between QGIS versions,
      * they are not considered part of the stable API.
