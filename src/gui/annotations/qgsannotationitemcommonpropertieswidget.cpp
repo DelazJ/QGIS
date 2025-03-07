@@ -39,6 +39,8 @@ QgsAnnotationItemCommonPropertiesWidget::QgsAnnotationItemCommonPropertiesWidget
     if ( !mBlockChangedSignal )
       emit itemChanged();
   } );
+
+  allowCallout();
   connect( mCalloutCheckBox, &QCheckBox::toggled, this, [=] {
     if ( !mBlockChangedSignal )
       emit itemChanged();
@@ -78,6 +80,12 @@ void QgsAnnotationItemCommonPropertiesWidget::setContext( const QgsSymbolWidgetC
 QgsSymbolWidgetContext QgsAnnotationItemCommonPropertiesWidget::context() const
 {
   return mContext;
+}
+
+void QgsAnnotationItemCommonPropertiesWidget::allowCallout( QgsAnnotationItem *item )
+{
+  mCalloutCheckBox->setVisible( item->flags( Qgis::AnnotationItemFlag::SupportsCallouts ) );
+  mCalloutPropertiesButton->setVisible( item->flags( Qgis::AnnotationItemFlag::SupportsCallouts ) );
 }
 
 void QgsAnnotationItemCommonPropertiesWidget::openCalloutProperties()
