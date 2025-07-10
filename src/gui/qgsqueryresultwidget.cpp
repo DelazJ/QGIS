@@ -29,6 +29,7 @@
 #include "qgsprovidermetadata.h"
 #include "qgscodeeditorwidget.h"
 #include "qgsfileutils.h"
+#include "qgshelp.h"
 #include "qgsstoredquerymanager.h"
 #include "qgsproject.h"
 #include "qgsnewnamedialog.h"
@@ -88,7 +89,13 @@ QgsQueryResultPanelWidget::QgsQueryResultPanelWidget( QWidget *parent, QgsAbstra
   mSqlEditorContainer->setLayout( vl );
 
   connect( mExecuteButton, &QPushButton::pressed, this, &QgsQueryResultPanelWidget::executeQuery );
+  connect( buttonBox, &QDialogButtonBox::rejected, &this, &QDialog::reject );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, &this, [=] {
+    QgsHelp::openHelp( QStringLiteral( "managing_data_source/create_layers.html##execute-sql" ) );
+  } );
 
+  QPushButton* mLoadLayerPushButton =  buttonBox->button(QDialogButtonBox::Apply);
+  mLoadLayerPushButton->setEnabled( false );
   connect( mLoadLayerPushButton, &QPushButton::pressed, this, [this] {
     if ( mConnection )
     {
@@ -294,6 +301,9 @@ void QgsQueryResultPanelWidget::updateButtons()
   mExecuteButton->setEnabled( !isEmpty );
   mLoadAsNewLayerGroupBox->setVisible( mConnection && mConnection->capabilities().testFlag( QgsAbstractDatabaseProviderConnection::Capability::SqlLayers ) );
   mLoadAsNewLayerGroupBox->setEnabled(
+    mSqlErrorMessage.isEmpty() && mFirstRowFetched
+  );
+  mLoadLayerPushButton->setEnabled(
     mSqlErrorMessage.isEmpty() && mFirstRowFetched
   );
 }

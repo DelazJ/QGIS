@@ -223,30 +223,6 @@
           </item>
          </layout>
         </item>
-        <item row="6" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="mLoadLayerPushButton">
-            <property name="text">
-             <string>Load Layer</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
         <item row="3" column="0">
          <widget class="QCheckBox" name="mAvoidSelectingAsFeatureIdCheckBox">
           <property name="toolTip">
@@ -267,11 +243,33 @@
        </layout>
       </widget>
      </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QDialogButtonBox" name="buttonBox">
+         <property name="standardButtons">
+          <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Help</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
     </layout>
    </item>
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>QgsCheckableComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qgscheckablecombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsCollapsibleGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>qgscollapsiblegroupbox.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>QgsCodeEditorSQL</class>
    <extends>QWidget</extends>
@@ -283,17 +281,6 @@
    <extends>QWidget</extends>
    <header>qgsmessagebar.h</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QgsCollapsibleGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>qgscollapsiblegroupbox.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QgsCheckableComboBox</class>
-   <extends>QComboBox</extends>
-   <header>qgscheckablecombobox.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>
@@ -307,7 +294,6 @@
   <tabstop>mFilterToolButton</tabstop>
   <tabstop>mAvoidSelectingAsFeatureIdCheckBox</tabstop>
   <tabstop>mLayerNameLineEdit</tabstop>
-  <tabstop>mLoadLayerPushButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>
