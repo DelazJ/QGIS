@@ -392,9 +392,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * It may be an empty string if no explicit coordinate operation is required. In order to determine the
      * ACTUAL coordinate operation which is being used by the transform, use the instantiatedCoordinateOperationDetails() call instead.
      *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will always return
-     * an empty string, and the deprecated sourceDatumTransformId() or destinationDatumTransformId() methods should be used instead.
-     *
      * \see instantiatedCoordinateOperationDetails()
      * \see setCoordinateOperation()
      * \since QGIS 3.8
@@ -408,9 +405,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * This may differ from the result returned by coordinateOperation() if the desired coordinate
      * operation was not successfully instantiated.
      *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will always return
-     * an empty result, and the deprecated sourceDatumTransformId() or destinationDatumTransformId() methods should be used instead.
-     *
      * \see coordinateOperation()
      * \since QGIS 3.10.2
      */
@@ -423,9 +417,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * \warning It is the caller's responsibility to ensure that \a operation is a valid Proj
      * coordinate operation string.
      *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will ignore this setting,
-     * and the deprecated setSourceDatumTransformId() or setDestinationDatumTransformId() methods should be used instead.
-     *
      * \see coordinateOperation()
      * \since QGIS 3.8
      */
@@ -435,8 +426,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * Sets whether "ballpark" fallback transformations can be used in the case that the specified
      * coordinate operation fails (such as when coordinates from outside a required grid shift file
      * are transformed). See fallbackOperationOccurred() for further details.
-     *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will ignore this setting.
      *
      * \warning If setBallparkTransformsAreAppropriate() is set to TRUE, this setting will be ignored
      * and fallback transformations will always be permitted.
@@ -451,8 +440,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * Returns whether "ballpark" fallback transformations will be used in the case that the specified
      * coordinate operation fails (such as when coordinates from outside a required grid shift file
      * are transformed). See fallbackOperationOccurred() for further details.
-     *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will ignore this setting.
      *
      * \see setAllowFallbackTransforms()
      * \see setBallparkTransformsAreAppropriate()
@@ -487,8 +474,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * \warning This setting applies to a single instance of a coordinate transform only,
      * and is not copied when a coordinate transform object is copied or assigned.
      *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will ignore this setting.
-     *
      * \since QGIS 3.12
      */
     void setBallparkTransformsAreAppropriate( bool appropriate );
@@ -502,8 +487,6 @@ class CORE_EXPORT QgsCoordinateTransform
      * \warning This setting applies to a single instance of a coordinate transform only,
      * and is not copied when a coordinate transform object is copied or assigned.
      *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will never perform fallback operations.
-     *
      * \see fallbackOperationOccurred()
      * \since QGIS 3.12
      */
@@ -511,8 +494,6 @@ class CORE_EXPORT QgsCoordinateTransform
 
     /**
      * Returns TRUE if a fallback operation occurred for the most recent transform.
-     *
-     * \note Requires Proj 6.0 or later. Builds based on earlier Proj versions will never perform fallback operations.
      *
      * \see disableFallbackOperationHandler()
      * \since QGIS 3.12
@@ -530,7 +511,7 @@ class CORE_EXPORT QgsCoordinateTransform
      * \see setSourceDatumTransformId()
      * \see destinationDatumTransformId()
      *
-     * \deprecated QGIS 3.40. Unused on builds based on Proj 6.0 or later.
+     * \deprecated QGIS 3.40
      */
     Q_DECL_DEPRECATED int sourceDatumTransformId() const SIP_DEPRECATED;
 
@@ -545,7 +526,7 @@ class CORE_EXPORT QgsCoordinateTransform
      * \see sourceDatumTransformId()
      * \see setDestinationDatumTransformId()
      *
-     * \deprecated QGIS 3.40. Unused on builds based on Proj 6.0 or later.
+     * \deprecated QGIS 3.40
      */
     Q_DECL_DEPRECATED void setSourceDatumTransformId( int datumId ) SIP_DEPRECATED;
 
@@ -560,7 +541,7 @@ class CORE_EXPORT QgsCoordinateTransform
      * \see setDestinationDatumTransformId()
      * \see sourceDatumTransformId()
      *
-     * \deprecated QGIS 3.40. Unused on builds based on Proj 6.0 or later.
+     * \deprecated QGIS 3.40
      */
     Q_DECL_DEPRECATED int destinationDatumTransformId() const SIP_DEPRECATED;
 
@@ -575,7 +556,7 @@ class CORE_EXPORT QgsCoordinateTransform
      * \see destinationDatumTransformId()
      * \see setSourceDatumTransformId()
      *
-     * \deprecated QGIS 3.40. Unused on builds based on Proj 6.0 or later.
+     * \deprecated QGIS 3.40
      */
     Q_DECL_DEPRECATED void setDestinationDatumTransformId( int datumId ) SIP_DEPRECATED;
 
