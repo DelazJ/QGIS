@@ -80,7 +80,7 @@ class CORE_EXPORT QgsCoordinateTransform
      * between a static and dynamic CRS based on either the source OR destination CRS coordinate epoch,
      * however dynamic CRS to dynamic CRS transformations are not currently supported.
      *
-     * \warning Do NOT use an empty/default constructed QgsCoordinateTransformContext()
+     * \warning Do NOT use an empty/default constructed QgsCoordinateTransformContext
      * object when creating QgsCoordinateTransform objects. This prevents correct
      * datum transform handling and may result in inaccurate transformations. Always
      * ensure that the QgsCoordinateTransformContext object is correctly retrieved
