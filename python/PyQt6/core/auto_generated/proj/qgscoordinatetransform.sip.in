@@ -78,7 +78,7 @@ flags which dictate the behavior of the transformation.
 
 .. warning::
 
-   Do NOT use an empty/default constructed :py:class:`QgsCoordinateTransformContext`()
+   Do NOT use an empty/default constructed :py:class:`QgsCoordinateTransformContext`
    object when creating QgsCoordinateTransform objects. This prevents correct
    datum transform handling and may result in inaccurate transformations. Always
    ensure that the :py:class:`QgsCoordinateTransformContext` object is correctly retrieved

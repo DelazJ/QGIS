@@ -320,35 +320,17 @@
         </layout>
        </item>
        <item row="4" column="1" colspan="2">
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLineEdit" name="leSRID">
-           <property name="toolTip">
-            <string>Spatial Reference Id</string>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pbnFindSRID">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="toolTip">
-            <string>Specify the coordinate reference system of the layer's geometry.</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../images/images.qrc">
-             <normaloff>:/images/themes/default/mActionSetProjection.svg</normaloff>:/images/themes/default/mActionSetProjection.svg</iconset>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QgsProjectionSelectionWidget" name="mCrsSelector" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::StrongFocus</enum>
+         </property>
+        </widget>
        </item>
        <item row="2" column="1" colspan="2">
         <widget class="QComboBox" name="mGeometryTypeBox">
@@ -488,6 +470,12 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
+   <class>QgsProjectionSelectionWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">qgsprojectionselectionwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>QgsScrollArea</class>
    <extends>QScrollArea</extends>
    <header>qgsscrollarea.h</header>
@@ -513,8 +501,7 @@
   <tabstop>mGeometryTypeBox</tabstop>
   <tabstop>mGeometryWithZCheckBox</tabstop>
   <tabstop>mGeometryWithMCheckBox</tabstop>
-  <tabstop>leSRID</tabstop>
-  <tabstop>pbnFindSRID</tabstop>
+  <tabstop>mCrsSelector</tabstop>
   <tabstop>mNameEdit</tabstop>
   <tabstop>mTypeBox</tabstop>
   <tabstop>mAddAttributeButton</tabstop>

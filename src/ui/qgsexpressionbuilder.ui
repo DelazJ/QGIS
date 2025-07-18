@@ -804,24 +804,24 @@ Change the name of the script and save to allow QGIS to auto load on startup.</s
             <number>1</number>
            </property>
            <item>
-            <widget class="QgsCodeEditorPython" name="txtPython" native="true"/>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <layout class="QGridLayout" name="gridLayout_1">
              <property name="sizeConstraint">
               <enum>QLayout::SetDefaultConstraint</enum>
              </property>
              <property name="topMargin">
               <number>0</number>
              </property>
-             <item>
+             <item row="0" column="0" colspan="3">
+              <widget class="QgsCodeEditorPython" name="txtPython" native="true"/>
+             </item>
+             <item row="1" column="0">
               <widget class="QLabel" name="lblAutoSave">
                <property name="text">
                 <string/>
                </property>
               </widget>
              </item>
-             <item>
+             <item row="1" column="1">
               <spacer name="horizontalSpacer_2">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -837,7 +837,7 @@ Change the name of the script and save to allow QGIS to auto load on startup.</s
                </property>
               </spacer>
              </item>
-             <item>
+             <item row="1" column="2">
               <widget class="QPushButton" name="btnRun">
                <property name="toolTip">
                 <string>Run the current editor text in QGIS (also saves current script).

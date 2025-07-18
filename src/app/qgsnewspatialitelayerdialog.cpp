@@ -64,7 +64,8 @@ QgsNewSpatialiteLayerDialog::QgsNewSpatialiteLayerDialog( QWidget *parent, Qt::W
   addGeomItem( Qgis::WkbType::MultiPolygon, QStringLiteral( "MULTIPOLYGON" ) );
   mGeometryTypeBox->setCurrentIndex( -1 );
 
-  pbnFindSRID->setEnabled( false );
+  mCrsSelector->setEnabled( false );
+  mCrsSelector->setShowAccuracyWarnings( true );
   mGeometryWithZCheckBox->setEnabled( false );
   mGeometryWithMCheckBox->setEnabled( false );
   leGeometryColumn->setEnabled( false );
@@ -84,8 +85,8 @@ QgsNewSpatialiteLayerDialog::QgsNewSpatialiteLayerDialog( QWidget *parent, Qt::W
   mOkButton->setEnabled( false );
 
   // Set the SRID box to a default of WGS84
-  mCrsId = defaultCrs.authid();
-  leSRID->setText( defaultCrs.userFriendlyIdentifier() );
+  //mCrsId = defaultCrs.authid();
+  //leSRID->setText( defaultCrs.userFriendlyIdentifier() );
 
   pbnFindSRID->setEnabled( mDatabaseComboBox->count() );
 
