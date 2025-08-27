@@ -377,6 +377,7 @@ algorritm:algorithm
 algorythm:algorithm
 alientating:alienating
 alighnment:alignment
+alignement:alignment
 alignemnt:alignment
 alignemnts:alignments
 alledge:allege:*
@@ -577,6 +578,7 @@ appplication:application
 appplications:applications
 apprearance:appearance
 apprieciate:appreciate
+appriopriate:appropriate
 approachs:approaches
 appropiate:appropriate
 appropiately:appropriately
@@ -825,6 +827,7 @@ attibutes:attributes
 attirbute:attribute
 attirbutes:attributes
 attitide:attitude
+attribure:attribute
 attribut:attribute
 attributred:attributed
 attrocities:atrocities
@@ -1283,6 +1286,7 @@ chcek:check
 chceked:checked
 chceking:checking
 chceks:checks
+chck:check
 check box:checkbox
 check-box:checkbox
 checkk:check
@@ -1604,6 +1608,7 @@ condemmed:condemned
 condidtion:condition
 condidtions:conditions
 conditionaly:conditionally
+conditionnal:conditional
 conditionnaly:conditionally
 conditionsof:conditions of
 condtion:condition
@@ -1638,6 +1643,7 @@ congresional:congressional
 conived:connived
 conjecutre:conjecture
 conjuction:conjunction
+connction:connection
 conneciton:connection
 connecitons:connections
 connectinos:connections
@@ -1832,6 +1838,7 @@ copyrigth:copyright
 copyrigthed:copyrighted
 copyrigths:copyrights
 copywrite:copyright
+cordinate:coordinate
 corect:correct
 corected:corrected
 corespond:correspond
@@ -1950,6 +1957,7 @@ currectly:correctly
 currenly:currently
 curriculem:curriculum
 currnt:current
+currrent:current
 customicable:customizable
 customisation:customization
 customise:customize
@@ -2023,6 +2031,7 @@ decstiptions:descriptions
 dectect:detect
 defailt:default
 defalt:default
+defaut:default
 defautl:default
 defendent:defendant
 defendents:defendants
@@ -2141,6 +2150,7 @@ descide:decide
 descided:decided
 descides:decides
 desciding:deciding
+desciption:description
 desciptor:descriptor
 desciptors:descriptors
 descision:decision
@@ -2334,6 +2344,7 @@ directries:directories
 directry:directory
 directy:directly
 dirived:derived
+dirtyness:dirtiness
 disagreeed:disagreed
 disapear:disappear
 disapeard:disappeared
@@ -3137,6 +3148,7 @@ formallized:formalized
 formaly:formally
 formate:format
 formated:formatted:*
+formater:formatter
 formating:formatting
 formelly:formerly
 formidible:formidable
@@ -4501,6 +4513,7 @@ merchantibility:merchantability
 mesage:message
 mesages:messages
 mesaureed:measured
+messag:message
 messagin:messaging
 messags:messages
 messanger:messenger
@@ -5490,6 +5503,7 @@ prestigous:prestigious
 presumabely:presumably
 presumibly:presumably
 pretection:protection
+preveiw:preview
 prevelant:prevalent
 preverse:perverse
 previvous:previous
@@ -6014,6 +6028,7 @@ remoote:remote
 removeable:removable
 rendereing:rendering
 renderering:rendering
+renderring:rendering
 rendevous:rendezvous
 rendezous:rendezvous
 renedered:rende
@@ -6332,6 +6347,7 @@ savable:saveable
 saveing:saving
 savely:safely
 savety:safety
+savy:savvy
 saxaphone:saxophone
 scaleable:scalable
 scalled:scaled
@@ -6473,6 +6489,7 @@ shedules:schedules
 sheduling:scheduling
 sheild:shield
 sherif:sheriff
+shif:shift
 shineing:shining
 shiped:shipped
 shiping:shipping
@@ -6524,6 +6541,7 @@ simmilar:similar
 simpley:simply
 simplier:simpler
 simpliest:simplest
+simultaniously:simultaneously
 simultanous:simultaneous
 simultanously:simultaneously
 sincerley:sincerely
@@ -7664,6 +7682,7 @@ visable:visible:*
 visably:visibly
 visibile:visible
 visibilty:visibility
+visiblity:visibility
 visiters:visitors
 visting:visiting
 vistors:visitors
