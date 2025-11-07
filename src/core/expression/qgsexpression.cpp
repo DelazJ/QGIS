@@ -974,7 +974,7 @@ bool QgsExpression::addVariableHelpText( const QString name, const QString &desc
 QString QgsExpression::variableHelpText( const QString &variableName )
 {
   QgsExpression::initVariableHelp();
-  return sVariableHelpTexts()->value( variableName, QString() );
+  return sVariableHelpTexts()->value( variableName, variableName );
 }
 
 QString QgsExpression::formatVariableHelp( const QString &description, bool showValue, const QVariant &value )
