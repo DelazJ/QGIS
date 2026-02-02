@@ -249,8 +249,9 @@ class AlgorithmDialog(QgsProcessingAlgorithmDialogBase):
 
             self.feedback.pushInfo(
                 QCoreApplication.translate(
-                    "AlgorithmDialog", "Algorithm started at: {}"
-                ).format(datetime.datetime.now().replace(microsecond=0).isoformat())
+                    "AlgorithmDialog", "Algorithm {0} started at: {1}"
+                ).format(self.algorithm().displayName(),
+                         datetime.datetime.now().replace(microsecond=0).isoformat())
             )
 
             self.setInfo(
