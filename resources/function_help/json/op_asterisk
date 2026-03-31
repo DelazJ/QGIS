@@ -2,23 +2,41 @@
   "name": "*",
   "type": "operator",
   "groups": ["Operators"],
-  "description": "Multiplication of two values.<br><br>When used with two colors, performs component-wise multiplication on the color components (not alpha), clamping results to [0, 1]. The alpha channel of the left color is used. HSL and HSV colors are converted to RGB for the operation, and the result is an RGB color. CMYK colors produce a CMYK result.<br><br>When used with a color and a number (in any order), multiplies each color component (excluding alpha) by the number, clamping results to [0, 1]. The alpha channel is preserved.",
-  "arguments": [{
-    "arg": "a",
-    "description": "value"
+  "description": "Multiplication of two values.",
+  "variants": [{
+    "variant": "Numeric values",
+    "variant_description": "Multiplication of two numerical values.",
+    "arguments": [{
+      "arg": "a",
+      "description": "value"
+    }, {
+      "arg": "b",
+      "description": "value"
+    }],
+    "examples": [{
+      "expression": "5 * 4",
+      "returns": "20"
+    }, {
+      "expression": "5 * NULL",
+      "returns": "NULL"
+    }]
   }, {
-    "arg": "b",
-    "description": "value"
-  }],
-  "examples": [{
-    "expression": "5 * 4",
-    "returns": "20"
-  }, {
-    "expression": "5 * NULL",
-    "returns": "NULL"
-  }, {
-    "expression": "color_rgbf(0.2, 0.4, 0.6) * 2",
-    "returns": "RGBA: 0.40,0.80,1.00,1.00"
+    "variant": "Color values",
+    "variant_description": "Multiplication of a color with a number or another color.<br>When used with two colors, performs component-wise multiplication on the color components (not alpha), clamping results to [0, 1]. The alpha channel of the left color is used. HSL and HSV colors are converted to RGB for the operation, and the result is an RGB color. CMYK colors produce a CMYK result.<br>When used with a color and a number (in any order), multiplies each color component (excluding alpha) by the number, clamping results to [0, 1]. The alpha channel is preserved.",
+    "arguments": [{
+      "arg": "a",
+      "description": "a color a numerical value"
+    }, {
+      "arg": "b",
+      "description": "a color or a numerical value"
+    }],
+    "examples": [{
+      "expression": "color_rgbf(0.2, 0.4, 0.6) * 2",
+      "returns": "RGBA: 0.40,0.80,1.00,1.00"
+    },{
+      "expression": "color_rgbf(0.2, 0.4, 0.6) * 2",
+      "returns": "RGBA: 0.40,0.80,1.00,1.00"
+    }]
   }],
   "tags": ["multiplication", "values", "color"]
 }
