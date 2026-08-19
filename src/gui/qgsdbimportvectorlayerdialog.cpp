@@ -19,6 +19,7 @@
 #include "qgsdatabaseschemacombobox.h"
 #include "qgsexpressioncontextutils.h"
 #include "qgsgui.h"
+#include "qgshelp.h"
 #include "qgsmapcanvas.h"
 #include "qgsproviderregistry.h"
 #include "qgsvectorlayer.h"
@@ -47,7 +48,8 @@ QgsDbImportVectorLayerDialog::QgsDbImportVectorLayerDialog( QgsAbstractDatabaseP
 
   connect( mButtonBox, &QDialogButtonBox::rejected, this, &QDialog::reject );
   connect( mButtonBox, &QDialogButtonBox::accepted, this, &QgsDbImportVectorLayerDialog::doImport );
-
+  connect( mButtonBox, &QDialogButtonBox::helpRequested, this, [] { QgsHelp::openHelp( u"introduction/browser.html#import_vector_to_db"_s ); } );
+  // URL to create and that should/could be moved to somewhere like managing_data_source/create_layers.html#import_vector_to_db
   Q_ASSERT( connection );
 
   mFieldsView->setDestinationEditable( true );
