@@ -219,6 +219,48 @@
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="mCopySeriesPushButton">
+              <property name="toolTip">
+               <string>Duplicate selected series</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionDuplicateLayout.svg</normaloff>:/images/themes/default/mActionDuplicateLayout.svg</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="mSeriesUpButton">
+              <property name="toolTip">
+               <string>Move selected series up</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionArrowUp.svg</normaloff>:/images/themes/default/mActionArrowUp.svg</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="mSeriesDownButton">
+              <property name="toolTip">
+               <string>Move selected series down</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionArrowDown.svg</normaloff>:/images/themes/default/mActionArrowDown.svg</iconset>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item row="4" column="0" colspan="3">

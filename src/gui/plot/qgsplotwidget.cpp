@@ -116,6 +116,9 @@ QgsBarChartPlotWidget::QgsBarChartPlotWidget( QWidget *parent )
 
   connect( mAddSymbolPushButton, &QPushButton::clicked, this, &QgsBarChartPlotWidget::mAddSymbolPushButton_clicked );
   connect( mRemoveSymbolPushButton, &QPushButton::clicked, this, &QgsBarChartPlotWidget::mRemoveSymbolPushButton_clicked );
+  connect( mCopySymbolPushButton, &QPushButton::clicked, this, &QgsBarChartPlotWidget::mCopySymbolPushButton_clicked );
+  connect( mSymbolUpButton, &QPushButton::clicked, this, &QgsBarChartPlotWidget::mSymbolUpButton_clicked );
+  connect( mSymbolDownButton, &QPushButton::clicked, this, &QgsBarChartPlotWidget::mSymbolDownButton_clicked );
 
   mSpinMinXAxis->setClearValue( 0 );
   connect( mSpinMinXAxis, qOverload<double>( &QDoubleSpinBox::valueChanged ), this, [this]( double ) {
@@ -385,6 +388,61 @@ void QgsBarChartPlotWidget::mRemoveSymbolPushButton_clicked()
   emit widgetChanged();
 }
 
+void QgsBarChartPlotWidget::mCopySymbolPushButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+  //Do the copy paste
+  return;
+}
+
+void QgsBarChartPlotWidget::mSymbolUpButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( row < 1 )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row - 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Up" ) );
+  //mChartItem->grids()->moveGridUp( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
+void QgsBarChartPlotWidget::mSymbolDownButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( mSymbolsList->count() <= row )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row + 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Down" ) );
+  //mChartItem->grids()->moveGridDown( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
 void QgsBarChartPlotWidget::updateXAxisProperties()
 {
   const bool enable = mXAxisTypeCombo->currentData().value<Qgis::PlotAxisType>() == Qgis::PlotAxisType::Interval;
@@ -591,6 +649,9 @@ QgsLineChartPlotWidget::QgsLineChartPlotWidget( QWidget *parent )
 
   connect( mAddSymbolPushButton, &QPushButton::clicked, this, &QgsLineChartPlotWidget::mAddSymbolPushButton_clicked );
   connect( mRemoveSymbolPushButton, &QPushButton::clicked, this, &QgsLineChartPlotWidget::mRemoveSymbolPushButton_clicked );
+  connect( mCopySymbolPushButton, &QPushButton::clicked, this, &QgsLineChartPlotWidget::mCopySymbolPushButton_clicked );
+  connect( mSymbolUpButton, &QPushButton::clicked, this, &QgsLineChartPlotWidget::mSymbolUpButton_clicked );
+  connect( mSymbolDownButton, &QPushButton::clicked, this, &QgsLineChartPlotWidget::mSymbolDownButton_clicked );
 
   mSpinMinXAxis->setClearValue( 0 );
   connect( mSpinMinXAxis, qOverload<double>( &QDoubleSpinBox::valueChanged ), this, [this]( double ) {
@@ -875,6 +936,61 @@ void QgsLineChartPlotWidget::mRemoveSymbolPushButton_clicked()
   emit widgetChanged();
 }
 
+void QgsLineChartPlotWidget::mCopySymbolPushButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+  //Do the copy paste
+  return;
+}
+
+void QgsLineChartPlotWidget::mSymbolUpButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( row < 1 )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row - 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Up" ) );
+  //mChartItem->grids()->moveGridUp( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
+void QgsLineChartPlotWidget::mSymbolDownButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( mSymbolsList->count() <= row )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row + 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Down" ) );
+  //mChartItem->grids()->moveGridDown( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
 void QgsLineChartPlotWidget::updateXAxisProperties()
 {
   const bool enable = mXAxisTypeCombo->currentData().value<Qgis::PlotAxisType>() == Qgis::PlotAxisType::Interval;
@@ -1154,6 +1270,9 @@ QgsPieChartPlotWidget::QgsPieChartPlotWidget( QWidget *parent )
 
   connect( mAddSymbolPushButton, &QPushButton::clicked, this, &QgsPieChartPlotWidget::mAddSymbolPushButton_clicked );
   connect( mRemoveSymbolPushButton, &QPushButton::clicked, this, &QgsPieChartPlotWidget::mRemoveSymbolPushButton_clicked );
+  connect( mCopySymbolPushButton, &QPushButton::clicked, this, &QgsPieChartPlotWidget::mCopySymbolPushButton_clicked );
+  connect( mSymbolUpButton, &QPushButton::clicked, this, &QgsPieChartPlotWidget::mSymbolUpButton_clicked );
+  connect( mSymbolDownButton, &QPushButton::clicked, this, &QgsPieChartPlotWidget::mSymbolDownButton_clicked );
 
   mLabelFontButton->registerExpressionContextGenerator( this );
 
@@ -1210,6 +1329,61 @@ void QgsPieChartPlotWidget::mRemoveSymbolPushButton_clicked()
   mSymbolsList->removeRow( mSymbolsList->row( item ) );
 
   emit widgetChanged();
+}
+
+void QgsPieChartPlotWidget::mCopySymbolPushButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+  //Do the copy paste
+  return;
+}
+
+void QgsPieChartPlotWidget::mSymbolUpButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( row < 1 )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row - 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Up" ) );
+  //mChartItem->grids()->moveGridUp( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
+void QgsPieChartPlotWidget::mSymbolDownButton_clicked()
+{
+  QTableWidgetItem *item = mSymbolsList->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSymbolsList->row( item );
+  if ( mSymbolsList->count() <= row )
+  {
+    return;
+  }
+  mSymbolsList->takeItem( row );
+  mSymbolsList->insertItem( row + 1, item );
+  mSymbolsList->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Symbol Down" ) );
+  //mChartItem->grids()->moveGridDown( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
 }
 
 void QgsPieChartPlotWidget::setPlot( QgsPlot *plot )

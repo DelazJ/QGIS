@@ -107,6 +107,48 @@
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="mCopySymbolPushButton">
+              <property name="toolTip">
+               <string>Duplicate selected symbol</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionDuplicateLayout.svg</normaloff>:/images/themes/default/mActionDuplicateLayout.svg</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="mSymbolUpButton">
+              <property name="toolTip">
+               <string>Move selected symbol up</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionArrowUp.svg</normaloff>:/images/themes/default/mActionArrowUp.svg</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="mSymbolDownButton">
+              <property name="toolTip">
+               <string>Move selected symbol down</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../../../images/images.qrc">
+                <normaloff>:/images/themes/default/mActionArrowDown.svg</normaloff>:/images/themes/default/mActionArrowDown.svg</iconset>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item>

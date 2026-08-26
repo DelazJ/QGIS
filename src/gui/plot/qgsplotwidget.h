@@ -119,6 +119,9 @@ class GUI_EXPORT QgsBarChartPlotWidget : public QgsPlotWidget, private Ui::QgsBa
   private slots:
     void mAddSymbolPushButton_clicked();
     void mRemoveSymbolPushButton_clicked();
+    void mCopySymbolPushButton_clicked();
+    void mSymbolUpButton_clicked());
+    void mSymbolDownButton_clicked();
     //! Updates enabled/disabled state of the X axis controls depending on the axis type
     void updateXAxisProperties();
 
@@ -164,6 +167,9 @@ class GUI_EXPORT QgsLineChartPlotWidget : public QgsPlotWidget, private Ui::QgsL
   private slots:
     void mAddSymbolPushButton_clicked();
     void mRemoveSymbolPushButton_clicked();
+    void mCopySymbolPushButton_clicked();
+    void mSymbolUpButton_clicked());
+    void mSymbolDownButton_clicked();
     //! Updates enabled/disabled state of the X axis controls depending on the axis type
     void updateXAxisProperties();
 
@@ -208,6 +214,9 @@ class GUI_EXPORT QgsPieChartPlotWidget : public QgsPlotWidget, private Ui::QgsPi
   private slots:
     void mAddSymbolPushButton_clicked();
     void mRemoveSymbolPushButton_clicked();
+    void mCopySymbolPushButton_clicked();
+    void mSymbolUpButton_clicked());
+    void mSymbolDownButton_clicked();
 
   private:
     int mBlockChanges = 0;

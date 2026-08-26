@@ -63,6 +63,9 @@ QgsLayoutChartWidget::QgsLayoutChartWidget( QgsLayoutItemChart *chartItem )
   connect( mSeriesListWidget, &QListWidget::itemChanged, this, &QgsLayoutChartWidget::mSeriesListWidget_itemChanged );
   connect( mAddSeriesPushButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mAddSeriesPushButton_clicked );
   connect( mRemoveSeriesPushButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mRemoveSeriesPushButton_clicked );
+  connect( mCopySeriesPushButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mCopySeriesPushButton_clicked );
+  connect( mSeriesUpButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mSeriesUpButton_clicked );
+  connect( mSeriesDownButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mSeriesDownButton_clicked );
   connect( mSeriesPropertiesButton, &QPushButton::clicked, this, &QgsLayoutChartWidget::mSeriesPropertiesButton_clicked );
 
   mLinkedMapComboBox->setCurrentLayout( mChartItem->layout() );
@@ -418,6 +421,91 @@ void QgsLayoutChartWidget::mRemoveSeriesPushButton_clicked()
   updateButtonsState();
 }
 
+void QgsLayoutChartWidget::mCopySeriesPushButton_clicked()
+{
+  QListWidgetItem *item = mSeriesListWidget->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  /*QgsLayoutItemMapGrid *sourceGrid = mChartItem->grids()->grid( item->data( Qt::UserRole ).toString() );
+  if ( !sourceGrid )
+  {
+    return;
+  }
+  int i = 0;
+  QString itemName = tr( "%1 - Copy" ).arg( sourceGrid->name() );
+  QList<QgsLayoutItemMapGrid *> grids = mChartItem->grids()->asList();
+  while ( true )
+  {
+    const auto it = std::find_if( grids.begin(), grids.end(), [&itemName]( const QgsLayoutItemMapGrid *grd ) { return grd->name() == itemName; } );
+    if ( it != grids.end() )
+    {
+      i++;
+      itemName = tr( "%1 - Copy %2" ).arg( sourceGrid->name() ).arg( i );
+      continue;
+    }
+    break;
+  }
+  QgsLayoutItemMapGrid *grid = new QgsLayoutItemMapGrid( itemName, mChartItem );
+  grid->copyProperties( sourceGrid );
+
+  mChartItem->layout()->undoStack()->beginCommand( mChartItem, tr( "Duplicate Map Grid" ) );
+  mChartItem->grids()->addGrid( grid );
+  mChartItem->layout()->undoStack()->endCommand();
+  mChartItem->updateBoundingRect();
+  mChartItem->update();
+
+  addGridListItem( grid->id(), grid->name() );
+  mSeriesListWidget->setCurrentRow( 0 );
+  mSeriesListWidget_currentItemChanged( mSeriesListWidget->currentItem(), nullptr );*/
+}
+
+void QgsLayoutChartWidget::mSeriesUpButton_clicked()
+{
+  QListWidgetItem *item = mSeriesListWidget->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSeriesListWidget->row( item );
+  if ( row < 1 )
+  {
+    return;
+  }
+  mSeriesListWidget->takeItem( row );
+  mSeriesListWidget->insertItem( row - 1, item );
+  mSeriesListWidget->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Series Up" ) );
+  //mChartItem->grids()->moveGridUp( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
+void QgsLayoutChartWidget::mSeriesDownButton_clicked()
+{
+  QListWidgetItem *item = mSeriesListWidget->currentItem();
+  if ( !item )
+  {
+    return;
+  }
+
+  const int row = mSeriesListWidget->row( item );
+  if ( mSeriesListWidget->count() <= row )
+  {
+    return;
+  }
+  mSeriesListWidget->takeItem( row );
+  mSeriesListWidget->insertItem( row + 1, item );
+  mSeriesListWidget->setCurrentItem( item );
+  mChartItem->beginCommand( tr( "Move Series Down" ) );
+  //mChartItem->grids()->moveGridDown( item->data( Qt::UserRole ).toString() );
+  mChartItem->endCommand();
+  mChartItem->update();
+}
+
 void QgsLayoutChartWidget::mSeriesPropertiesButton_clicked()
 {
   QListWidgetItem *item = mSeriesListWidget->currentItem();
@@ -435,7 +523,7 @@ void QgsLayoutChartWidget::mSeriesPropertiesButton_clicked()
 
   QgsLayoutChartSeriesDetailsWidget *widget = new QgsLayoutChartSeriesDetailsWidget( mChartItem->sourceLayer(), idx, seriesList[idx], mGenerateCategoriesFromRendererCheckBox->isChecked(), this );
   widget->registerExpressionContextGenerator( mChartItem );
-  widget->setPanelTitle( tr( "Series Details" ) );
+  widget->setPanelTitle( tr( "Series %1 Details" ).arg( seriesList[idx].name() ) );
   connect( widget, &QgsPanelWidget::widgetChanged, this, [this, widget]() {
     if ( !mChartItem )
     {
