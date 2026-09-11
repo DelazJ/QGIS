@@ -29,7 +29,7 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QLabel" name="Location">
+    <widget class="QLabel" name="Project">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -37,7 +37,7 @@
       <enum>QFrame::Plain</enum>
      </property>
      <property name="text">
-      <string>Location</string>
+      <string>Projet</string>
      </property>
     </widget>
    </item>
@@ -84,10 +84,10 @@
    <item row="6" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Help|QDialogButtonBox::StandardButton::Ok</set>
      </property>
     </widget>
    </item>
@@ -101,7 +101,7 @@
    <item row="5" column="0" colspan="3">
     <widget class="Line" name="line">
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
    </item>
