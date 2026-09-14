@@ -19,8 +19,11 @@
 #include "qgsmaplayerserverproperties.h"
 
 #include <QRegularExpressionValidator>
+#include <QString>
 
 #include "moc_qgsgroupwmsdatadialog.cpp"
+
+using namespace Qt::StringLiterals;
 
 QgsGroupWmsDataDialog::QgsGroupWmsDataDialog( QWidget *parent, Qt::WindowFlags fl )
   : QgsGroupWmsDataDialog( QgsMapLayerServerProperties(), parent, fl )
@@ -41,6 +44,9 @@ QgsGroupWmsDataDialog::QgsGroupWmsDataDialog( const QgsMapLayerServerProperties 
 
   mMapLayerServerPropertiesWidget->setHasWfsTitle( false );
   mMapLayerServerPropertiesWidget->setServerProperties( mServerProperties.get() );
+  connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsGroupWmsDataDialog::accept );
+  connect( buttonBox, &QDialogButtonBox::rejected, this, &QgsGroupWmsDataDialog::reject );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, [] { QgsHelp::openHelp( u"../server_manual/getting_started.html#fine-tuning-your-ows"_s ); } );
 }
 
 QString QgsGroupWmsDataDialog::groupShortName() const

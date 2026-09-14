@@ -12432,6 +12432,8 @@ void QgisApp::legendGroupSetCrs()
     return;
 
   QgsProjectionSelectionDialog mySelector( this );
+  mySelector.setWindowTitle( tr( "Set CRS for Layers in %1 Group" ).arg( mLayerTreeView->currentGroupNode()->name() ) );
+
   if ( !mySelector.exec() )
   {
     QApplication::restoreOverrideCursor();
@@ -12457,6 +12459,7 @@ void QgisApp::legendGroupSetWmsData()
     return;
 
   QgsGroupWmsDataDialog dlg( *currentGroup->serverProperties(), this );
+  dlg.setWindowTitle( tr( "Set %1 Group Properties" ).arg( mLayerTreeView->currentGroupNode()->name() ) );
   dlg.setHasTimeDimension( currentGroup->hasWmsTimeDimension() );
   dlg.setGroupRequestMode( currentGroup->wmsGroupRequestMode() );
   if ( dlg.exec()
