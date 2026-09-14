@@ -71,6 +71,9 @@ QgsGroupWmsDataDialog::QgsGroupWmsDataDialog( const QgsMapLayerServerProperties 
   connect( mComputeTimeDimension, &QGroupBox::toggled, this, &QgsGroupWmsDataDialog::updateServerProperties );
   connect( mDefaultDisplayComboBox, &QComboBox::currentIndexChanged, this, &QgsGroupWmsDataDialog::updateServerProperties );
   connect( mReferenceValueDateTimeEdit, &QDateTimeEdit::dateTimeChanged, this, &QgsGroupWmsDataDialog::updateServerProperties );
+  connect( buttonBox, &QDialogButtonBox::accepted, this, &QgsGroupWmsDataDialog::accept );
+  connect( buttonBox, &QDialogButtonBox::rejected, this, &QgsGroupWmsDataDialog::reject );
+  connect( buttonBox, &QDialogButtonBox::helpRequested, this, [] { QgsHelp::openHelp( u"../server_manual/getting_started.html#fine-tuning-your-ows"_s ); } );
 }
 
 QString QgsGroupWmsDataDialog::groupShortName() const
